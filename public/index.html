@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore the Systech Services website concept, from business devices and office infrastructure to cloud, support and device renewal.">
+  <meta name="robots" content="noindex">
+  <title>Systech Services | IT infrastructure, from desk to data centre</title>
+  <link rel="preload" href="assets/geist.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script src="site.js" type="module"></script>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="header wrap">
+    <a href="./" class="brand" aria-label="Systech home"><img src="assets/systech.png" width="176" height="64" alt="Systech"></a>
+    <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="primary">Menu</button>
+    <nav id="primary" aria-label="Main navigation">
+      <div class="nav-solutions">
+        <a href="?page=solutions" id="solutions-fallback">Solutions</a>
+        <button type="button" id="solutions-toggle" class="solutions-toggle" aria-expanded="false" aria-controls="solutions-panel" hidden>Solutions <span class="nav-chevron" aria-hidden="true"></span></button>
+        <div class="solutions-panel" id="solutions-panel" hidden></div>
+      </div>
+      <a href="?page=repairs">Repairs &amp; Support</a>
+      <a href="?page=resources">Resources</a>
+      <a href="?page=company">Company</a>
+      <a href="?page=lenovo-partner" class="nav-lenovo">Lenovo</a>
+      <a href="?page=contact" class="button mobile-enquiry">Discuss your project</a>
+    </nav>
+    <button class="search" type="button" aria-label="Search services" data-search><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span>Search</span></button>
+    <a class="button head-cta" href="?page=contact">Discuss your project</a>
+  </header>
+  <main id="content" tabindex="-1"></main>
+  <footer class="footer">
+    <div class="wrap foot-grid">
+      <div><a class="brand" href="./"><img src="assets/systech.png" width="176" height="64" alt="Systech home"></a><p>Systech Services Pvt. Ltd.<br>Bengaluru, India</p></div>
+      <div><h2>Explore</h2><a href="?page=solutions">All solutions</a><a href="?page=planner">Office planner</a><a href="?page=repairs">Repairs &amp; support</a></div>
+      <div><h2>Company</h2><a href="?page=company">About Systech</a><a href="?page=lenovo-partner">Lenovo Platinum Partner</a><a href="?page=resources">Resources</a><a href="?page=careers">Careers</a></div>
+      <div><h2>Get in touch</h2><a href="?page=contact">Discuss your project</a><a href="mailto:contact@teamsystech.com">contact@teamsystech.com</a><a href="?page=contact#contact-details">Office address and directions →</a></div>
+    </div>
+    <div class="wrap foot-end"><span>Systech website concept</span><a href="?page=privacy-policy">Privacy policy →</a><a href="?page=terms-and-conditions">Terms →</a><a href="?page=return-policy">Return policy →</a></div>
+  </footer>
+  <dialog id="search-dialog" aria-labelledby="search-title">
+    <form method="dialog" class="dialog-top"><h2 id="search-title">Find a service</h2><button aria-label="Close search">×</button></form>
+    <label for="search-input" class="sr">Search services</label><input id="search-input" placeholder="Try CCTV, AMC or Lenovo battery" autocomplete="off">
+    <ul id="search-results"></ul>
+  </dialog>
+</body>
+</html>
