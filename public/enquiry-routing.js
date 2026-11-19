@@ -17,6 +17,8 @@ const teamByService = new Map([
 export function suggestEnquiryTeam(service, params) {
   const topic = params.get('topic');
   if (!service && topic === 'lenovo-partner') return 'sales';
+  if (topic === 'software-licensing') return 'sales';
+  if (topic === 'feedback') return 'service';
   if (service === params.get('service')) {
     if (service === 'repairs' && (topic === 'lenovo-spares' || params.get('support') === 'spares')) return 'parts';
     if (service === 'cloud' && ['cloud-migration', 'microsoft-solutions'].includes(topic)) return 'service';

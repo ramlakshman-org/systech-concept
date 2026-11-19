@@ -1,9 +1,9 @@
 const steps = [
-  ['Inventory', 'List the retired equipment, approximate quantities and pickup location.'],
-  ['Inspection', 'Review what can be collected and flag devices that hold data.'],
-  ['Valuation', 'Review any recovery offer for eligible equipment before agreeing to proceed.'],
-  ['Collection', 'Agree pickup arrangements, equipment handover and any data-handling requirements.'],
-  ['Settlement', 'Confirm the handover documentation and any agreed payment.']
+  ['Inventory & Audit', 'Submit retired hardware types, unit counts and site PIN codes to qualify your corporate lot.'],
+  ['Quick Buyback Valuation & Settlement', 'Lock commercial buyback pricing and prompt settlement terms for eligible IT assets before collection.'],
+  ['Free Pack & Pickup', 'Free Pack & Pickup (qualified corporate lots) with zero-cost site packing, palletisation and insured collection.'],
+  ['Certified Data Sanitization', 'Execute verifiable logical data wiping or witnessed physical drive destruction on data-bearing media.'],
+  ['Government-Norm E-Waste Disposal Certificate', 'Issue statutory government-norm e-waste disposal certificates alongside final settlement and handover logs.']
 ];
 
 const recoveryFields = [
@@ -17,8 +17,8 @@ export function assetRecoveryWorkflow(enquiryLink) {
   return `<section class="asset-recovery" id="asset-recovery" aria-labelledby="asset-recovery-title">
     <header class="asset-recovery-head">
       <div><h2 id="asset-recovery-title">IT Asset Recovery</h2>
-        <p>Start with an inventory of your retired equipment. Systech can review it with you and agree the next steps for collection and recovery.</p></div>
-      <a class="button" href="${enquiryLink}">Start an asset recovery enquiry</a>
+        <p>Submit your retired IT inventory for commercial valuation, zero-cost site packing and pickup for qualified corporate lots, verifiable data sanitization or drive destruction, and statutory government-compliant disposal certificates.</p></div>
+      <a class="button" href="${enquiryLink}">Book e-waste pickup &amp; certificate</a>
     </header>
     <ol class="asset-recovery-steps">
       ${steps.map(([title, detail], index) => `<li><span class="recovery-step-number" aria-hidden="true">${index + 1}</span><h3>${title}</h3><p>${detail}</p></li>`).join('')}
@@ -34,10 +34,10 @@ export function assetRecoveryFields(active) {
       <label class="field">Approximate quantity<input name="assetQuantity" type="number" min="1" step="1" max="1000000" inputmode="numeric"></label>
       <label class="field">Pickup city or PIN code<input name="pickupLocation" maxlength="100" placeholder="Bengaluru or 560061"></label>
       <label class="field">Data handling<select name="dataHandling">
-        <option value="">Select if relevant</option>
-        <option>Discuss secure data erasure</option>
-        <option>Discuss physical destruction</option>
-        <option>Need advice on data handling</option>
+        <option value="">Select compliance preference</option>
+        <option>Certified logical data wiping</option>
+        <option>Physical media destruction &amp; witness log</option>
+        <option>Statutory e-waste &amp; data compliance certificate required</option>
         <option>No special handling requested</option>
       </select></label>
     </div>

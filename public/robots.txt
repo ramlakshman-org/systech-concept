@@ -1,0 +1,5 @@
+# Keep search indexing disabled while running in preview/staging.
+# Before production cutover on https://teamsystech.com/, change Disallow: / to Allow: / and remove <meta name="robots" content="noindex"> in index.html.
+User-agent: *
+Disallow: /
+Sitemap: https://teamsystech.com/sitemap.xml
