@@ -1,19 +1,19 @@
-import { careersPage, bindCareersPage, privacyPolicyPage, termsPage, returnPolicyPage } from './launch-pages.js?v=20261119v4n';
-import { companyProfile, companyEditorial, companyReviews, resourceEditorial, bindResourcesPage } from './editorial.js?v=20261119v4n';
-import { assetRecoveryWorkflow, assetRecoveryFields, assetRecoveryDraftLines } from './asset-recovery.js?v=20261119v4n';
-import { enquiryTeams, suggestEnquiryTeam } from './enquiry-routing.js?v=20261119v4n';
-import { whatsappUrl, ENQUIRY_ENDPOINT } from './ecosystem-data.js?v=20261119v4n';
-import { partnersId, industriesId, caseStudiesId, enterpriseProofBand, partnersPage, industriesPage, bindIndustriesPage, caseStudiesPage, bindCaseStudiesPage } from './industries-partners.js?v=20261119v4n';
-import { microsoftId, microsoftTitle, microsoftSolutionsPage, microsoftEnquiryRequirement, bindMicrosoftSolutions } from './microsoft-solutions.js?v=20261119v4n';
-import { softwareLicensingId, softwareLicensingTitle, softwareLicensingPage, bindSoftwareLicensing, softwareLicensingRequirement } from './software-licensing.js?v=20261119v4n';
-import { lenovoPartnerId, lenovoPartnerTitle, lenovoPartnerPage, bindLenovoPartner, lenovoEnquiryRequirement } from './lenovo-partner.js?v=20261119v4n';
-import { serviceIllustration, bindServiceIllustration, wifiIllustration } from './service-illustration.js?v=20261119v4n';
-import { securityDetails } from './security-details.js?v=20261119v4n';
-import { additionalServiceDetails } from './service-details.js?v=20261119v4n';
-import { groups } from './data.js?v=20261119v4n';
-import { officeCutaway } from './office-cutaway.js?v=20261119v4n';
-import { projectSchematic, bindProjectSchematic } from './project-schematic.js?v=20261119v4n';
-import { bcSeriesMap, businessComputingCatalog, bindBusinessComputingCatalog, businessComputingDetailPage, bindBusinessComputingDetail } from './business-computing-catalog.js?v=20261119v4n';
+import { careersPage, bindCareersPage, privacyPolicyPage, termsPage, returnPolicyPage } from './launch-pages.js?v=20261119v4q';
+import { companyProfile, companyEditorial, companyReviews, resourceEditorial, bindResourcesPage } from './editorial.js?v=20261119v4q';
+import { assetRecoveryWorkflow, assetRecoveryFields, assetRecoveryDraftLines } from './asset-recovery.js?v=20261119v4q';
+import { enquiryTeams, suggestEnquiryTeam } from './enquiry-routing.js?v=20261119v4q';
+import { whatsappUrl, ENQUIRY_ENDPOINT } from './ecosystem-data.js?v=20261119v4q';
+import { partnersId, industriesId, caseStudiesId, enterpriseProofBand, partnersPage, industriesPage, bindIndustriesPage, caseStudiesPage, bindCaseStudiesPage } from './industries-partners.js?v=20261119v4q';
+import { microsoftId, microsoftTitle, microsoftSolutionsPage, microsoftEnquiryRequirement, bindMicrosoftSolutions } from './microsoft-solutions.js?v=20261119v4q';
+import { softwareLicensingId, softwareLicensingTitle, softwareLicensingPage, bindSoftwareLicensing, softwareLicensingRequirement } from './software-licensing.js?v=20261119v4q';
+import { lenovoPartnerId, lenovoPartnerTitle, lenovoPartnerPage, bindLenovoPartner, lenovoEnquiryRequirement } from './lenovo-partner.js?v=20261119v4q';
+import { serviceIllustration, bindServiceIllustration, wifiIllustration } from './service-illustration.js?v=20261119v4q';
+import { securityDetails } from './security-details.js?v=20261119v4q';
+import { additionalServiceDetails } from './service-details.js?v=20261119v4q';
+import { groups } from './data.js?v=20261119v4q';
+import { officeCutaway } from './office-cutaway.js?v=20261119v4q';
+import { projectSchematic, bindProjectSchematic } from './project-schematic.js?v=20261119v4q';
+import { bcSeriesMap, businessComputingCatalog, bindBusinessComputingCatalog, businessComputingDetailPage, bindBusinessComputingDetail } from './business-computing-catalog.js?v=20261119v4q';
 
 try {
   if (localStorage.getItem('systech-theme') === 'cad') document.documentElement.dataset.theme = 'cad';

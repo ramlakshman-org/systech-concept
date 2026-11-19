@@ -2013,3 +2013,16 @@ body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-ri
   .bc-thumb-btn{padding:5px}
   .bc-thumb-meta strong{font-size:12px;overflow-wrap:anywhere}
 }
+
+/* Prevent Footer-First Flash While Deferred ES Modules Boot */
+#content{min-height:calc(100vh - 82px);min-height:calc(100svh - 82px)}
+#content:empty{min-height:100vh;min-height:100svh}
+#content:empty+.footer{opacity:0;visibility:hidden;pointer-events:none}
+#content:empty::before{content:'';display:block;max-width:var(--measure);width:calc(100% - 96px);height:clamp(320px,52svh,520px);margin:clamp(22px,3vw,42px) auto 0;border-radius:14px;border:1px solid #10192814;background:linear-gradient(90deg,#10192806 25%,#10192810 50%,#10192806 75%) 0 0/200% 100%;opacity:0;animation:content-boot .25s ease .14s forwards,boot-shimmer 1.4s ease-in-out .14s infinite}
+html[data-theme=cad] #content:empty::before{border-color:#2d4a7855;background:linear-gradient(90deg,#12213b66 25%,#1b315799 50%,#12213b66 75%) 0 0/200% 100%}
+@keyframes content-boot{to{opacity:1}}
+@keyframes boot-shimmer{to{background-position:-200% 0}}
+@media(max-width:1180px){#content:empty::before{width:calc(100% - 64px)}}
+@media(max-width:800px){#content:empty::before{width:calc(100% - 40px)}}
+@media(max-width:380px){#content:empty::before{width:calc(100% - 28px)}}
+

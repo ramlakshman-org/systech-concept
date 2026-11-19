@@ -1,4 +1,4 @@
-import { whatsappUrl } from './ecosystem-data.js?v=20261119v4m';
+import { whatsappUrl } from './ecosystem-data.js?v=20261119v4q';
 
 export const lenovoPartnerId = 'lenovo-partner';
 export const lenovoPartnerTitle = 'Lenovo Platinum Partner';

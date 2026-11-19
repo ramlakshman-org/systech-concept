@@ -1,4 +1,4 @@
-import { partnerBrandLogos } from './brand-logos.js?v=20261117v4f';
+import { partnerBrandLogos } from './brand-logos.js?v=20261119v4q';
 
 const bcCategories = [
   {

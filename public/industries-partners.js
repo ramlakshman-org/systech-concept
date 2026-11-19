@@ -6,8 +6,8 @@ import {
   industryPlaybooks,
   referenceBlueprints,
   deploymentCases
-} from './ecosystem-data.js?v=20261119v4n';
-import { clientBrandLogos, partnerBrandLogos } from './brand-logos.js?v=20261119v4n';
+} from './ecosystem-data.js?v=20261119v4q';
+import { clientBrandLogos, partnerBrandLogos } from './brand-logos.js?v=20261119v4q';
 
 export const partnersId = 'partners';
 export const industriesId = 'industries';
