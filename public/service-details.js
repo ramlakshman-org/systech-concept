@@ -1,6 +1,7 @@
 const art = {
   devices: ['detail-devices.webp', 960, 480, 'A laptop, a desktop setup and a dual-display workstation.'],
   shared: ['detail-displays.webp', 960, 480, 'An office display, tablet and multifunction printer.'],
+  otherBrands: ['detail-displays.webp', 960, 480, 'Multi-brand commercial notebooks, Apple devices and an office multifunction printer.'],
   accessories: ['devices-mobile.webp', 400, 277, 'A laptop with a docking station and headset.'],
   servers: ['server-room.webp', 818, 427, 'A server room with equipment racks and an operator station.'],
   storage: ['detail-storage.webp', 960, 480, 'Four equipment layouts showing directly attached, file, block and tape storage.'],
@@ -44,7 +45,7 @@ export const additionalServiceDetails = {
     ], 'Equipping new hires or refreshing cohorts?', 'Submit seat counts, role profiles, software workloads and preferred OEM standards for a consolidated BOM quote.'),
   'other-brands': detail('other-brands/',
     'Consolidate mixed commercial fleets across Dell, HP, ASUS and Acer, enroll Apple MacBook, iPad, iPhone and Apple Watch cohorts, and standardise office printing on a single GST procurement workflow.',
-    'Request multi-OEM & Apple quote', 'Multi-brand commercial fleets, Apple ecosystem & office print', 'shared', [
+    'Request multi-OEM & Apple quote', 'Multi-brand commercial fleets, Apple ecosystem & office print', 'otherBrands', [
       ['Dell, HP, ASUS & Acer', 'Dell, HP, ASUS & Acer Commercial Fleets', 'Latitude, Precision, EliteBook, ProBook, ZBook, ASUS ExpertBook and Acer TravelMate notebooks & desktops provisioned on a single GST invoice.', 23, 22],
       ['Apple Ecosystem', 'Apple Enterprise Ecosystem (ABM & MDM)', 'MacBook Air/Pro, iPad, iPhone and Apple Watch fleets enrolled through Apple Business Manager and corporate MDM policies.', 50, 28],
       ['Office Printers', 'HP, Brother, Canon & Epson Printers', 'Workgroup laser, EcoTank and multifunction enterprise printers matched to monthly page volume, duplex scanning and AMC supplies.', 79, 22]

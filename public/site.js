@@ -1,19 +1,19 @@
-import { careersPage, bindCareersPage, privacyPolicyPage, termsPage, returnPolicyPage } from './launch-pages.js?v=20261119v4s';
-import { companyProfile, companyEditorial, companyReviews, resourceEditorial, bindResourcesPage } from './editorial.js?v=20261119v4s';
-import { assetRecoveryWorkflow, assetRecoveryFields, assetRecoveryDraftLines } from './asset-recovery.js?v=20261119v4s';
-import { enquiryTeams, suggestEnquiryTeam } from './enquiry-routing.js?v=20261119v4s';
-import { whatsappUrl, ENQUIRY_ENDPOINT } from './ecosystem-data.js?v=20261119v4s';
-import { partnersId, industriesId, caseStudiesId, enterpriseProofBand, partnersPage, industriesPage, bindIndustriesPage, caseStudiesPage, bindCaseStudiesPage } from './industries-partners.js?v=20261119v4s';
-import { microsoftId, microsoftTitle, microsoftSolutionsPage, microsoftEnquiryRequirement, bindMicrosoftSolutions } from './microsoft-solutions.js?v=20261119v4s';
-import { softwareLicensingId, softwareLicensingTitle, softwareLicensingPage, bindSoftwareLicensing, softwareLicensingRequirement } from './software-licensing.js?v=20261119v4s';
-import { lenovoPartnerId, lenovoPartnerTitle, lenovoPartnerPage, bindLenovoPartner, lenovoEnquiryRequirement } from './lenovo-partner.js?v=20261119v4s';
-import { serviceIllustration, bindServiceIllustration, wifiIllustration } from './service-illustration.js?v=20261119v4s';
-import { securityDetails } from './security-details.js?v=20261119v4s';
-import { additionalServiceDetails } from './service-details.js?v=20261119v4s';
-import { groups } from './data.js?v=20261119v4s';
-import { officeCutaway } from './office-cutaway.js?v=20261119v4s';
-import { projectSchematic, bindProjectSchematic } from './project-schematic.js?v=20261119v4s';
-import { bcSeriesMap, businessComputingCatalog, bindBusinessComputingCatalog, businessComputingDetailPage, bindBusinessComputingDetail } from './business-computing-catalog.js?v=20261119v4s';
+import { careersPage, bindCareersPage, privacyPolicyPage, termsPage, returnPolicyPage } from './launch-pages.js?v=20261119v4t';
+import { companyProfile, companyEditorial, companyReviews, resourceEditorial, bindResourcesPage } from './editorial.js?v=20261119v4t';
+import { assetRecoveryWorkflow, assetRecoveryFields, assetRecoveryDraftLines } from './asset-recovery.js?v=20261119v4t';
+import { enquiryTeams, suggestEnquiryTeam } from './enquiry-routing.js?v=20261119v4t';
+import { whatsappUrl, ENQUIRY_ENDPOINT } from './ecosystem-data.js?v=20261119v4t';
+import { partnersId, industriesId, caseStudiesId, enterpriseProofBand, partnersPage, industriesPage, bindIndustriesPage, caseStudiesPage, bindCaseStudiesPage } from './industries-partners.js?v=20261119v4t';
+import { microsoftId, microsoftTitle, microsoftSolutionsPage, microsoftEnquiryRequirement, bindMicrosoftSolutions } from './microsoft-solutions.js?v=20261119v4t';
+import { softwareLicensingId, softwareLicensingTitle, softwareLicensingPage, bindSoftwareLicensing, softwareLicensingRequirement } from './software-licensing.js?v=20261119v4t';
+import { lenovoPartnerId, lenovoPartnerTitle, lenovoPartnerPage, bindLenovoPartner, lenovoEnquiryRequirement } from './lenovo-partner.js?v=20261119v4t';
+import { serviceIllustration, bindServiceIllustration, wifiIllustration } from './service-illustration.js?v=20261119v4t';
+import { securityDetails } from './security-details.js?v=20261119v4t';
+import { additionalServiceDetails } from './service-details.js?v=20261119v4t';
+import { groups } from './data.js?v=20261119v4t';
+import { officeCutaway } from './office-cutaway.js?v=20261119v4t';
+import { projectSchematic, bindProjectSchematic } from './project-schematic.js?v=20261119v4t';
+import { bcSeriesMap, businessComputingCatalog, bindBusinessComputingCatalog, businessComputingDetailPage, bindBusinessComputingDetail } from './business-computing-catalog.js?v=20261119v4t';
 
 try {
   if (localStorage.getItem('systech-theme') === 'cad') document.documentElement.dataset.theme = 'cad';
@@ -166,7 +166,7 @@ const heroHotspots = [
     href: '?page=meeting-rooms-telephony', cta: 'Explore meeting AV', plannerHref: '?page=planner&seats=50&option=meeting'
   },
   {
-    id: 'cabling', num: '03', label: 'Cat6A & Fibre', x: 56, y: 70,
+    id: 'cabling', num: '03', label: 'Cat6A & Fibre', x: 52, y: 63,
     title: 'Structured underfloor Cat6A drops & optical fibre trunks',
     spec: 'Fluke-certified Cat6A · OM4 Fibre · Edge NGFW Gateway',
     href: '?page=structured-cabling', cta: 'Explore cabling', plannerHref: '?page=planner&seats=50&view=network'
@@ -215,10 +215,10 @@ function heroBlueprintSvg() {
     + poly([[x, y, z + h], [x + w, y, z + h], [x + w, y + d, z + h], [x, y + d, z + h]], topFill, stroke, sw);
 
   const xTicks = [[30, 'X:00'], [205, 'X:205'], [410, 'X:410'], [615, 'X:615'], [784, 'X:820']].map(([x, label]) =>
-    `<line x1="${x}" y1="22" x2="${x}" y2="26" stroke="${line}" stroke-width="0.9"/><text x="${x}" y="17" text-anchor="middle" font-size="9" font-weight="600" letter-spacing="0.06em" fill="${ink}" fill-opacity="0.58">${label}</text>`
+    `<line x1="${x}" y1="22" x2="${x}" y2="26" stroke="${line}" stroke-width="0.9"/><text class="hero-bp-micro" x="${x}" y="17" text-anchor="middle" font-size="9" font-weight="600" letter-spacing="0.06em" fill="${ink}" fill-opacity="0.58">${label}</text>`
   ).join('');
   const yTicks = [[38, 'Y:00'], [140, 'Y:125'], [250, 'Y:250'], [360, 'Y:375'], [464, 'Y:500']].map(([y, label]) =>
-    `<line x1="20" y1="${y}" x2="24" y2="${y}" stroke="${line}" stroke-width="0.9"/><text x="16" y="${y + 3}" text-anchor="end" font-size="9" font-weight="600" letter-spacing="0.05em" fill="${ink}" fill-opacity="0.55" transform="rotate(-90 16 ${y})">${label}</text>`
+    `<line x1="20" y1="${y}" x2="24" y2="${y}" stroke="${line}" stroke-width="0.9"/><text class="hero-bp-micro" x="16" y="${y + 3}" text-anchor="end" font-size="9" font-weight="600" letter-spacing="0.05em" fill="${ink}" fill-opacity="0.55" transform="rotate(-90 16 ${y})">${label}</text>`
   ).join('');
 
   const pedestals = [
@@ -316,8 +316,8 @@ function heroBlueprintSvg() {
       <path d="M24 38 V26 H36 M784 26 H796 V38 M24 462 V474 H36 M784 474 H796 V462" fill="none" stroke="${blue}" stroke-width="1.4" stroke-opacity="0.65"/>
       ${xTicks}
       ${yTicks}
-      <text x="36" y="45" font-size="9.5" font-weight="700" letter-spacing="0.08em" fill="${ink}" fill-opacity="0.72">BLR-INFRA · ISOMETRIC CUTAWAY · SCALE 1:80</text>
-      <text x="36" y="463" font-size="9" font-weight="600" letter-spacing="0.06em" fill="${ink}" fill-opacity="0.62">EL +0.00M RAISED ACCESS FLOOR · -0.45M CAT6A / OM4 PLENUM</text>
+      <text class="hero-bp-micro" x="36" y="45" font-size="9.5" font-weight="700" letter-spacing="0.08em" fill="${ink}" fill-opacity="0.72">BLR-INFRA · ISOMETRIC CUTAWAY · SCALE 1:80</text>
+      <text class="hero-bp-micro" x="36" y="463" font-size="9" font-weight="600" letter-spacing="0.06em" fill="${ink}" fill-opacity="0.62">EL +0.00M RAISED ACCESS FLOOR · -0.45M CAT6A / OM4 PLENUM</text>
     </g>
 
     <g class="hero-bp-structure">
@@ -347,7 +347,7 @@ function heroBlueprintSvg() {
       <polyline class="hero-svg-fiber-pulse hero-svg-fiber-pulse-alt" points="${pts(fiberTrunk)}" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-dasharray="6 18" stroke-linecap="round" stroke-linejoin="round"/>
       ${box(296, 290, -12, 40, 30, 14, card, blue, wall, ink, 0.95)}
       ${pline([[302, 320.2, -5], [330, 320.2, -5]], cyan, 1.4)}
-      <text class="hero-svg-label" x="${ngfwLabelX + 8}" y="${ngfwLabelY + 12}" font-size="9" letter-spacing="0.05em">CAT6A · OM4 · NGFW</text>
+      <text class="hero-svg-label" x="${ngfwLabelX + 12}" y="${ngfwLabelY + 30}" font-size="9" letter-spacing="0.05em">CAT6A · OM4 · NGFW</text>
     </g>
 
     <g class="hero-svg-layer" data-hero-layer="workstations">
@@ -495,7 +495,7 @@ function heritageScrubber(wrapped = true) {
     </div>
     <div class="heritage-controls">
       <button type="button" class="heritage-nav-btn" data-heritage-prev aria-label="Previous milestone year"><span aria-hidden="true">←</span> Prev</button>
-      ${heritageEras.map(era => `<button type="button" class="heritage-year-btn" data-heritage-select="${era.year}" aria-pressed="${era.year === initial.year}">${era.year}</button>`).join('')}
+      <div class="heritage-rail">${heritageEras.map(era => `<button type="button" class="heritage-year-btn" data-heritage-select="${era.year}" aria-pressed="${era.year === initial.year}">${era.year}</button>`).join('')}</div>
       <button type="button" class="heritage-nav-btn" data-heritage-next aria-label="Next milestone year" disabled>Next <span aria-hidden="true">→</span></button>
     </div>
   </section>`;
@@ -638,7 +638,7 @@ function home() {
     </div>
     <div class="hero-art">
       <div class="hero-stage" id="hero-xray-stage" data-active-spot="workstations">
-        <div class="hero-stage-bar"><span>Blueprint 01 · Interactive X-Ray Cutaway</span><span>Select any node (01–04)</span></div>
+        <div class="hero-stage-bar"><span class="hero-stage-title">Blueprint 01 · Interactive X-Ray Cutaway</span><span>Select any node (01–04)</span></div>
         <div class="hero-stage-body">
           <div class="hero-illustration">
             ${heroBlueprintSvg()}
@@ -1219,10 +1219,9 @@ function serviceDetail(detail) {
       <h1>${detail.title}</h1>
       <div><p>${detail.intro}</p>${button(enquiryLink, detail.action)}</div>
     </header>
-    ${page === 'business-computing' ? businessComputingCatalog() : ''}
+    ${page === 'business-computing' || page === 'other-brands' ? businessComputingCatalog() : ''}
     ${serviceIllustration(illustration)}
     ${page === 'displays-tablets-printers' ? businessComputingCatalog('monitors') : ''}
-    ${page === 'other-brands' ? businessComputingCatalog('all') : ''}
     ${page === 'e-waste-recycling' ? assetRecoveryWorkflow(enquiryLink) : ''}
     ${page === 'cloud-migration' ? `<p class="related-microsoft">${link(microsoftUrl, 'Explore Microsoft 365, Azure &amp; Business Applications')}</p>` : ''}
     ${page === 'lenovo-spares' ? `<section class="repair-partnership spares-cta-band" aria-labelledby="spares-hub-link"><div><h2 id="spares-hub-link">Search by Lenovo model or MTM?</h2><p>Use our Lenovo Platinum Spares Finder to pre-fill family, component and part numbers directly.</p></div>${button(lenovoPartnership + '#spares-finder', 'Open spares finder →')}</section>` : ''}

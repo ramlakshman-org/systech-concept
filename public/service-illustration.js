@@ -39,6 +39,7 @@ const explorerStacks = {
   endpoint: 'Sophos Intercept X EDR/XDR · Endpoint Policies',
   devices: 'Lenovo ThinkPad, ThinkCentre, ThinkStation · Apple · ASUS',
   shared: 'ThinkVision Monitors · HP & Brother Print · Tablets',
+  otherBrands: 'Dell · HP · ASUS · Acer · Apple ABM · Printers',
   accessories: 'Genuine Lenovo USB-C/Thunderbolt Docks · Audio · Bags',
   servers: 'Lenovo ThinkSystem · ThinkAgile HCI · AMD EPYC · VMware',
   storage: 'DAS · NAS · SAN Block Storage · LTO Tape Archive',

@@ -1,4 +1,4 @@
-import { whatsappUrl } from './ecosystem-data.js?v=20261119v4s';
+import { whatsappUrl } from './ecosystem-data.js?v=20261119v4t';
 
 export const lenovoPartnerId = 'lenovo-partner';
 export const lenovoPartnerTitle = 'Lenovo Platinum Partner';
@@ -70,7 +70,7 @@ const tactileHardwareShowcase = [
     width: 800,
     height: 520,
     alt: 'Lenovo ThinkPad X1 Carbon and T-Series enterprise commercial laptops',
-    cadTag: 'CAD-IDG-01 · MIL-STD-810H · 1.09 KG CARBON',
+    cadTag: 'CAD-IDG-01 · MIL-STD-810H · 1.09 KG',
     title: 'ThinkPad X1 Carbon / T-Series',
     copy: 'Intel Core Ultra & AMD Ryzen PRO fleets pre-imaged via Autopilot with BIOS asset tagging and ThinkShield security.',
     href: '?page=bc-thinkpad',
@@ -99,13 +99,13 @@ const tactileHardwareShowcase = [
     cta: 'Check MTM / FRU part'
   },
   {
-    image: 'assets/server-room.webp',
-    width: 818,
-    height: 427,
-    alt: 'Enterprise server room rack infrastructure running Lenovo ThinkSystem and ThinkAgile nodes',
-    cadTag: 'CAD-ISG-04 · 1U/2U XCLARITY · HA CLUSTER',
-    title: 'ThinkSystem Rack Infrastructure',
-    copy: 'Dual-socket 1U/2U ThinkSystem compute, ThinkAgile HCI clusters and NVMe storage arrays managed via XClarity.',
+    image: 'assets/bc-thinkcentre.webp',
+    width: 800,
+    height: 520,
+    alt: 'Lenovo ThinkSystem and ThinkCentre enterprise compute chassis',
+    cadTag: 'CAD-ISG-04 · THINKCENTRE & THINKSYSTEM',
+    title: 'ThinkSystem & Edge Compute',
+    copy: 'Compact ThinkCentre Tiny/SFF enterprise desks alongside dual-socket 1U/2U ThinkSystem racks managed via XClarity.',
     href: '?page=servers-hci',
     cta: 'Explore servers &amp; HCI'
   }
@@ -218,9 +218,9 @@ export function lenovoPartnerPage() {
       </div>
       <div class="tactile-hw-grid">
         ${tactileHardwareShowcase.map(item => `<article class="tactile-hw-card">
+          <span class="tactile-hw-cad-tag">${item.cadTag}</span>
           <div class="tactile-hw-visual">
             <img src="${item.image}" width="${item.width}" height="${item.height}" alt="${item.alt}" loading="lazy" decoding="async">
-            <span class="tactile-hw-cad-tag">${item.cadTag}</span>
           </div>
           <h3>${item.title}</h3>
           <p>${item.copy}</p>

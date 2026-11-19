@@ -1,4 +1,4 @@
-import { verifiedCredentials } from './ecosystem-data.js?v=20261119v4s';
+import { verifiedCredentials } from './ecosystem-data.js?v=20261119v4t';
 
 const leadership = [
   ['Anil Navarathna', 'Founder & CEO'],

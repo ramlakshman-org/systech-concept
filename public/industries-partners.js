@@ -6,8 +6,8 @@ import {
   industryPlaybooks,
   referenceBlueprints,
   deploymentCases
-} from './ecosystem-data.js?v=20261119v4s';
-import { clientBrandLogos, partnerBrandLogos } from './brand-logos.js?v=20261119v4s';
+} from './ecosystem-data.js?v=20261119v4t';
+import { clientBrandLogos, partnerBrandLogos } from './brand-logos.js?v=20261119v4t';
 
 export const partnersId = 'partners';
 export const industriesId = 'industries';
@@ -89,9 +89,19 @@ export function enterpriseProofBand() {
   return `<section class="enterprise-proof-band reveal" aria-labelledby="proof-heading">
     <div class="wrap">
       <div class="authority-band-banner drafting-frame">
-        <p class="coord-marker">SEC 05 · BENGALURU HQ · 12.9226° N, 77.5491° E · EST. 18 SEP 1998</p>
-        <p class="authority-band-display">28 YRS · ₹500CR+</p>
-        <p class="authority-band-subtitle">1998–2026 Multi-OEM Systems Integration · 2,000+ Enterprises</p>
+        <div class="authority-band-grid">
+          <div class="authority-band-main">
+            <p class="coord-marker">SYS-AUTH // 1998–2026 · BENGALURU HQ · 12.9226° N, 77.5491° E</p>
+            <p class="authority-band-display" aria-label="28 Years and 500 Crore plus revenue">28 YRS · ₹500CR+</p>
+            <p class="authority-band-subtitle">1998–2026 Multi-OEM Systems Integration · 2,000+ Enterprises</p>
+          </div>
+          <dl class="authority-band-ledger" aria-label="Verification ledger">
+            <div><dt>PARTNER TIER</dt><dd>Lenovo 360 Platinum 2026 (IDG + ISG)</dd></div>
+            <div><dt>QUALITY SYSTEM</dt><dd>ISO 9001:2015 Certified Delivery</dd></div>
+            <div><dt>COVERAGE FOOTPRINT</dt><dd>Bengaluru HQ · Chennai · Hyderabad · Dubai · HK</dd></div>
+            <div><dt>ACTIVE FLEET &amp; SLA</dt><dd>2,000+ Enterprise Accounts · Direct L1–L3 Engineers</dd></div>
+          </dl>
+        </div>
       </div>
 
       <div class="proof-top-row">
@@ -115,9 +125,9 @@ export function enterpriseProofBand() {
 
       <div class="facility-cred-grid" aria-label="Commercial hardware and Bengaluru facility verification">
         ${facilityProofCards.map(card => `<article class="facility-cred-card">
+          <span class="facility-cred-cad-tag">${card.cadTag}</span>
           <div class="facility-cred-visual">
             <img src="${card.image}" width="${card.width}" height="${card.height}" alt="${card.alt}" loading="lazy" decoding="async">
-            <span class="facility-cred-cad-tag">${card.cadTag}</span>
           </div>
           <h3>${card.title}</h3>
           <a class="arrow-link" href="${card.href}">${card.cta} <span aria-hidden="true">→</span></a>

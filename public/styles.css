@@ -1211,7 +1211,7 @@ dialog li a{display:flex;align-items:center;justify-content:space-between;gap:12
 .client-trust-strip{border-top:1px solid var(--line);padding-top:22px}
 .client-trust-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;margin-bottom:14px}
 .client-trust-head>span{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
-.client-roster-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 28px;border-top:1px solid var(--line);list-style:none;padding:0;margin:0}
+.client-roster-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px;border-top:1px solid var(--line);list-style:none;padding:0;margin:0}
 .client-roster-grid li{display:flex}
 .client-roster-link{display:flex;align-items:center;gap:14px;width:100%;min-height:66px;padding:14px 8px;border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;box-shadow:none;transition:border-color .16s ease,background-color .16s ease}
 .client-roster-link:hover{border-bottom-color:var(--blue);background:rgba(0,77,231,.045)}
@@ -1691,7 +1691,7 @@ html[data-theme=cad] .credential-badge:hover{background:#182d52;border-color:#38
 html[data-theme=cad] .client-roster-grid,html[data-theme=cad] .oem-marquee-grid{border-top-color:#2b4772}
 html[data-theme=cad] .client-roster-link,html[data-theme=cad] .oem-badge{background:transparent;border-color:#2b4772;color:#eef4ff}
 html[data-theme=cad] .client-roster-link:hover,html[data-theme=cad] .oem-badge:hover{background:rgba(56,189,248,.08);border-bottom-color:#38bdf8}
-html[data-theme=cad] .client-brand-mark,html[data-theme=cad] .oem-badge-icon{background:rgba(248,251,255,.94);border:0;padding:4px 7px;border-radius:6px}
+html[data-theme=cad] .client-brand-mark,html[data-theme=cad] .oem-badge-icon{background:#d7e3f4;border:1px solid #355992;padding:4px 7px;border-radius:6px}
 html[data-theme=cad] .partner-card-logo,html[data-theme=cad] .flagship-logo-badge{background:#f8fbff;border-color:#3a5d94}
 html[data-theme=cad] .client-sector-pill{background:transparent;border:0;color:#9bb6de}
 html[data-theme=cad] .partner-tier-pill,html[data-theme=cad] .search-result-badge,html[data-theme=cad] .wifi-stack-tag,html[data-theme=cad] .enquiry-ref-pill{background:#182d50;border-color:#315285;color:#8cc4ff}
@@ -1709,6 +1709,9 @@ html[data-theme=cad] .lenovo-tab[aria-selected=true],html[data-theme=cad] .playb
 html[data-theme=cad] .repair-selection,html[data-theme=cad] .network-info,html[data-theme=cad] .wifi-component-info,html[data-theme=cad] .lenovo-scene-info,html[data-theme=cad] .microsoft-topic-info,html[data-theme=cad] .license-scope-note,html[data-theme=cad] .career-track-skills,html[data-theme=cad] .directory-item:has(.directory-row[aria-expanded=true]),html[data-theme=cad] .company-stages button[aria-pressed=true],html[data-theme=cad] .infrastructure-controls button[aria-pressed=true],html[data-theme=cad] .network-nodes button[aria-pressed=true],html[data-theme=cad] .workload-controls button[aria-pressed=true],html[data-theme=cad] .renewal-option[aria-pressed=true]{background:#172d52;border-color:#3b82f6;color:#eef4ff}
 html[data-theme=cad] .network-image::before{background:#17325e;border:1px solid #38bdf855}
 html[data-theme=cad] .wifi-cutaway,html[data-theme=cad] .playbook-visual-card,html[data-theme=cad] .case-blueprint-visual,html[data-theme=cad] .blueprint-thumb,html[data-theme=cad] .partners-hero-figure,html[data-theme=cad] .enquiry-service-visual,html[data-theme=cad] .lenovo-scene,html[data-theme=cad] .microsoft-scene,html[data-theme=cad] .license-topology-frame{background:#cad8ec;border-color:#3a5d94;border-radius:10px;color:#101928}
+html[data-theme=cad] .company-figure{padding:12px;background:#cad8ec;border:1px solid #3a5d94;border-radius:10px;color:#101928}
+html[data-theme=cad] .company-figure figcaption{color:#1a2b44}
+html[data-theme=cad] .company-figure::before{background:rgba(0,77,231,.14);border:1.5px solid #004de7}
 html[data-theme=cad] .wifi-cutaway-scene{background:transparent;border-radius:0}
 html[data-theme=cad] .lenovo-scene[aria-pressed=true],html[data-theme=cad] .microsoft-scene[aria-pressed=true]{background:#dbe7f8;border-color:#38bdf8;box-shadow:inset 0 0 0 2px #1d4ed8;color:#0a1936}
 html[data-theme=cad] .partners-hero-figure figcaption,html[data-theme=cad] .playbook-visual-card figcaption,html[data-theme=cad] .case-blueprint-visual figcaption,html[data-theme=cad] .enquiry-service-visual figcaption,html[data-theme=cad] .license-topology-frame figcaption,html[data-theme=cad] .wifi-cutaway figcaption{color:#1a2b44}
@@ -1726,7 +1729,10 @@ html[data-theme=cad] .floorplan-heading strong{color:var(--blue-ink)}
 html[data-theme=cad] .floorplan-features>div{background:#152a4a;border-color:#2f5287;color:#dce9ff}
 html[data-theme=cad] .floorplan-feature-symbol{border-color:#60a5fa;background:#10223d}
 html[data-theme=cad] [data-floorplan-feature=cctv] .floorplan-feature-symbol{background:#38bdf8}
-html[data-theme=cad] .floorplan-scroll{background:#0c1b33;border-color:#2f5287}
+html[data-theme=cad] .floorplan-scroll{background:#0c1b33;border-color:#2f5287;color-scheme:dark;scrollbar-color:#355992 #0c1b33;scrollbar-width:thin}
+html[data-theme=cad] .floorplan-scroll::-webkit-scrollbar{width:8px;height:8px}
+html[data-theme=cad] .floorplan-scroll::-webkit-scrollbar-track{background:#0c1b33}
+html[data-theme=cad] .floorplan-scroll::-webkit-scrollbar-thumb{background:#355992;border-radius:4px}
 html[data-theme=cad] .floorplan-scroll-hint{background:#152a4a;border-color:#2f5287;color:#7cc5ff}
 html[data-theme=cad] .gauge-bar{background:#1b3156}
 html[data-theme=cad] .gauge-bar-fill{background:#38bdf8}
@@ -2112,8 +2118,7 @@ body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-ri
 .hero-stage,
 .heritage-scrubber,
 .tactile-hardware-strip,
-.authority-band-banner,
-.enterprise-proof-band .wrap {
+.authority-band-banner {
   position: relative;
 }
 .drafting-frame::before,
@@ -2125,9 +2130,7 @@ body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-ri
 .tactile-hardware-strip::before,
 .tactile-hardware-strip::after,
 .authority-band-banner::before,
-.authority-band-banner::after,
-.enterprise-proof-band .wrap::before,
-.enterprise-proof-band .wrap::after {
+.authority-band-banner::after {
   content: '';
   position: absolute;
   width: 13px;
@@ -2141,20 +2144,23 @@ body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-ri
   opacity: .78;
 }
 .drafting-frame::before,
-.hero-stage::before,
 .heritage-scrubber::before,
-.tactile-hardware-strip::before,
-.enterprise-proof-band .wrap::before {
+.tactile-hardware-strip::before {
   top: -6px;
   left: -6px;
 }
 .drafting-frame::after,
-.hero-stage::after,
 .heritage-scrubber::after,
-.tactile-hardware-strip::after,
-.enterprise-proof-band .wrap::after {
+.tactile-hardware-strip::after {
   right: -6px;
   bottom: -6px;
+}
+.hero-stage::before {
+  top: -6px;
+  left: -6px;
+}
+.hero-stage::after {
+  display: none;
 }
 .authority-band-banner::before,
 .authority-band-banner::after {
@@ -2167,6 +2173,14 @@ body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-ri
 .authority-band-banner::after {
   bottom: 12px;
   right: clamp(10px, 2vw, 20px);
+}
+.hero-stage-bar {
+  flex-wrap: wrap;
+  gap: 6px 12px;
+}
+@media(max-width:520px) {
+  .hero-bp-micro { display: none; }
+  .hero-stage-title { white-space: nowrap; font-size: 11.5px; }
 }
 
 .coord-marker {
@@ -2438,13 +2452,16 @@ html[data-theme=cad] #hero-xray-stage[data-active-spot="rack"] .hero-svg-layer[d
   opacity: .4;
   cursor: not-allowed;
 }
+.heritage-rail { display: contents; }
 @media(max-width:800px) {
   .heritage-stage { grid-template-columns: 1fr; gap: 12px; }
 }
 @media(max-width:520px) {
   .heritage-scrubber { padding: 20px 14px; }
-  .heritage-year-btn { min-height: 44px; padding: 6px 10px; font-size: 13px; flex: 1 1 auto; text-align: center; }
-  .heritage-nav-btn { min-height: 44px; }
+  .heritage-controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .heritage-rail { grid-column: 1 / -1; order: -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; width: 100%; }
+  .heritage-year-btn { width: 100%; min-height: 40px; padding: 6px 8px; font-size: 12.5px; text-align: center; }
+  .heritage-nav-btn { width: 100%; min-height: 40px; justify-content: center; text-align: center; }
 }
 
 /* Tactile Hardware Showcase Strip */
@@ -2495,9 +2512,9 @@ html[data-theme=cad] #hero-xray-stage[data-active-spot="rack"] .hero-svg-layer[d
   place-items: center;
   aspect-ratio: 4 / 3;
   padding: 16px;
-  border: 1px solid #dce5f2;
+  border: 1px solid #e2eaf5;
   border-radius: 8px;
-  background: linear-gradient(180deg, #ffffff 0%, #f4f7fc 100%);
+  background: linear-gradient(180deg, #f8fbff 0%, #f1f5fb 100%);
   overflow: hidden;
 }
 .tactile-hw-visual img,
@@ -2512,9 +2529,12 @@ html[data-theme=cad] #hero-xray-stage[data-active-spot="rack"] .hero-svg-layer[d
 .facility-cred-visual:has(img[src*="company-"]) {
   padding: 0;
 }
-.facility-cred-visual img[src*="company-"],
-.tactile-hw-visual img[src*="server-room"] {
+.facility-cred-visual img[src*="company-"] {
   object-fit: cover;
+}
+.tactile-hw-visual img:not([src*="detail"]),
+.facility-cred-visual:not(:has(img[src*="company-"])) img {
+  mix-blend-mode: multiply;
 }
 .tactile-hw-card:hover .tactile-hw-visual img,
 .facility-cred-card:hover .facility-cred-visual img {
@@ -2522,24 +2542,23 @@ html[data-theme=cad] #hero-xray-stage[data-active-spot="rack"] .hero-svg-layer[d
 }
 .tactile-hw-cad-tag,
 .facility-cred-cad-tag {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 3px 8px;
-  border: 1px solid #9db4d4;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, .94);
-  color: #16294a;
+  position: static;
+  display: block;
+  width: 100%;
+  padding: 5px 9px;
+  border: 1px solid #c5d5eb;
+  border-radius: 5px;
+  background: #edf3fb;
+  color: #16305c;
   font-family: ui-monospace, 'Cascadia Mono', 'SFMono-Regular', Menlo, Consolas, monospace;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: .05em;
+  letter-spacing: .04em;
   text-transform: uppercase;
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .tactile-hw-card h3,
 .tactile-hw-card strong {
@@ -2590,9 +2609,47 @@ html[data-theme=cad] #hero-xray-stage[data-active-spot="rack"] .hero-svg-layer[d
   gap: clamp(20px, 3.5vw, 48px);
   align-items: center;
 }
-@media(max-width:800px) {
+.authority-band-grid .authority-band-display {
+  font-size: clamp(40px, 4.9vw, 72px);
+}
+.authority-band-ledger {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 18px;
+  margin: 0;
+  padding: 16px 18px;
+  border: 1px solid rgba(92, 142, 230, .35);
+  border-radius: 8px;
+  background: rgba(15, 31, 58, .72);
+}
+.authority-band-ledger > div {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+.authority-band-ledger dt {
+  font-family: ui-monospace, 'Cascadia Mono', 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .07em;
+  color: #7cc5ff;
+}
+.authority-band-ledger dd {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #eef4ff;
+}
+@media(max-width:960px) {
   .authority-band-inner,
   .authority-band-grid { grid-template-columns: 1fr; }
+}
+@media(max-width:520px) {
+  .authority-band-ledger {
+    grid-template-columns: 1fr;
+    padding: 14px;
+  }
 }
 
 .facility-cred-grid {
@@ -2733,14 +2790,14 @@ html[data-theme=cad] .tactile-hw-card strong,
 html[data-theme=cad] .facility-cred-card h3 { color: #eef4ff; }
 html[data-theme=cad] .tactile-hw-visual,
 html[data-theme=cad] .facility-cred-visual {
-  background: linear-gradient(180deg, #f8fbff 0%, #dbe6f5 100%);
+  background: linear-gradient(180deg, #d7e3f4 0%, #bfd0e8 100%);
   border-color: #355992;
 }
 html[data-theme=cad] .tactile-hw-cad-tag,
 html[data-theme=cad] .facility-cred-cad-tag {
-  background: rgba(11, 22, 41, .92);
-  border-color: #38bdf8;
-  color: #bae6fd;
+  background: #152847;
+  border-color: #355992;
+  color: #9ec5ff;
 }
 html[data-theme=cad] .company-hero-photos img {
   border-color: #2d4a78;
