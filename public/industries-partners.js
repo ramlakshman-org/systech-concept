@@ -6,8 +6,8 @@ import {
   industryPlaybooks,
   referenceBlueprints,
   deploymentCases
-} from './ecosystem-data.js?v=20261119v4t';
-import { clientBrandLogos, partnerBrandLogos } from './brand-logos.js?v=20261119v4t';
+} from './ecosystem-data.js?v=20261119v4u';
+import { clientBrandLogos, partnerBrandLogos } from './brand-logos.js?v=20261119v4u';
 
 export const partnersId = 'partners';
 export const industriesId = 'industries';
@@ -96,7 +96,7 @@ export function enterpriseProofBand() {
             <p class="authority-band-subtitle">1998–2026 Multi-OEM Systems Integration · 2,000+ Enterprises</p>
           </div>
           <dl class="authority-band-ledger" aria-label="Verification ledger">
-            <div><dt>PARTNER TIER</dt><dd>Lenovo 360 Platinum 2026 (IDG + ISG)</dd></div>
+            <div><dt>PARTNER TIER</dt><dd>Lenovo 360 Platinum 2026</dd></div>
             <div><dt>QUALITY SYSTEM</dt><dd>ISO 9001:2015 Certified Delivery</dd></div>
             <div><dt>COVERAGE FOOTPRINT</dt><dd>Bengaluru HQ · Chennai · Hyderabad · Dubai · HK</dd></div>
             <div><dt>ACTIVE FLEET &amp; SLA</dt><dd>2,000+ Enterprise Accounts · Direct L1–L3 Engineers</dd></div>

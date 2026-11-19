@@ -1,33 +1,24 @@
-import { careersPage, bindCareersPage, privacyPolicyPage, termsPage, returnPolicyPage } from './launch-pages.js?v=20261119v4t';
-import { companyProfile, companyEditorial, companyReviews, resourceEditorial, bindResourcesPage } from './editorial.js?v=20261119v4t';
-import { assetRecoveryWorkflow, assetRecoveryFields, assetRecoveryDraftLines } from './asset-recovery.js?v=20261119v4t';
-import { enquiryTeams, suggestEnquiryTeam } from './enquiry-routing.js?v=20261119v4t';
-import { whatsappUrl, ENQUIRY_ENDPOINT } from './ecosystem-data.js?v=20261119v4t';
-import { partnersId, industriesId, caseStudiesId, enterpriseProofBand, partnersPage, industriesPage, bindIndustriesPage, caseStudiesPage, bindCaseStudiesPage } from './industries-partners.js?v=20261119v4t';
-import { microsoftId, microsoftTitle, microsoftSolutionsPage, microsoftEnquiryRequirement, bindMicrosoftSolutions } from './microsoft-solutions.js?v=20261119v4t';
-import { softwareLicensingId, softwareLicensingTitle, softwareLicensingPage, bindSoftwareLicensing, softwareLicensingRequirement } from './software-licensing.js?v=20261119v4t';
-import { lenovoPartnerId, lenovoPartnerTitle, lenovoPartnerPage, bindLenovoPartner, lenovoEnquiryRequirement } from './lenovo-partner.js?v=20261119v4t';
-import { serviceIllustration, bindServiceIllustration, wifiIllustration } from './service-illustration.js?v=20261119v4t';
-import { securityDetails } from './security-details.js?v=20261119v4t';
-import { additionalServiceDetails } from './service-details.js?v=20261119v4t';
-import { groups } from './data.js?v=20261119v4t';
-import { officeCutaway } from './office-cutaway.js?v=20261119v4t';
-import { projectSchematic, bindProjectSchematic } from './project-schematic.js?v=20261119v4t';
-import { bcSeriesMap, businessComputingCatalog, bindBusinessComputingCatalog, businessComputingDetailPage, bindBusinessComputingDetail } from './business-computing-catalog.js?v=20261119v4t';
+import { careersPage, bindCareersPage, privacyPolicyPage, termsPage, returnPolicyPage } from './launch-pages.js?v=20261119v4u';
+import { companyProfile, companyEditorial, companyReviews, resourceEditorial, bindResourcesPage } from './editorial.js?v=20261119v4u';
+import { assetRecoveryWorkflow, assetRecoveryFields, assetRecoveryDraftLines } from './asset-recovery.js?v=20261119v4u';
+import { enquiryTeams, suggestEnquiryTeam } from './enquiry-routing.js?v=20261119v4u';
+import { whatsappUrl, ENQUIRY_ENDPOINT } from './ecosystem-data.js?v=20261119v4u';
+import { partnersId, industriesId, caseStudiesId, enterpriseProofBand, partnersPage, industriesPage, bindIndustriesPage, caseStudiesPage, bindCaseStudiesPage } from './industries-partners.js?v=20261119v4u';
+import { microsoftId, microsoftTitle, microsoftSolutionsPage, microsoftEnquiryRequirement, bindMicrosoftSolutions } from './microsoft-solutions.js?v=20261119v4u';
+import { softwareLicensingId, softwareLicensingTitle, softwareLicensingPage, bindSoftwareLicensing, softwareLicensingRequirement } from './software-licensing.js?v=20261119v4u';
+import { lenovoPartnerId, lenovoPartnerTitle, lenovoPartnerPage, bindLenovoPartner, lenovoEnquiryRequirement } from './lenovo-partner.js?v=20261119v4u';
+import { serviceIllustration, bindServiceIllustration, wifiIllustration } from './service-illustration.js?v=20261119v4u';
+import { securityDetails } from './security-details.js?v=20261119v4u';
+import { additionalServiceDetails } from './service-details.js?v=20261119v4u';
+import { groups } from './data.js?v=20261119v4u';
+import { officeCutaway } from './office-cutaway.js?v=20261119v4u';
+import { projectSchematic, bindProjectSchematic } from './project-schematic.js?v=20261119v4u';
+import { bcSeriesMap, businessComputingCatalog, bindBusinessComputingCatalog, businessComputingDetailPage, bindBusinessComputingDetail } from './business-computing-catalog.js?v=20261119v4u';
 
 try {
-  if (localStorage.getItem('systech-theme') === 'cad') document.documentElement.dataset.theme = 'cad';
+  delete document.documentElement.dataset.theme;
+  localStorage.removeItem('systech-theme');
 } catch {}
-
-const runTransition = fn => {
-  if (document.startViewTransition && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const vt = document.startViewTransition(fn);
-    vt.ready?.catch(() => {});
-    vt.finished?.catch(() => {});
-    return vt;
-  }
-  return fn();
-};
 
 const params = new URLSearchParams(location.search);
 const cleanPathnameRoutes = {
@@ -1219,9 +1210,10 @@ function serviceDetail(detail) {
       <h1>${detail.title}</h1>
       <div><p>${detail.intro}</p>${button(enquiryLink, detail.action)}</div>
     </header>
-    ${page === 'business-computing' || page === 'other-brands' ? businessComputingCatalog() : ''}
+    ${page === 'business-computing' ? businessComputingCatalog() : ''}
     ${serviceIllustration(illustration)}
     ${page === 'displays-tablets-printers' ? businessComputingCatalog('monitors') : ''}
+    ${page === 'other-brands' ? businessComputingCatalog('all') : ''}
     ${page === 'e-waste-recycling' ? assetRecoveryWorkflow(enquiryLink) : ''}
     ${page === 'cloud-migration' ? `<p class="related-microsoft">${link(microsoftUrl, 'Explore Microsoft 365, Azure &amp; Business Applications')}</p>` : ''}
     ${page === 'lenovo-spares' ? `<section class="repair-partnership spares-cta-band" aria-labelledby="spares-hub-link"><div><h2 id="spares-hub-link">Search by Lenovo model or MTM?</h2><p>Use our Lenovo Platinum Spares Finder to pre-fill family, component and part numbers directly.</p></div>${button(lenovoPartnership + '#spares-finder', 'Open spares finder →')}</section>` : ''}
@@ -2037,32 +2029,6 @@ if (heroStage) {
   heroStage.addEventListener('mouseover', event => {
     const btn = event.target.closest('[data-hero-spot]');
     if (btn) setHeroSpot(btn.dataset.heroSpot);
-  });
-}
-
-const themeToggle = document.querySelector('#theme-toggle');
-if (themeToggle) {
-  const themeLabel = themeToggle.querySelector('[data-theme-label]');
-  const syncThemeUi = () => {
-    const isCad = document.documentElement.dataset.theme === 'cad';
-    themeToggle.setAttribute('aria-pressed', String(isCad));
-    if (themeLabel) themeLabel.textContent = isCad ? 'Paper Mode' : 'CAD Mode';
-    document.querySelectorAll('.brand img').forEach(img => {
-      img.src = isCad ? 'assets/systech-dark.svg' : 'assets/systech.svg';
-    });
-  };
-  syncThemeUi();
-  themeToggle.addEventListener('click', () => {
-    runTransition(() => {
-      const nextCad = document.documentElement.dataset.theme !== 'cad';
-      if (nextCad) document.documentElement.dataset.theme = 'cad';
-      else delete document.documentElement.dataset.theme;
-      try {
-        if (nextCad) localStorage.setItem('systech-theme', 'cad');
-        else localStorage.removeItem('systech-theme');
-      } catch {}
-      syncThemeUi();
-    });
   });
 }
 

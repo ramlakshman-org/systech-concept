@@ -55,6 +55,30 @@
     {
       "source": "/careers",
       "destination": "/index.html?page=careers"
+    },
+    {
+      "source": "/other-brands",
+      "destination": "/index.html?page=other-brands"
+    },
+    {
+      "source": "/devices",
+      "destination": "/index.html?page=devices"
+    },
+    {
+      "source": "/cloud",
+      "destination": "/index.html?page=cloud"
+    },
+    {
+      "source": "/office",
+      "destination": "/index.html?page=office"
+    },
+    {
+      "source": "/security",
+      "destination": "/index.html?page=security"
+    },
+    {
+      "source": "/renewal",
+      "destination": "/index.html?page=renewal"
     }
   ]
 }

@@ -232,7 +232,6 @@ dialog li a{display:flex;align-items:center;justify-content:space-between;gap:12
  .header nav{gap:2px;font-size:12.5px}
  .header nav>a,.solutions-toggle{padding:0 5px}
  .search{margin-left:6px;padding:0 10px;font-size:12.5px}
- .theme-toggle{padding:0 10px;font-size:12.5px}
  .head-cta.outline{font-size:12.5px;padding:0 12px}
 }
 @media(max-width:800px){
@@ -1265,8 +1264,8 @@ dialog li a{display:flex;align-items:center;justify-content:space-between;gap:12
 .print-dossier-letterhead,.print-dossier-signoff{display:none}
 @media print{
   @page{size:A4 portrait;margin:12mm 14mm}
-  :root,html[data-theme=cad]{--paper:#fff;--ink:#101928;--muted:#3f4b5e;--blue:#004de7;--line:#94a3b8;--light-line:#cbd5e1;--cutaway-ink:#101928;--cutaway-surface:#fff;--cutaway-wall:#dce6f3;--cutaway-desk:#eaf2fc;--cutaway-zone:#f2f7fd;--cutaway-card:#fff}
-  .header,.footer,.planner-back,.planner-route-controls,.floorplan-scroll-hint,.planner-size,.planner-options,.planner-summary-actions,.capability-actions,.theme-toggle,.menu-toggle,.search{display:none!important}
+  :root{--paper:#fff;--ink:#101928;--muted:#3f4b5e;--blue:#004de7;--line:#94a3b8;--light-line:#cbd5e1;--cutaway-ink:#101928;--cutaway-surface:#fff;--cutaway-wall:#dce6f3;--cutaway-desk:#eaf2fc;--cutaway-zone:#f2f7fd;--cutaway-card:#fff}
+  .header,.footer,.planner-back,.planner-route-controls,.floorplan-scroll-hint,.planner-size,.planner-options,.planner-summary-actions,.capability-actions,.menu-toggle,.search{display:none!important}
   body{background:#fff!important;background-image:none!important;color:#101928!important;font-size:10.5pt;line-height:1.4;padding:0!important}
   .wrap{width:100%!important;max-width:none!important}
   .print-dossier-letterhead{display:flex!important;justify-content:space-between;align-items:flex-end;gap:16px;padding-bottom:10px;margin-bottom:14px;border-bottom:2px solid #101928;color:#101928;break-inside:avoid}
@@ -1558,12 +1557,6 @@ dialog li a{display:flex;align-items:center;justify-content:space-between;gap:12
 .search-kbd{display:inline-flex;align-items:center;padding:2px 5px;border:1px solid #bdc7d6;border-radius:4px;background:#fff;color:var(--muted);font-family:inherit;font-size:12px;font-weight:700;line-height:1.2;letter-spacing:.01em}
 .search:hover .search-kbd{border-color:var(--blue);color:var(--blue)}
 @media(max-width:1380px){.search-kbd{display:none}}
-.theme-toggle{display:inline-flex;align-items:center;gap:7px;min-height:38px;padding:0 12px;border:1px solid #b5c2d4;border-radius:8px;background:#ffffffb8;color:var(--ink);font-size:13px;font-weight:600;line-height:1;white-space:nowrap;transition:border-color .15s ease,background-color .15s ease,color .15s ease}
-.foot-end .theme-toggle{min-height:34px;padding:0 11px;font-size:12.5px}
-.theme-toggle:hover{border-color:var(--blue);color:var(--blue);background:#fff}
-.theme-toggle[aria-pressed=true]{background:#0d1a2d;border-color:#38bdf8;color:#eaf3ff}
-.theme-dot{width:8px;height:8px;border-radius:50%;background:#0d1a2d;border:1.5px solid var(--blue);flex:none;transition:background-color .15s ease,box-shadow .15s ease}
-.theme-toggle[aria-pressed=true] .theme-dot{background:#38bdf8;border-color:#38bdf8;box-shadow:0 0 8px #38bdf8}
 .search-result-title{font-weight:600;color:var(--ink)}
 .search-result-badge{flex:none;padding:2px 8px;border-radius:999px;background:#e8effb;color:var(--blue);font-size:12px;font-weight:700;white-space:nowrap}
 dialog li a:hover .search-result-title{color:var(--blue)}
@@ -1634,10 +1627,8 @@ dialog li a:hover .search-result-title{color:var(--blue)}
   .oem-marquee-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .oem-badge:nth-child(5n){border-right:1px solid var(--line)}
   .oem-badge:nth-child(2n){border-right:0}
-  html[data-theme=cad] .oem-badge:nth-child(5n){border-right-color:#2b4772}
 }
 @media(max-width:560px){
-  .theme-toggle{padding:5px 9px;font-size:12px;min-height:34px}
   .hero-spot-pills{grid-template-columns:repeat(2,minmax(0,1fr))}
   .hero-hotspot{width:28px;height:28px;font-size:12px}
   .scope-gauges{grid-template-columns:1fr}
@@ -1645,107 +1636,6 @@ dialog li a:hover .search-result-title{color:var(--blue)}
   .oem-marquee-grid{grid-template-columns:1fr;gap:0}
   .oem-badge,.oem-badge:nth-child(n){border-right:0;padding:12px 4px;gap:10px;min-height:56px}
 }
-
-/* Global CAD Dark Blueprint Mode */
-html[data-theme=cad]{
-  --paper:#0a1220;--ink:#eef4ff;--muted:#a8bddc;--blue:#1d4ed8;--blue-ink:#60a5fa;
-  --line:#284066;--light-line:#1e3252;--panel:#0f1d34;--white:#fff;--drafting-tick:#5a8ed4;
-  --cutaway-ink:#c8deff;--cutaway-surface:#0c1b33;--cutaway-wall:#183156;
-  --cutaway-desk:#1e3c69;--cutaway-zone:#152c4f;--cutaway-card:#1a355e;
-  --cutaway-glass:#284f8670;--cutaway-blue:#3b82f6;--cutaway-accent:#60a5fa;
-  --cutaway-line:#5578a8;--cutaway-fiber:#38bdf8;--cutaway-pulse:#bae6fd;
-  --hero-ink:#c8deff;--hero-surface:#0c1b33;--hero-wall:#183156;
-  --hero-desk:#1e3c69;--hero-zone:#152c4f;--hero-card:#1a355e;
-  --hero-glass:#284f8670;--hero-blue:#3b82f6;--hero-accent:#60a5fa;--hero-line:#5578a8
-}
-html[data-theme=cad] body{background-image:linear-gradient(#38bdf808 1px,transparent 1px),linear-gradient(90deg,#38bdf808 1px,transparent 1px);background-size:28px 28px}
-html[data-theme=cad] .header{border-bottom-color:#22385c}
-html[data-theme=cad] .header nav>a:hover,html[data-theme=cad] .solutions-toggle:hover{background:#ffffff12;color:#60a5fa}
-html[data-theme=cad] .header nav a[aria-current=page]:not(.button){color:#60a5fa;background:#3b82f624}
-html[data-theme=cad] .search,html[data-theme=cad] .head-phone-pill,html[data-theme=cad] .menu-toggle{background:#12213b;border-color:#355687;color:#eef4ff}
-html[data-theme=cad] .search:hover,html[data-theme=cad] .head-phone-pill:hover,html[data-theme=cad] .menu-toggle:hover{border-color:#38bdf8;color:#7dd3fc;background:#152847}
-@media(max-width:1100px){html[data-theme=cad] .header nav{background:#0f1d34;border-color:#2d4a78;box-shadow:0 18px 42px #020814d9}}
-html[data-theme=cad] .button:hover{background:#2563eb;border-color:#60a5fa}
-html[data-theme=cad] .head-cta.outline{background:var(--blue);border-color:#60a5fa;color:#fff}
-html[data-theme=cad] .head-cta.outline:hover,html[data-theme=cad] .outline:hover{background:#eef4ff;border-color:#eef4ff;color:#0a1220}
-html[data-theme=cad] .search-kbd{background:#12213b;border-color:#2e4a76;color:#9cc2ff}
-html[data-theme=cad] .hero-kicker{background:#112038;border-color:#2c4875;color:#c3d7f4}
-html[data-theme=cad] .hero-stage{background-color:rgba(15,29,52,.45);background-image:linear-gradient(#38bdf80e 1px,transparent 1px),linear-gradient(90deg,#38bdf80e 1px,transparent 1px);border-top-color:#2d4a78;border-bottom-color:#2d4a78;box-shadow:none}
-html[data-theme=cad] .hero-stage-bar{background:transparent;border-bottom-color:#284470;color:#b8d1f5}
-html[data-theme=cad] .hero-stage-body{background:transparent}
-html[data-theme=cad] .hero-spot-pills{background:transparent;border-top-color:#284470}
-html[data-theme=cad] .hero-spot-pill{background:#152847;border-color:#2f4e7e;color:#e6f0ff}
-html[data-theme=cad] .hero-spot-pill[aria-pressed=true]{background:#004de7;border-color:#5ea8ff;color:#fff}
-html[data-theme=cad] .hero-xray-readout{background:transparent;border-top-color:#284470;color:#eef4ff}
-html[data-theme=cad] .planner-entry{background:#0f1d34;border-top-color:#284470;color:#eef4ff}
-html[data-theme=cad] .hero-xray-links .hero-xray-planner{color:#d8e7ff}
-html[data-theme=cad] .planner-entry:hover{background:#152847}
-html[data-theme=cad] .solutions-panel{background:#0f1d34;border-color:#2d4a78;box-shadow:0 18px 46px #020814c0}
-html[data-theme=cad] .project-section,html[data-theme=cad] .closing{background-color:#101e36;border-block:1px solid #2f5084}
-html[data-theme=cad] .solution-grid a:hover,html[data-theme=cad] .stack-item:hover{background:#16294a}
-html[data-theme=cad] .enterprise-proof-band{background:#0d1729}
-html[data-theme=cad] .scale-metrics-grid{border-color:#2b4772}
-html[data-theme=cad] .scale-metric{background:transparent;border-color:#2b4772}
-html[data-theme=cad] .credential-badge{background:#12213b;border-color:#2b4772;color:#eef4ff}
-html[data-theme=cad] .credential-badge:hover{background:#182d52;border-color:#38bdf8}
-html[data-theme=cad] .client-roster-grid,html[data-theme=cad] .oem-marquee-grid{border-top-color:#2b4772}
-html[data-theme=cad] .client-roster-link,html[data-theme=cad] .oem-badge{background:transparent;border-color:#2b4772;color:#eef4ff}
-html[data-theme=cad] .client-roster-link:hover,html[data-theme=cad] .oem-badge:hover{background:rgba(56,189,248,.08);border-bottom-color:#38bdf8}
-html[data-theme=cad] .client-brand-mark,html[data-theme=cad] .oem-badge-icon{background:#d7e3f4;border:1px solid #355992;padding:4px 7px;border-radius:6px}
-html[data-theme=cad] .partner-card-logo,html[data-theme=cad] .flagship-logo-badge{background:#f8fbff;border-color:#3a5d94}
-html[data-theme=cad] .client-sector-pill{background:transparent;border:0;color:#9bb6de}
-html[data-theme=cad] .partner-tier-pill,html[data-theme=cad] .search-result-badge,html[data-theme=cad] .wifi-stack-tag,html[data-theme=cad] .enquiry-ref-pill{background:#182d50;border-color:#315285;color:#8cc4ff}
-html[data-theme=cad] .footer{background:#060c17;border-top:1px solid #22385c}
-html[data-theme=cad] dialog{background:#0f1d34f5;border-color:#315285;color:#eef4ff}
-html[data-theme=cad] .field input,html[data-theme=cad] .field select,html[data-theme=cad] .field textarea,html[data-theme=cad] #search-input,html[data-theme=cad] .planner-custom-seats input{background:#0a1324;border-color:#2d4a78;color:#eef4ff}
-html[data-theme=cad] aside,html[data-theme=cad] .partner-card,html[data-theme=cad] .partner-flagship,html[data-theme=cad] .lenovo-matrix-card,html[data-theme=cad] .lenovo-tier-card,html[data-theme=cad] .lenovo-spares-finder,html[data-theme=cad] .lenovo-explorer,html[data-theme=cad] .microsoft-explorer,html[data-theme=cad] .wifi-explorer,html[data-theme=cad] .license-configurator,html[data-theme=cad] .license-vendor-card,html[data-theme=cad] .license-detail-panel,html[data-theme=cad] .career-track-brief,html[data-theme=cad] .case-blueprint-card,html[data-theme=cad] .blueprint-card,html[data-theme=cad] .insight-card,html[data-theme=cad] .trust-pillar-card,html[data-theme=cad] .playbook-stage,html[data-theme=cad] .enquiry-contact,html[data-theme=cad] .recovery-fields,html[data-theme=cad] .asset-recovery-steps,html[data-theme=cad] .planner-summary,html[data-theme=cad] .planner-custom-seats,html[data-theme=cad] .scope-gauge,html[data-theme=cad] .careers-voice-box,html[data-theme=cad] .scope-note,html[data-theme=cad] .review{background:#111f38;border-color:#2b4772;color:#eef4ff}
-html[data-theme=cad] .planner-custom-seats label{color:#eef4ff}
-html[data-theme=cad] .credentials-ledger{border-top-color:#355687}
-html[data-theme=cad] .credential-ledger-card{background:#111f38;border-color:#2b4772;border-top-color:#38bdf8;color:#eef4ff}
-html[data-theme=cad] .credential-ledger-card:hover{background:#16294a;border-color:#38bdf8}
-html[data-theme=cad] .credential-ledger-card h3{color:#eef4ff}
-html[data-theme=cad] .lenovo-tab-bar,html[data-theme=cad] .playbook-tabs,html[data-theme=cad] .license-control-pills,html[data-theme=cad] .case-filter-bar,html[data-theme=cad] .planner-route-controls button,html[data-theme=cad] .license-mini-pills button,html[data-theme=cad] .seat-picker span,html[data-theme=cad] .repair-part,html[data-theme=cad] .directory-point,html[data-theme=cad] .directory-number,html[data-theme=cad] .wifi-node,html[data-theme=cad] .wifi-step-pill,html[data-theme=cad] .playbook-stack-pills li{background:#142544;border-color:#325284;color:#eef4ff}
-html[data-theme=cad] .lenovo-tab[aria-selected=true],html[data-theme=cad] .playbook-tab[aria-selected=true],html[data-theme=cad] .case-filter-bar .playbook-tab[aria-pressed=true],html[data-theme=cad] .license-control-pills .playbook-tab[aria-pressed=true],html[data-theme=cad] #insights-filter-bar .playbook-tab[aria-pressed=true],html[data-theme=cad] .license-mini-pills button[aria-pressed=true],html[data-theme=cad] .planner-route-controls button[aria-pressed=true],html[data-theme=cad] .seat-picker input:checked+span,html[data-theme=cad] .wifi-step-pill[aria-pressed=true],html[data-theme=cad] .wifi-node[aria-pressed=true],html[data-theme=cad] .directory-point[aria-pressed=true],html[data-theme=cad] .repair-part[aria-pressed=true]{background:#004de7;border-color:#5ea8ff;color:#fff}
-html[data-theme=cad] .repair-selection,html[data-theme=cad] .network-info,html[data-theme=cad] .wifi-component-info,html[data-theme=cad] .lenovo-scene-info,html[data-theme=cad] .microsoft-topic-info,html[data-theme=cad] .license-scope-note,html[data-theme=cad] .career-track-skills,html[data-theme=cad] .directory-item:has(.directory-row[aria-expanded=true]),html[data-theme=cad] .company-stages button[aria-pressed=true],html[data-theme=cad] .infrastructure-controls button[aria-pressed=true],html[data-theme=cad] .network-nodes button[aria-pressed=true],html[data-theme=cad] .workload-controls button[aria-pressed=true],html[data-theme=cad] .renewal-option[aria-pressed=true]{background:#172d52;border-color:#3b82f6;color:#eef4ff}
-html[data-theme=cad] .network-image::before{background:#17325e;border:1px solid #38bdf855}
-html[data-theme=cad] .wifi-cutaway,html[data-theme=cad] .playbook-visual-card,html[data-theme=cad] .case-blueprint-visual,html[data-theme=cad] .blueprint-thumb,html[data-theme=cad] .partners-hero-figure,html[data-theme=cad] .enquiry-service-visual,html[data-theme=cad] .lenovo-scene,html[data-theme=cad] .microsoft-scene,html[data-theme=cad] .license-topology-frame{background:#cad8ec;border-color:#3a5d94;border-radius:10px;color:#101928}
-html[data-theme=cad] .company-figure{padding:12px;background:#cad8ec;border:1px solid #3a5d94;border-radius:10px;color:#101928}
-html[data-theme=cad] .company-figure figcaption{color:#1a2b44}
-html[data-theme=cad] .company-figure::before{background:rgba(0,77,231,.14);border:1.5px solid #004de7}
-html[data-theme=cad] .wifi-cutaway-scene{background:transparent;border-radius:0}
-html[data-theme=cad] .lenovo-scene[aria-pressed=true],html[data-theme=cad] .microsoft-scene[aria-pressed=true]{background:#dbe7f8;border-color:#38bdf8;box-shadow:inset 0 0 0 2px #1d4ed8;color:#0a1936}
-html[data-theme=cad] .partners-hero-figure figcaption,html[data-theme=cad] .playbook-visual-card figcaption,html[data-theme=cad] .case-blueprint-visual figcaption,html[data-theme=cad] .enquiry-service-visual figcaption,html[data-theme=cad] .license-topology-frame figcaption,html[data-theme=cad] .wifi-cutaway figcaption{color:#1a2b44}
-html[data-theme=cad] .office-floorplan{
-  --cutaway-ink:#c8deff;--cutaway-surface:#10223d;--cutaway-wall:#183156;
-  --cutaway-desk:#1e3c69;--cutaway-zone:#152c4f;--cutaway-card:#1a355e;
-  --cutaway-glass:#284f8670;--cutaway-blue:#3b82f6;--cutaway-accent:#60a5fa;
-  --cutaway-line:#5578a8;--cutaway-ghost:rgba(56,189,248,.1);--cutaway-ghost-top:rgba(56,189,248,.18);
-  background-color:#0c1b33;border-color:#2f5287;color:#dce9ff;box-shadow:0 0 0 1px #2f528744;
-  background-image:linear-gradient(#38bdf814 1px,transparent 1px),linear-gradient(90deg,#38bdf814 1px,transparent 1px)
-}
-html[data-theme=cad] .cutaway-label{fill:#eef4ff;stroke:#0c1b33}
-html[data-theme=cad] .cutaway-interactive-zone.is-ghost text{fill:#7cc5ff}
-html[data-theme=cad] .floorplan-heading strong{color:var(--blue-ink)}
-html[data-theme=cad] .floorplan-features>div{background:#152a4a;border-color:#2f5287;color:#dce9ff}
-html[data-theme=cad] .floorplan-feature-symbol{border-color:#60a5fa;background:#10223d}
-html[data-theme=cad] [data-floorplan-feature=cctv] .floorplan-feature-symbol{background:#38bdf8}
-html[data-theme=cad] .floorplan-scroll{background:#0c1b33;border-color:#2f5287;color-scheme:dark;scrollbar-color:#355992 #0c1b33;scrollbar-width:thin}
-html[data-theme=cad] .floorplan-scroll::-webkit-scrollbar{width:8px;height:8px}
-html[data-theme=cad] .floorplan-scroll::-webkit-scrollbar-track{background:#0c1b33}
-html[data-theme=cad] .floorplan-scroll::-webkit-scrollbar-thumb{background:#355992;border-radius:4px}
-html[data-theme=cad] .floorplan-scroll-hint{background:#152a4a;border-color:#2f5287;color:#7cc5ff}
-html[data-theme=cad] .gauge-bar{background:#1b3156}
-html[data-theme=cad] .gauge-bar-fill{background:#38bdf8}
-html[data-theme=cad] .workload-label{background:#0f1d34;color:#eef4ff}
-html[data-theme=cad] .trust-pillar-seal{background:#182d50;border-color:#355992;color:#7cc5ff}
-html[data-theme=cad] .recovery-step-number{background:#1b335c;color:#7cc5ff}
-html[data-theme=cad] .hero-hotspot-tip,html[data-theme=cad] .directory-point .point-tooltip,html[data-theme=cad] .wifi-node-tooltip{background:#0d1a2d;color:#eef4ff;border:1px solid #38bdf8;box-shadow:0 8px 22px #020814d4}
-html[data-theme=cad] a:not(.button):hover,html[data-theme=cad] .eyebrow,html[data-theme=cad] .arrow-link,html[data-theme=cad] .hero-copy .hero-actions .arrow-link,html[data-theme=cad] .bc-card-foot-actions .bc-card-explore,html[data-theme=cad] .solution-num,html[data-theme=cad] .stack-num,html[data-theme=cad] .wifi-step-num,html[data-theme=cad] .wifi-info-step,html[data-theme=cad] .leader-index,html[data-theme=cad] .client-idx,html[data-theme=cad] .buyer-role-badge,html[data-theme=cad] .bc-readout-tag,html[data-theme=cad] .bc-spec-row dt,html[data-theme=cad] .credential-ledger-meta,html[data-theme=cad] .credential-ledger-issuer,html[data-theme=cad] .credential-ledger-year,html[data-theme=cad] .scale-metric dd strong,html[data-theme=cad] .hero-stat-item dd strong,html[data-theme=cad] .hero-xray-spec,html[data-theme=cad] .bc-detail-spec-line,html[data-theme=cad] .planner-entry-cta,html[data-theme=cad] .solution-cta,html[data-theme=cad] .hero-spot-pill:not([aria-pressed=true]) span,html[data-theme=cad] .hero-spot-pill:not([aria-pressed=true]):hover,html[data-theme=cad] .scope-note a:not(.button),html[data-theme=cad] .directory-detail a:not(.button),html[data-theme=cad] .repair-selection a:not(.button),html[data-theme=cad] .resource-guide a:not(.button),html[data-theme=cad] .resource-blog a:not(.button),html[data-theme=cad] .contact-channels a:not(.button),html[data-theme=cad] .policy-sections a:not(.button),html[data-theme=cad] .solutions-nav-group li a[aria-current=page],html[data-theme=cad] .solutions-toggle.nav-current,html[data-theme=cad] .solutions-toggle[aria-expanded=true],html[data-theme=cad] .directory-row:hover,html[data-theme=cad] .directory-row[aria-expanded=true],html[data-theme=cad] .repair-modes button[aria-pressed=true],html[data-theme=cad] .planner-options .quiet:hover,html[data-theme=cad] .copy-status,html[data-theme=cad] .company-milestones time,html[data-theme=cad] .client-arrow,html[data-theme=cad] .lenovo-tier-facts dt,html[data-theme=cad] .lenovo-tab:not([aria-selected=true]):hover,html[data-theme=cad] .playbook-tab:not([aria-selected=true]):not([aria-pressed=true]):hover,html[data-theme=cad] .flagship-tag,html[data-theme=cad] .case-blueprint-tag,html[data-theme=cad] .license-mini-pills button:not([aria-pressed=true]):hover,html[data-theme=cad] .license-vendor-cat,html[data-theme=cad] .license-governance-steps strong,html[data-theme=cad] .insight-takeaways summary,html[data-theme=cad] .search:hover .search-kbd,html[data-theme=cad] dialog li a:hover .search-result-title,html[data-theme=cad] .solution-grid a:hover .solution-meta strong,html[data-theme=cad] .solution-grid a.solution-card:hover .solution-card-body strong,html[data-theme=cad] .bc-switch-pill:not([aria-current=page]):hover,html[data-theme=cad] .bc-thumb-btn[aria-pressed=true] .bc-thumb-meta strong{color:var(--blue-ink)}
-html[data-theme=cad] .repair-modes button[aria-pressed=true]{border-bottom-color:var(--blue-ink)}
-html[data-theme=cad] .partner-flagship-lenovo .flagship-tag,html[data-theme=cad] .lenovo-matrix-spec{color:#ff8a95}
-html[data-theme=cad] .case-metric-pill{background:#172d52;border-color:#355992;color:#8cc4ff}
-html[data-theme=cad] .submit-status{background:#12213b;border-color:#355687;color:#eef4ff}
-html[data-theme=cad] .submit-status.is-ready{background:#132a4f;border-color:#38bdf8;color:#e0f2fe}
 
 /* v4 80/20 Visual Upgrades: Hero Actions & Scale Bar, Buyer Role Strip, Visual Capability Cards, High-Contrast Blueprints & Seals */
 .hero{padding:12px 0 clamp(20px,2.6vw,32px);row-gap:12px}
@@ -1845,7 +1735,6 @@ html[data-theme=cad] .submit-status.is-ready{background:#132a4f;border-color:#38
   .buyer-role-card p{max-width:70ch}
   .solution-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .solution-grid a.solution-card:nth-child(n){padding:20px;border-right:1px solid #c3d0e2}
-  html[data-theme=cad] .solution-grid a.solution-card:nth-child(n){border-right-color:#2b4772}
 }
 @media(max-width:680px){
   .hero-stat-list{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:12px}
@@ -1866,7 +1755,6 @@ html[data-theme=cad] .submit-status.is-ready{background:#132a4f;border-color:#38
 @media(max-width:440px){
   .hero-copy .hero-actions,.hero-stat-list{grid-template-columns:minmax(0,1fr)}
   .hero-stat-item{border-right:0;border-bottom:1px solid #e2e8f2;padding:0 0 8px}
-  html[data-theme=cad] .hero-stat-item{border-bottom-color:#26416b}
   .hero-stat-item:last-child{border-bottom:0;padding-bottom:0}
 }
 
@@ -1891,8 +1779,9 @@ html[data-theme=cad] .submit-status.is-ready{background:#132a4f;border-color:#38
 .proof-outcome-sector{padding:3px 9px;border-radius:999px;background:#e8effb;color:var(--blue);font-size:12px;font-weight:700}
 .proof-outcome-deliverable{font-size:12px;font-weight:600;color:var(--muted)}
 .proof-outcome-card h3{font-size:16px;line-height:1.3;letter-spacing:-.02em;color:var(--ink)}
-.proof-outcome-stack{display:flex;flex-wrap:wrap;gap:5px}
-.proof-outcome-stack span{padding:2px 8px;border-radius:5px;border:1px solid #dce3ee;background:#f6f8fc;font-size:12px;font-weight:600;color:var(--ink)}
+.proof-outcome-stack{display:flex;flex-wrap:wrap;gap:4px 10px;padding-top:8px;border-top:1px solid #e2e8f2}
+.proof-outcome-stack span{padding:0;border:0;background:transparent;font-size:12px;font-weight:600;color:var(--muted);line-height:1.35}
+.proof-outcome-stack span+span::before{content:'· ';color:var(--line);margin-right:4px}
 .proof-outcome-card .arrow-link{margin-top:auto;font-size:13px;color:var(--blue)}
 @media(max-width:1080px){
   .proof-outcomes-grid,.blueprints-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -1902,27 +1791,6 @@ html[data-theme=cad] .submit-status.is-ready{background:#132a4f;border-color:#38
   .proof-outcomes-grid,.blueprints-grid{grid-template-columns:minmax(0,1fr)}
   .proof-outcome-card:last-child:nth-child(odd),.blueprint-card:last-child:nth-child(odd){grid-column:auto}
 }
-
-/* CAD Dark Mode Overrides for 80/20 Visual Additions */
-html[data-theme=cad] .hero-lenovo-btn{background:#12213b;border-color:#355687;color:#eef4ff}
-html[data-theme=cad] .hero-lenovo-btn:hover{background:#c91d2e;border-color:#c91d2e;color:#fff}
-html[data-theme=cad] .hero-trust-bar{background:#0f1d34;border-color:#2d4a78;box-shadow:0 18px 36px -22px #020814c8}
-html[data-theme=cad] .hero-stat-item{border-right-color:#26416b}
-html[data-theme=cad] .hero-stat-item dt,html[data-theme=cad] .hero-seal-copy strong{color:#eef4ff}
-html[data-theme=cad] .hero-seal{background:#142544;border-color:#325284}
-html[data-theme=cad] .hero-seal:hover{background:#182d52;border-color:#38bdf8}
-html[data-theme=cad] .buyer-roles-grid{border-top-color:#355687;border-bottom-color:#2b4772}
-html[data-theme=cad] .buyer-role-card{border-color:#2b4772;background:transparent;color:#eef4ff}
-html[data-theme=cad] .buyer-role-card:hover{background:#16294a88}
-html[data-theme=cad] .solution-grid a.solution-card,html[data-theme=cad] .proof-outcome-card{background:#111f38;border-color:#2b4772;color:#eef4ff}
-html[data-theme=cad] .solution-grid a.solution-card:not(:nth-child(3n)),html[data-theme=cad] .solution-grid a.solution-card:nth-child(n){border-right-color:#2b4772}
-html[data-theme=cad] .solution-grid a.solution-card:hover,html[data-theme=cad] .proof-outcome-card:hover{background:#16294a;border-color:#38bdf8}
-html[data-theme=cad] .buyer-role-card h3,html[data-theme=cad] .solution-card-body strong,html[data-theme=cad] .proof-outcome-card h3,html[data-theme=cad] .cred-copy strong{color:#eef4ff}
-html[data-theme=cad] .buyer-role-icon,html[data-theme=cad] .solution-icon-box{background:#172d52;border-color:#355992;color:#7cc5ff}
-html[data-theme=cad] .buyer-role-pills li,html[data-theme=cad] .solution-tag-pill,html[data-theme=cad] .proof-outcome-sector,html[data-theme=cad] .proof-outcome-stack span{background:#182d50;border-color:#315285;color:#cde0ff}
-html[data-theme=cad] .buyer-role-actions,html[data-theme=cad] .solution-card-foot{border-top-color:#26416b}
-html[data-theme=cad] .solution-oem-pill{color:#9ec5ff}
-html[data-theme=cad] .wifi-stage-bar{background:#132645;border-bottom-color:#284470;color:#b8d1f5}
 
 /* Business Computing 16-Series Portfolio Catalog */
 .bc-catalog-section{margin:clamp(28px,4vw,52px) 0 18px;padding:clamp(20px,3vw,32px);border:1px solid #bdcadc;border-radius:14px;background:#f5f8fd}
@@ -1975,19 +1843,6 @@ html[data-theme=cad] .wifi-stage-bar{background:#132645;border-bottom-color:#284
   .bc-filter-bar{width:100%}
   .bc-filter-tab{flex:1 1 auto;font-size:12.5px;padding:6px 10px}
 }
-
-/* CAD Dark Mode for Business Computing Catalog */
-html[data-theme=cad] .bc-catalog-section{background:#0f1d34;border-color:#2d4a78}
-html[data-theme=cad] .bc-platinum-pill,html[data-theme=cad] .bc-filter-bar,html[data-theme=cad] .bc-card,html[data-theme=cad] .bc-multi-oem-bar{background:#111f38;border-color:#2b4772;color:#eef4ff}
-html[data-theme=cad] .bc-card:hover{background:#16294a;border-color:#38bdf8}
-html[data-theme=cad] .bc-category-block{border-top-color:#26416b}
-html[data-theme=cad] .bc-category-head h3,html[data-theme=cad] .bc-card-tier,html[data-theme=cad] .bc-cat-count{color:#7cc5ff}
-html[data-theme=cad] .bc-cat-count,html[data-theme=cad] .bc-card-tier{background:#182d50;border-color:#315285}
-html[data-theme=cad] .bc-card-art{background:#f8fbff;border-color:#355992}
-html[data-theme=cad] .bc-card h4,html[data-theme=cad] .bc-platinum-copy strong,html[data-theme=cad] .bc-multi-oem-copy strong{color:#eef4ff}
-html[data-theme=cad] .bc-card-spec{color:#9ec5ff}
-html[data-theme=cad] .bc-oem-chip{background:#152847;border-color:#2f4e7e;color:#eef4ff}
-html[data-theme=cad] .bc-oem-chip:hover{border-color:#38bdf8}
 
 /* Business Computing Detail Page & Dual Card Actions */
 .bc-card-views{font-size:12px;font-weight:600;color:var(--muted);margin-left:auto}
@@ -2062,19 +1917,6 @@ html[data-theme=cad] .bc-oem-chip:hover{border-color:#38bdf8}
   .bc-gallery-thumbs{gap:6px;padding:8px}
   .bc-thumb-meta strong{font-size:12px}
 }
-
-/* CAD Dark Mode Overrides for Business Computing Detail Pages */
-html[data-theme=cad] .bc-card-foot-actions{border-top-color:#26416b}
-html[data-theme=cad] .bc-card-quote-pill,html[data-theme=cad] .bc-switch-pill{background:#152847;border-color:#2f4e7e;color:#eef4ff}
-html[data-theme=cad] .bc-card-quote-pill:hover,html[data-theme=cad] .bc-switch-pill[aria-current=page]{background:var(--blue);border-color:#5ea8ff;color:#fff}
-html[data-theme=cad] .bc-series-switcher,html[data-theme=cad] .bc-detail-gallery{background:#0f1d34;border-color:#2d4a78}
-html[data-theme=cad] .bc-detail-highlights,html[data-theme=cad] .bc-submodel-card,html[data-theme=cad] .bc-spec-row,html[data-theme=cad] .bc-detail-readout{background:#111f38;border-color:#2b4772;color:#eef4ff}
-html[data-theme=cad] .bc-detail-platinum{background:#2d121a;border-color:#c91d2e88;color:#ffb4bc}
-html[data-theme=cad] .bc-detail-highlights li,html[data-theme=cad] .bc-submodel-card h3,html[data-theme=cad] .bc-spec-row dd,html[data-theme=cad] .bc-detail-readout strong{color:#eef4ff}
-html[data-theme=cad] .bc-thumb-btn{background:#142544;border-color:#325284}
-html[data-theme=cad] .bc-thumb-btn[aria-pressed=true]{background:#17325e;border-color:#38bdf8;box-shadow:inset 0 0 0 1px #38bdf8}
-html[data-theme=cad] .bc-thumb-meta strong{color:#dce7ff}
-html[data-theme=cad] .bc-gallery-stage,html[data-theme=cad] .bc-thumb-frame{background:#f8fbff;border-color:#355992}
 
 /* Safe-Area Insets, Coarse-Pointer Touch Rings, Form Alignment, Tablets & Foldables */
 body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
@@ -2179,6 +2021,7 @@ body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-ri
   gap: 6px 12px;
 }
 @media(max-width:520px) {
+  .hero-kicker .live-dot { align-self: flex-start; margin-top: 5px; }
   .hero-bp-micro { display: none; }
   .hero-stage-title { white-space: nowrap; font-size: 11.5px; }
 }
@@ -2297,12 +2140,6 @@ body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-ri
 #hero-xray-stage[data-active-spot="rack"] .hero-svg-layer[data-hero-layer="rack"] {
   opacity: 1;
   filter: drop-shadow(0 4px 12px rgba(0, 77, 231, .22));
-}
-html[data-theme=cad] #hero-xray-stage[data-active-spot="workstations"] .hero-svg-layer[data-hero-layer="workstations"],
-html[data-theme=cad] #hero-xray-stage[data-active-spot="meeting"] .hero-svg-layer[data-hero-layer="meeting"],
-html[data-theme=cad] #hero-xray-stage[data-active-spot="cabling"] .hero-svg-layer[data-hero-layer="cabling"],
-html[data-theme=cad] #hero-xray-stage[data-active-spot="rack"] .hero-svg-layer[data-hero-layer="rack"] {
-  filter: drop-shadow(0 0 14px rgba(56, 189, 248, .34));
 }
 .hero-svg-label {
   fill: var(--cutaway-ink);
@@ -2532,7 +2369,7 @@ html[data-theme=cad] #hero-xray-stage[data-active-spot="rack"] .hero-svg-layer[d
 .facility-cred-visual img[src*="company-"] {
   object-fit: cover;
 }
-.tactile-hw-visual img:not([src*="detail"]),
+.tactile-hw-visual img,
 .facility-cred-visual:not(:has(img[src*="company-"])) img {
   mix-blend-mode: multiply;
 }
@@ -2733,83 +2570,11 @@ html[data-theme=cad] #hero-xray-stage[data-active-spot="rack"] .hero-svg-layer[d
   .company-hero-photos { grid-template-columns: 1fr; }
 }
 
-/* CAD Dark Mode Overrides for Pass 3 Components */
-html[data-theme=cad] .heritage-scrubber,
-html[data-theme=cad] .tactile-hardware-strip {
-  background: rgba(15, 29, 52, .62);
-  border-top-color: #355687;
-  border-bottom-color: #284470;
-}
-html[data-theme=cad] .heritage-stage { border-top-color: #284470; }
-html[data-theme=cad] .heritage-year-display { color: #7cc5ff; }
-html[data-theme=cad] .heritage-kpi-pill {
-  background: #182d50;
-  border-color: #315285;
-  color: #8cc4ff;
-}
-html[data-theme=cad] .heritage-progress-bar { background: #1a2f52; }
-html[data-theme=cad] .heritage-progress-fill { background: #38bdf8; }
-html[data-theme=cad] .heritage-year-btn {
-  background: #142544;
-  border-color: #325284;
-  color: #eef4ff;
-}
-html[data-theme=cad] .heritage-year-btn:hover {
-  border-color: #38bdf8;
-  color: #7dd3fc;
-  background: #182d52;
-}
-html[data-theme=cad] .heritage-year-btn[aria-pressed="true"] {
-  background: #004de7;
-  border-color: #5ea8ff;
-  color: #fff;
-}
-html[data-theme=cad] .heritage-nav-btn {
-  border-color: #4972ad;
-  color: #eef4ff;
-}
-html[data-theme=cad] .heritage-nav-btn:hover:not(:disabled) {
-  background: #eef4ff;
-  border-color: #eef4ff;
-  color: #0a1220;
-}
-html[data-theme=cad] .tactile-hw-card,
-html[data-theme=cad] .facility-cred-card {
-  background: #111f38;
-  border-color: #2b4772;
-  color: #eef4ff;
-}
-html[data-theme=cad] .facility-cred-card { border-top-color: #38bdf8; }
-html[data-theme=cad] .tactile-hw-card:hover,
-html[data-theme=cad] .facility-cred-card:hover {
-  background: #16294a;
-  border-color: #38bdf8;
-}
-html[data-theme=cad] .tactile-hw-card h3,
-html[data-theme=cad] .tactile-hw-card strong,
-html[data-theme=cad] .facility-cred-card h3 { color: #eef4ff; }
-html[data-theme=cad] .tactile-hw-visual,
-html[data-theme=cad] .facility-cred-visual {
-  background: linear-gradient(180deg, #d7e3f4 0%, #bfd0e8 100%);
-  border-color: #355992;
-}
-html[data-theme=cad] .tactile-hw-cad-tag,
-html[data-theme=cad] .facility-cred-cad-tag {
-  background: #152847;
-  border-color: #355992;
-  color: #9ec5ff;
-}
-html[data-theme=cad] .company-hero-photos img {
-  border-color: #2d4a78;
-  background: #12213b;
-}
-
 /* Prevent Footer-First Flash While Deferred ES Modules Boot */
 #content{min-height:calc(100vh - 82px);min-height:calc(100svh - 82px)}
 #content:empty{min-height:100vh;min-height:100svh}
 #content:empty+.footer{opacity:0;visibility:hidden;pointer-events:none}
 #content:empty::before{content:'';display:block;max-width:var(--measure);width:calc(100% - 96px);height:clamp(320px,52svh,520px);margin:clamp(22px,3vw,42px) auto 0;border-radius:14px;border:1px solid #10192814;background:linear-gradient(90deg,#10192806 25%,#10192810 50%,#10192806 75%) 0 0/200% 100%;opacity:0;animation:content-boot .25s ease .14s forwards,boot-shimmer 1.4s ease-in-out .14s infinite}
-html[data-theme=cad] #content:empty::before{border-color:#2d4a7855;background:linear-gradient(90deg,#12213b66 25%,#1b315799 50%,#12213b66 75%) 0 0/200% 100%}
 @keyframes content-boot{to{opacity:1}}
 @keyframes boot-shimmer{to{background-position:-200% 0}}
 @media(max-width:1250px){#content:empty::before{width:calc(100% - 64px)}}
