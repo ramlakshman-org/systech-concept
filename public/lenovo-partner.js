@@ -1,4 +1,4 @@
-import { whatsappUrl } from './ecosystem-data.js?v=20261119v4q';
+import { whatsappUrl } from './ecosystem-data.js?v=20261119v4r';
 
 export const lenovoPartnerId = 'lenovo-partner';
 export const lenovoPartnerTitle = 'Lenovo Platinum Partner';
@@ -217,7 +217,7 @@ export function lenovoPartnerPage() {
             ${sparePartsList.map(([id, label]) => `<option value="${id}">${label}</option>`).join('')}
           </select>
         </label>
-        <label class="field wide">Machine Type-Model (MTM), model name or FRU number <span>(optional)</span>
+        <label class="field wide"><span class="field-label">Machine Type-Model (MTM), model name or FRU number <small class="field-optional">(optional)</small></span>
           <input name="model" maxlength="100" placeholder="e.g. ThinkPad T14 Gen 4 · Type 21HD · FRU 5B10W...">
         </label>
         <div class="wide spares-finder-actions">

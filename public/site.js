@@ -1,19 +1,19 @@
-import { careersPage, bindCareersPage, privacyPolicyPage, termsPage, returnPolicyPage } from './launch-pages.js?v=20261119v4q';
-import { companyProfile, companyEditorial, companyReviews, resourceEditorial, bindResourcesPage } from './editorial.js?v=20261119v4q';
-import { assetRecoveryWorkflow, assetRecoveryFields, assetRecoveryDraftLines } from './asset-recovery.js?v=20261119v4q';
-import { enquiryTeams, suggestEnquiryTeam } from './enquiry-routing.js?v=20261119v4q';
-import { whatsappUrl, ENQUIRY_ENDPOINT } from './ecosystem-data.js?v=20261119v4q';
-import { partnersId, industriesId, caseStudiesId, enterpriseProofBand, partnersPage, industriesPage, bindIndustriesPage, caseStudiesPage, bindCaseStudiesPage } from './industries-partners.js?v=20261119v4q';
-import { microsoftId, microsoftTitle, microsoftSolutionsPage, microsoftEnquiryRequirement, bindMicrosoftSolutions } from './microsoft-solutions.js?v=20261119v4q';
-import { softwareLicensingId, softwareLicensingTitle, softwareLicensingPage, bindSoftwareLicensing, softwareLicensingRequirement } from './software-licensing.js?v=20261119v4q';
-import { lenovoPartnerId, lenovoPartnerTitle, lenovoPartnerPage, bindLenovoPartner, lenovoEnquiryRequirement } from './lenovo-partner.js?v=20261119v4q';
-import { serviceIllustration, bindServiceIllustration, wifiIllustration } from './service-illustration.js?v=20261119v4q';
-import { securityDetails } from './security-details.js?v=20261119v4q';
-import { additionalServiceDetails } from './service-details.js?v=20261119v4q';
-import { groups } from './data.js?v=20261119v4q';
-import { officeCutaway } from './office-cutaway.js?v=20261119v4q';
-import { projectSchematic, bindProjectSchematic } from './project-schematic.js?v=20261119v4q';
-import { bcSeriesMap, businessComputingCatalog, bindBusinessComputingCatalog, businessComputingDetailPage, bindBusinessComputingDetail } from './business-computing-catalog.js?v=20261119v4q';
+import { careersPage, bindCareersPage, privacyPolicyPage, termsPage, returnPolicyPage } from './launch-pages.js?v=20261119v4r';
+import { companyProfile, companyEditorial, companyReviews, resourceEditorial, bindResourcesPage } from './editorial.js?v=20261119v4r';
+import { assetRecoveryWorkflow, assetRecoveryFields, assetRecoveryDraftLines } from './asset-recovery.js?v=20261119v4r';
+import { enquiryTeams, suggestEnquiryTeam } from './enquiry-routing.js?v=20261119v4r';
+import { whatsappUrl, ENQUIRY_ENDPOINT } from './ecosystem-data.js?v=20261119v4r';
+import { partnersId, industriesId, caseStudiesId, enterpriseProofBand, partnersPage, industriesPage, bindIndustriesPage, caseStudiesPage, bindCaseStudiesPage } from './industries-partners.js?v=20261119v4r';
+import { microsoftId, microsoftTitle, microsoftSolutionsPage, microsoftEnquiryRequirement, bindMicrosoftSolutions } from './microsoft-solutions.js?v=20261119v4r';
+import { softwareLicensingId, softwareLicensingTitle, softwareLicensingPage, bindSoftwareLicensing, softwareLicensingRequirement } from './software-licensing.js?v=20261119v4r';
+import { lenovoPartnerId, lenovoPartnerTitle, lenovoPartnerPage, bindLenovoPartner, lenovoEnquiryRequirement } from './lenovo-partner.js?v=20261119v4r';
+import { serviceIllustration, bindServiceIllustration, wifiIllustration } from './service-illustration.js?v=20261119v4r';
+import { securityDetails } from './security-details.js?v=20261119v4r';
+import { additionalServiceDetails } from './service-details.js?v=20261119v4r';
+import { groups } from './data.js?v=20261119v4r';
+import { officeCutaway } from './office-cutaway.js?v=20261119v4r';
+import { projectSchematic, bindProjectSchematic } from './project-schematic.js?v=20261119v4r';
+import { bcSeriesMap, businessComputingCatalog, bindBusinessComputingCatalog, businessComputingDetailPage, bindBusinessComputingDetail } from './business-computing-catalog.js?v=20261119v4r';
 
 try {
   if (localStorage.getItem('systech-theme') === 'cad') document.documentElement.dataset.theme = 'cad';
@@ -972,7 +972,7 @@ function enquiry() {
       <label class="field">Work email<input name="email" type="email" autocomplete="email" required maxlength="200"></label>
       <label class="field">Phone / WhatsApp<input name="phone" type="tel" autocomplete="tel" required maxlength="30" placeholder="+91 98450 00000"></label>
       <label class="field">Company<input name="company" autocomplete="organization" required maxlength="150"></label>
-      <label class="field">City / Site location <span class="field-optional">(optional)</span><input name="city" autocomplete="address-level2" maxlength="100" placeholder="Bengaluru, Chennai, Hyderabad, Dubai…"></label>
+      <label class="field"><span class="field-label">City / Site location <small class="field-optional">(optional)</small></span><input name="city" autocomplete="address-level2" maxlength="100" placeholder="e.g. Bengaluru, Chennai, Dubai"></label>
       <label class="field">Service<select name="service" required><option value="">Select a service</option>${groups.map(g => `<option value="${g.id}" ${g.id === selectedService ? 'selected' : ''}>${g.title}</option>`).join('')}</select></label>
       <label class="field wide">Enquiry category<select name="team" required><option value="">Select a category</option>${Object.entries(enquiryTeams).map(([id, label]) => `<option value="${id}"${id === suggestedTeam ? ' selected' : ''}>${label}</option>`).join('')}</select></label>
       ${assetRecoveryFields(suggestedTeam === 'recovery')}
@@ -1075,7 +1075,7 @@ const menu = document.querySelector('#menu-toggle');
 const solutionsToggle = document.querySelector('#solutions-toggle');
 const solutionsPanel = document.querySelector('#solutions-panel');
 const activeSolution = matchingDetail?.group.id ?? matchingGroup?.id ?? (matchingBcSeries ? 'devices' : (page === microsoftId ? 'cloud' : (page === softwareLicensingId ? 'security' : undefined)));
-const mobileNav = window.matchMedia('(max-width: 980px)');
+const mobileNav = window.matchMedia('(max-width: 1100px)');
 
 solutionsPanel.innerHTML = `
   <div class="solutions-panel-head">
