@@ -14,13 +14,18 @@ function polygon(points, fill = 'none', stroke = ink, weight = 1.05) {
   return `<polygon points="${points.map(project).join(' ')}" fill="${fill}" stroke="${stroke}" stroke-width="${weight}" stroke-linejoin="round"/>`;
 }
 
-function line(points, stroke = ink, weight = .85, dashed = false) {
-  return `<polyline${dashed ? ' class="cutaway-flow"' : ''} points="${points.map(project).join(' ')}" fill="none" stroke="${stroke}" stroke-width="${weight}" stroke-linecap="round" stroke-linejoin="round"${dashed ? ' stroke-dasharray="6 5"' : ''}/>`;
+function line(points, stroke = ink, weight = .85, dashed = false, className = '') {
+  const projected = points.map(project);
+  if (className && !dashed) {
+    return `<path class="${className}" pathLength="400" d="M${projected.join('L')}" fill="none" stroke="${stroke}" stroke-width="${weight}" stroke-linecap="round" stroke-linejoin="round"/>`;
+  }
+  return `<polyline${dashed ? ' class="cutaway-flow"' : ''} points="${projected.join(' ')}" fill="none" stroke="${stroke}" stroke-width="${weight}" stroke-linecap="round" stroke-linejoin="round"${dashed ? ' stroke-dasharray="6 5"' : ''}/>`;
 }
 
 function flowLine(points, weight = 1.6) {
-  const pts = points.map(project).join(' ');
-  return `<polyline points="${pts}" fill="none" stroke="${blue}" stroke-width="${weight}" stroke-linecap="round" stroke-linejoin="round"/>`
+  const projected = points.map(project);
+  const pts = projected.join(' ');
+  return `<path class="svg-draw-stroke" pathLength="400" d="M${projected.join('L')}" fill="none" stroke="${blue}" stroke-width="${weight}" stroke-linecap="round" stroke-linejoin="round"/>`
     + `<polyline class="cutaway-flow cutaway-pulse" points="${pts}" fill="none" stroke="#dbe9ff" stroke-width="${Math.max(1, weight - .7).toFixed(1)}" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 9"/>`;
 }
 
@@ -163,8 +168,8 @@ function workstations() {
 function switchingRoutes(hasMeeting) {
   const {aisleX, crossAisleY} = layout;
   const trunk = flowLine([[36,crossAisleY,1],[aisleX,crossAisleY,1],[aisleX,230,1],[467,230,1],[467,197,1],switchPosition], 2.4);
-  const drops = deskPods.map(x => line([[x+26,77,1],[x+26,181,1]], blue, 1.55)).join('');
-  const singleDesk = line([[237,248,1],[aisleX,248,1],[aisleX,230,1]], blue, 1.6);
+  const drops = deskPods.map(x => line([[x+26,77,1],[x+26,181,1]], blue, 1.55, false, 'svg-draw-stroke')).join('');
+  const singleDesk = line([[237,248,1],[aisleX,248,1],[aisleX,230,1]], blue, 1.6, false, 'svg-draw-stroke');
   const meetingDrop = hasMeeting
     ? flowLine([[412,67,14],[412,67,1],[319,67,1],[319,crossAisleY,1],[aisleX,crossAisleY,1]], 1.8)
     : '';
@@ -208,6 +213,7 @@ function floor(level, active, offset) {
     : '';
   const externalRoute = base ? `<g class="cutaway-route route-cloud">
     ${flowLine([switchPosition,[467,218,25],firewallPosition],2.3)}
+    <path class="svg-draw-stroke" pathLength="400" d="M${project(firewallPosition)}L500,170L517,170L517,108L533,108" fill="none" stroke="${blue}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.32"/>
     <polyline class="cutaway-flow" points="${project(firewallPosition)} 500,170 517,170 517,108 533,108" fill="none" stroke="${blue}" stroke-width="2.2" stroke-dasharray="6 5"/>
     ${hasServers ? flowLine([switchPosition,[446,217,29],[365,217,29],serverPosition],2.1) + flowLine([serverPosition,[365,226,23],[406,226,23],storagePosition],2.1) : ''}
     ${floorLabel(523,151,'Internet','cutaway-small-label')}
@@ -262,8 +268,8 @@ function floor(level, active, offset) {
     ${rectangle(18,40,0,258,62,zoneFill,'none')}
     ${rectangle(18,142,0,258,62,zoneFill,'none')}
     ${rectangle(283,15,0,45,280,'var(--cutaway-wall, #f2ebe0)','none')}
-    ${line([[283,15,1],[283,298,1]],'var(--cutaway-line, #a69b88)',.9)}
-    ${line([[328,15,1],[328,298,1]],'var(--cutaway-line, #a69b88)',.9)}
+    ${line([[283,15,1],[283,298,1]],'var(--cutaway-line, #a69b88)',.9,false,'svg-draw-stroke')}
+    ${line([[328,15,1],[328,298,1]],'var(--cutaway-line, #a69b88)',.9,false,'svg-draw-stroke')}
     ${meetingZone}${itRoom()}${breakoutArea()}
     ${switchingRoutes(hasMeeting)}${externalRoute}
     <g class="cutaway-route route-security">${cameraLine}${recorderLine}${accessLines}</g>
@@ -273,7 +279,7 @@ function floor(level, active, offset) {
     ${serverZone}
     ${cameraZone}
     ${accessZone}
-    <g class="cutaway-route route-network route-uplink">${line([switchPosition,riserPosition],blue,2.3)}</g>
+    <g class="cutaway-route route-network route-uplink">${line([switchPosition,riserPosition],blue,2.3,false,'svg-draw-stroke')}</g>
     ${floorLabel(-183,19,'Floor '+level,'cutaway-floor-label')}
     ${floorLabel(-183,37,'25 desks','cutaway-floor-sub')}
     ${line([[82,308,0],[82,324,-9]],'#6886aa',.9)}
@@ -287,18 +293,98 @@ function floor(level, active, offset) {
   </g>`;
 }
 
+const accent = 'var(--cutaway-accent, #004de7)';
+
+function draftingMarks(levelOffsets, lastFloor) {
+  const frameTop = -67;
+  const frameLeft = -207;
+  const frameWidth = 854;
+  const frameBottom = lastFloor + 281;
+  const frameHeight = frameBottom - frameTop;
+  const corners = [
+    [-213, -75],
+    [653, -75],
+    [-213, lastFloor + 279],
+    [653, lastFloor + 279]
+  ].map(([cx, cy]) => `<path d="M${cx - 4.5} ${cy}h9M${cx} ${cy - 4.5}v9" stroke="${ink}" stroke-width="0.9" opacity="0.45"/>`).join('');
+  const gridTicks = [
+    ['X-01', -156],
+    ['X-02', -24],
+    ['X-03', 108],
+    ['X-04', 240],
+    ['X-05', 372],
+    ['X-06', 504]
+  ].map(([code, gx]) => `<path d="M${gx} -70v6" stroke="${ink}" stroke-width="0.8" opacity="0.42"/>`
+    + `<text x="${gx}" y="-72.5" text-anchor="middle" fill="${ink}" opacity="0.64" font-family="Geist,Arial,sans-serif" font-size="7.5" font-weight="600" letter-spacing="0.08em">GRID ${code}</text>`).join('');
+  const elevTicks = levelOffsets.map((offset) => {
+    const datumY = (offset + 107.44).toFixed(1);
+    return `<path d="M-210 ${datumY}h6" stroke="${ink}" stroke-width="0.8" opacity="0.45"/>`;
+  }).join('');
+  const elevY = lastFloor + 245;
+  const elevDatum = `<path d="M-210 ${elevY}h9M-207 ${elevY}l4-3v6z" fill="${ink}" fill-opacity="0.35" stroke="${ink}" stroke-width="0.75" opacity="0.65"/>`
+    + `<text x="-195" y="${elevY + 2.5}" fill="${ink}" opacity="0.72" font-family="Geist,Arial,sans-serif" font-size="7.5" font-weight="700" letter-spacing="0.08em">ELEV Z-00</text>`;
+  return `<g class="cutaway-drafting-marks" pointer-events="none">
+    <rect x="${frameLeft}" y="${frameTop}" width="${frameWidth}" height="${frameHeight}" rx="2" fill="none" stroke="${ink}" stroke-width="0.7" opacity="0.24"/>
+    ${corners}${gridTicks}${elevTicks}${elevDatum}
+  </g>`;
+}
+
+function compassMarker() {
+  return `<g class="cutaway-compass" pointer-events="none">
+    <circle cx="606" cy="-24" r="20" fill="${paper}" fill-opacity="0.72" stroke="${ink}" stroke-width="0.75" stroke-dasharray="2.5 2.5" opacity="0.58"/>
+    <circle cx="606" cy="-24" r="13.5" fill="none" stroke="${ink}" stroke-width="0.65" opacity="0.32"/>
+    <path d="M590.4 -27.7L621.6 -20.3M591.9 -16.5L620.1 -31.5" stroke="${ink}" stroke-width="0.7" opacity="0.38"/>
+    <path d="M614.2 -36.8a15.5 15.5 0 0 1 5.9 7.4M616.5 -40.2a19.5 19.5 0 0 1 7.4 9.3" fill="none" stroke="${accent}" stroke-width="1" stroke-linecap="round" opacity="0.68"/>
+    <polygon points="621.5,-32.2 604.2,-27.3 606,-24" fill="${accent}"/>
+    <polygon points="621.5,-32.2 606,-24 609,-21.2" fill="none" stroke="${ink}" stroke-width="0.8" stroke-linejoin="round" opacity="0.75"/>
+    <text x="628" y="-34.5" fill="${accent}" font-family="Geist,Arial,sans-serif" font-size="8.5" font-weight="700" letter-spacing="0.06em">N</text>
+    <text x="606" y="4.5" text-anchor="middle" fill="${ink}" opacity="0.64" font-family="Geist,Arial,sans-serif" font-size="7" font-weight="600" letter-spacing="0.09em">NORTH · SIG</text>
+  </g>`;
+}
+
+function titleBlock(seats, levelCount, lastFloor) {
+  const top = lastFloor + 257;
+  return `<g class="cutaway-title-block" pointer-events="none">
+    <rect x="-207" y="${top}" width="854" height="24" fill="${cardFill}" opacity="0.92"/>
+    <rect x="456" y="${top}" width="191" height="24" fill="${zoneFill}" opacity="0.72"/>
+    <rect x="-207" y="${top}" width="854" height="24" fill="none" stroke="${ink}" stroke-width="0.8" opacity="0.42"/>
+    <line x1="456" y1="${top}" x2="456" y2="${top + 24}" stroke="${ink}" stroke-width="0.7" opacity="0.35"/>
+    <text x="-197" y="${top + 10}" fill="${ink}" font-family="Geist,Arial,sans-serif" font-size="8.3" font-weight="700" letter-spacing="0.055em">SYSTECH SERVICES PVT. LTD. · ARCHITECTURAL INFRASTRUCTURE SCHEMATIC</text>
+    <text x="-197" y="${top + 20}" fill="${ink}" opacity="0.75" font-family="Geist,Arial,sans-serif" font-size="7.5" font-weight="600" letter-spacing="0.048em">ISO 9001:2015 · LENOVO 360 PLATINUM 2026 · CAD SCALE 1:100</text>
+    <line x1="252" y1="${top + 17.5}" x2="266" y2="${top + 17.5}" stroke="${accent}" stroke-width="2" stroke-linecap="round"/>
+    <text x="271" y="${top + 20}" fill="${ink}" opacity="0.68" font-family="Geist,Arial,sans-serif" font-size="7.1" font-weight="600" letter-spacing="0.06em">ACTIVE ROUTE</text>
+    <rect x="348" y="${top + 14}" width="10" height="6.5" fill="var(--cutaway-ghost, rgba(0, 77, 231, 0.08))" stroke="${accent}" stroke-width="0.9" stroke-dasharray="2.5 1.8"/>
+    <text x="362" y="${top + 20}" fill="${ink}" opacity="0.68" font-family="Geist,Arial,sans-serif" font-size="7.1" font-weight="600" letter-spacing="0.06em">INTERACTIVE ZONE</text>
+    <text x="551.5" y="${top + 10.5}" text-anchor="middle" fill="${accent}" font-family="Geist,Arial,sans-serif" font-size="8.8" font-weight="700" letter-spacing="0.06em">${seats}-SEAT ROLLOUT</text>
+    <text x="551.5" y="${top + 20}" text-anchor="middle" fill="${ink}" opacity="0.66" font-family="Geist,Arial,sans-serif" font-size="7.1" font-weight="600" letter-spacing="0.06em">${levelCount} ${levelCount === 1 ? 'FLOOR MODULE' : 'FLOOR STACK'} · REV 2026</text>
+  </g>`;
+}
+
 export function officeCutaway(seats, active) {
-  const levelCount = seats / 25;
+  const levelCount = Math.max(1, Math.ceil((Number(seats) || 25) / 25));
   const levelOffsets = Array.from({length: levelCount}, (_, index) => index * layout.floorGap);
   const [riserX, riserY] = project(riserPosition).split(',').map(Number);
   const lastFloor = levelOffsets.at(-1);
   const riser = levelCount > 1 ? `<g class="cutaway-route route-network cutaway-riser">
-    <path class="cutaway-flow" d="M${riserX} ${riserY}V${riserY + lastFloor}" stroke="${blue}" stroke-width="2.5" stroke-dasharray="7 5"/>
+    <path class="svg-draw-stroke" pathLength="400" d="M${riserX} ${riserY}V${riserY + lastFloor}" fill="none" stroke="${blue}" stroke-width="2.5" stroke-linecap="round" opacity="0.45"/>
+    <path class="cutaway-flow" d="M${riserX} ${riserY}V${riserY + lastFloor}" fill="none" stroke="${blue}" stroke-width="2.5" stroke-dasharray="7 5"/>
     ${levelOffsets.map(offset => `<circle cx="${riserX}" cy="${riserY+offset}" r="4" fill="${blue}"/>`).join('')}
     ${floorLabel(riserX+13,riserY+layout.floorGap*.36,'Cable riser','cutaway-small-label')}
   </g>` : '';
-  return `<svg class="floorplan-cutaway" viewBox="-213 -67 859 ${lastFloor + 324}" aria-hidden="true">
+  return `<svg class="floorplan-cutaway" viewBox="-220 -82 880 ${lastFloor + 368}" aria-hidden="true">
+    <style>
+      @keyframes cutaway-draw{from{stroke-dashoffset:420}to{stroke-dashoffset:0}}
+      .floorplan-cutaway .svg-draw-stroke{stroke-dasharray:420;stroke-dashoffset:0;animation:cutaway-draw 1.1s cubic-bezier(.16,1,.3,1) both}
+      .reveal-pending .floorplan-cutaway .svg-draw-stroke{animation:none;stroke-dashoffset:420}
+      @media print,(prefers-reduced-motion:reduce){
+        .floorplan-cutaway .svg-draw-stroke{animation:none!important;transition:none!important;stroke-dasharray:none!important;stroke-dashoffset:0!important}
+        .floorplan-cutaway .cutaway-flow{animation:none!important}
+      }
+    </style>
+    ${draftingMarks(levelOffsets, lastFloor)}
+    ${compassMarker()}
     ${levelOffsets.map((offset,index) => floor(levelCount-index,active,offset)).join('')}
     ${riser}
+    ${titleBlock(seats, levelCount, lastFloor)}
   </svg>`;
 }

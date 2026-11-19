@@ -1,0 +1,60 @@
+{
+  "rewrites": [
+    {
+      "source": "/solutions",
+      "destination": "/index.html?page=solutions"
+    },
+    {
+      "source": "/planner",
+      "destination": "/index.html?page=planner"
+    },
+    {
+      "source": "/lenovo-platinum",
+      "destination": "/index.html?page=lenovo-partner"
+    },
+    {
+      "source": "/lenovo-partner",
+      "destination": "/index.html?page=lenovo-partner"
+    },
+    {
+      "source": "/business-computing",
+      "destination": "/index.html?page=business-computing"
+    },
+    {
+      "source": "/industries",
+      "destination": "/index.html?page=industries"
+    },
+    {
+      "source": "/company",
+      "destination": "/index.html?page=company"
+    },
+    {
+      "source": "/contact",
+      "destination": "/index.html?page=contact"
+    },
+    {
+      "source": "/partners",
+      "destination": "/index.html?page=partners"
+    },
+    {
+      "source": "/repairs",
+      "destination": "/index.html?page=repairs"
+    },
+    {
+      "source": "/resources",
+      "destination": "/index.html?page=resources"
+    },
+    {
+      "source": "/case-studies",
+      "destination": "/index.html?page=case-studies"
+    },
+    {
+      "source": "/software-licensing",
+      "destination": "/index.html?page=software-licensing"
+    },
+    {
+      "source": "/careers",
+      "destination": "/index.html?page=careers"
+    }
+  ]
+}

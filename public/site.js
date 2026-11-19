@@ -1,19 +1,19 @@
-import { careersPage, bindCareersPage, privacyPolicyPage, termsPage, returnPolicyPage } from './launch-pages.js?v=20261119v4r';
-import { companyProfile, companyEditorial, companyReviews, resourceEditorial, bindResourcesPage } from './editorial.js?v=20261119v4r';
-import { assetRecoveryWorkflow, assetRecoveryFields, assetRecoveryDraftLines } from './asset-recovery.js?v=20261119v4r';
-import { enquiryTeams, suggestEnquiryTeam } from './enquiry-routing.js?v=20261119v4r';
-import { whatsappUrl, ENQUIRY_ENDPOINT } from './ecosystem-data.js?v=20261119v4r';
-import { partnersId, industriesId, caseStudiesId, enterpriseProofBand, partnersPage, industriesPage, bindIndustriesPage, caseStudiesPage, bindCaseStudiesPage } from './industries-partners.js?v=20261119v4r';
-import { microsoftId, microsoftTitle, microsoftSolutionsPage, microsoftEnquiryRequirement, bindMicrosoftSolutions } from './microsoft-solutions.js?v=20261119v4r';
-import { softwareLicensingId, softwareLicensingTitle, softwareLicensingPage, bindSoftwareLicensing, softwareLicensingRequirement } from './software-licensing.js?v=20261119v4r';
-import { lenovoPartnerId, lenovoPartnerTitle, lenovoPartnerPage, bindLenovoPartner, lenovoEnquiryRequirement } from './lenovo-partner.js?v=20261119v4r';
-import { serviceIllustration, bindServiceIllustration, wifiIllustration } from './service-illustration.js?v=20261119v4r';
-import { securityDetails } from './security-details.js?v=20261119v4r';
-import { additionalServiceDetails } from './service-details.js?v=20261119v4r';
-import { groups } from './data.js?v=20261119v4r';
-import { officeCutaway } from './office-cutaway.js?v=20261119v4r';
-import { projectSchematic, bindProjectSchematic } from './project-schematic.js?v=20261119v4r';
-import { bcSeriesMap, businessComputingCatalog, bindBusinessComputingCatalog, businessComputingDetailPage, bindBusinessComputingDetail } from './business-computing-catalog.js?v=20261119v4r';
+import { careersPage, bindCareersPage, privacyPolicyPage, termsPage, returnPolicyPage } from './launch-pages.js?v=20261119v4s';
+import { companyProfile, companyEditorial, companyReviews, resourceEditorial, bindResourcesPage } from './editorial.js?v=20261119v4s';
+import { assetRecoveryWorkflow, assetRecoveryFields, assetRecoveryDraftLines } from './asset-recovery.js?v=20261119v4s';
+import { enquiryTeams, suggestEnquiryTeam } from './enquiry-routing.js?v=20261119v4s';
+import { whatsappUrl, ENQUIRY_ENDPOINT } from './ecosystem-data.js?v=20261119v4s';
+import { partnersId, industriesId, caseStudiesId, enterpriseProofBand, partnersPage, industriesPage, bindIndustriesPage, caseStudiesPage, bindCaseStudiesPage } from './industries-partners.js?v=20261119v4s';
+import { microsoftId, microsoftTitle, microsoftSolutionsPage, microsoftEnquiryRequirement, bindMicrosoftSolutions } from './microsoft-solutions.js?v=20261119v4s';
+import { softwareLicensingId, softwareLicensingTitle, softwareLicensingPage, bindSoftwareLicensing, softwareLicensingRequirement } from './software-licensing.js?v=20261119v4s';
+import { lenovoPartnerId, lenovoPartnerTitle, lenovoPartnerPage, bindLenovoPartner, lenovoEnquiryRequirement } from './lenovo-partner.js?v=20261119v4s';
+import { serviceIllustration, bindServiceIllustration, wifiIllustration } from './service-illustration.js?v=20261119v4s';
+import { securityDetails } from './security-details.js?v=20261119v4s';
+import { additionalServiceDetails } from './service-details.js?v=20261119v4s';
+import { groups } from './data.js?v=20261119v4s';
+import { officeCutaway } from './office-cutaway.js?v=20261119v4s';
+import { projectSchematic, bindProjectSchematic } from './project-schematic.js?v=20261119v4s';
+import { bcSeriesMap, businessComputingCatalog, bindBusinessComputingCatalog, businessComputingDetailPage, bindBusinessComputingDetail } from './business-computing-catalog.js?v=20261119v4s';
 
 try {
   if (localStorage.getItem('systech-theme') === 'cad') document.documentElement.dataset.theme = 'cad';
@@ -30,7 +30,36 @@ const runTransition = fn => {
 };
 
 const params = new URLSearchParams(location.search);
-const page = params.get('page') || 'home';
+const cleanPathnameRoutes = {
+  '/solutions': 'solutions',
+  '/planner': 'planner',
+  '/lenovo-platinum': 'lenovo-partner',
+  '/lenovo-partner': 'lenovo-partner',
+  '/business-computing': 'business-computing',
+  '/industries': 'industries',
+  '/company': 'company',
+  '/contact': 'contact',
+  '/partners': 'partners',
+  '/repairs': 'repairs',
+  '/resources': 'resources',
+  '/case-studies': 'case-studies',
+  '/software-licensing': 'software-licensing',
+  '/careers': 'careers',
+  '/devices': 'devices',
+  '/cloud': 'cloud',
+  '/office': 'office',
+  '/security': 'security',
+  '/renewal': 'renewal',
+  '/other-brands': 'other-brands'
+};
+const normalizedPath = location.pathname.replace(/\/+$/, '').toLowerCase() || '/';
+const page = params.get('page') || (Object.hasOwn(cleanPathnameRoutes, normalizedPath) ? cleanPathnameRoutes[normalizedPath] : 'home');
+const createSystechRef = (prefix = 'SYS') => {
+  const d = new Date();
+  const yymmdd = String(d.getFullYear()).slice(2) + String(d.getMonth() + 1).padStart(2, '0') + String(d.getDate()).padStart(2, '0');
+  const code = Math.floor(1000 + Math.random() * 9000);
+  return `${prefix}-${yymmdd}-${code}`;
+};
 const main = document.querySelector('main');
 const capacities = ['25', '50', '100', '250'];
 const clampSeats = value => {
@@ -125,27 +154,27 @@ function finalCall() {
 
 const heroHotspots = [
   {
-    id: 'workstations', num: '01', label: 'Workstations', x: 36, y: 53,
+    id: 'workstations', num: '01', label: 'Workstations', x: 32, y: 43,
     title: 'Role-matched ThinkPad, Mac & Workstation desks',
     spec: 'Lenovo ThinkPad / ThinkStation · Apple · USB-C Docks · Dual 4K',
     href: '?page=devices', cta: 'Explore devices', plannerHref: '?page=planner&seats=50'
   },
   {
-    id: 'meeting', num: '02', label: 'AV & Wi-Fi', x: 63, y: 22,
+    id: 'meeting', num: '02', label: 'AV & Wi-Fi', x: 66, y: 28,
     title: 'High-density ceiling Wi-Fi 6/7 & conference room AV',
     spec: 'Aruba / Cisco APs · 4K Display & Video Bar · IP-PBX',
     href: '?page=meeting-rooms-telephony', cta: 'Explore meeting AV', plannerHref: '?page=planner&seats=50&option=meeting'
   },
   {
-    id: 'cabling', num: '03', label: 'Cat6A & Fibre', x: 65, y: 80,
+    id: 'cabling', num: '03', label: 'Cat6A & Fibre', x: 56, y: 70,
     title: 'Structured underfloor Cat6A drops & optical fibre trunks',
-    spec: 'Fluke-certified Cat6A · PoE+ Uplinks · Floor Riser Backbones',
+    spec: 'Fluke-certified Cat6A · OM4 Fibre · Edge NGFW Gateway',
     href: '?page=structured-cabling', cta: 'Explore cabling', plannerHref: '?page=planner&seats=50&view=network'
   },
   {
-    id: 'rack', num: '04', label: 'Server Rack', x: 82, y: 42,
+    id: 'rack', num: '04', label: 'Server Rack', x: 78, y: 42,
     title: 'Managed PoE+ switching, UTM firewall & ThinkSystem rack',
-    spec: 'Lenovo ThinkSystem · Fortinet / Sophos HA · Online UPS',
+    spec: 'Lenovo ThinkSystem · Redundant UPS · Hybrid Cloud Uplinks',
     href: '?page=servers-hci', cta: 'Explore servers & security', plannerHref: '?page=planner&seats=50&option=servers&view=cloud'
   }
 ];
@@ -153,6 +182,382 @@ const heroHotspots = [
 function heroReadoutHtml(spot) {
   return `<div class="hero-xray-meta"><span class="hero-xray-spec">${spot.spec}</span><strong>${spot.title}</strong></div>
     <div class="hero-xray-links"><a class="arrow-link" href="${spot.href}">${spot.cta} <span aria-hidden="true">→</span></a><a class="arrow-link hero-xray-planner" href="${spot.plannerHref}">Inspect in 3D planner <span aria-hidden="true">→</span></a></div>`;
+}
+
+/**
+ * Renders the multi-layer isometric architectural office blueprint SVG for the hero stage.
+ * Uses CSS custom properties for seamless Paper Mode and CAD Dark Mode contrast.
+ */
+function heroBlueprintSvg() {
+  const ink = 'var(--cutaway-ink, #101928)';
+  const blue = 'var(--cutaway-blue, #004de7)';
+  const surface = 'var(--cutaway-surface, #f8fbff)';
+  const wall = 'var(--cutaway-wall, #dce6f3)';
+  const desk = 'var(--cutaway-desk, #eaf2fc)';
+  const zone = 'var(--cutaway-zone, #f2f7fd)';
+  const card = 'var(--cutaway-card, #ffffff)';
+  const glass = 'var(--cutaway-glass, rgba(219, 234, 255, 0.36))';
+  const line = 'var(--cutaway-line, #7c95b6)';
+  const cyan = '#38bdf8';
+
+  const pt = (x, y, z = 0) => [
+    +(365 + 0.90 * x - 0.72 * y).toFixed(1),
+    +(94 + 0.31 * x + 0.41 * y - z).toFixed(1)
+  ];
+  const pts = arr => arr.map(p => pt(p[0], p[1], p[2] ?? 0).join(',')).join(' ');
+  const poly = (arr, fill = 'none', stroke = ink, w = 1, extra = '') =>
+    `<polygon points="${pts(arr)}" fill="${fill}" stroke="${stroke}" stroke-width="${w}" stroke-linejoin="round"${extra ? ' ' + extra : ''}/>`;
+  const pline = (arr, stroke = ink, w = 1, extra = '') =>
+    `<polyline points="${pts(arr)}" fill="none" stroke="${stroke}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"${extra ? ' ' + extra : ''}/>`;
+  const box = (x, y, z, w, d, h, topFill = desk, frontFill = wall, sideFill = zone, stroke = ink, sw = 0.85) =>
+    poly([[x, y + d, z], [x + w, y + d, z], [x + w, y + d, z + h], [x, y + d, z + h]], frontFill, stroke, sw)
+    + poly([[x + w, y, z], [x + w, y + d, z], [x + w, y + d, z + h], [x + w, y, z + h]], sideFill, stroke, sw)
+    + poly([[x, y, z + h], [x + w, y, z + h], [x + w, y + d, z + h], [x, y + d, z + h]], topFill, stroke, sw);
+
+  const xTicks = [[30, 'X:00'], [205, 'X:205'], [410, 'X:410'], [615, 'X:615'], [784, 'X:820']].map(([x, label]) =>
+    `<line x1="${x}" y1="22" x2="${x}" y2="26" stroke="${line}" stroke-width="0.9"/><text x="${x}" y="17" text-anchor="middle" font-size="9" font-weight="600" letter-spacing="0.06em" fill="${ink}" fill-opacity="0.58">${label}</text>`
+  ).join('');
+  const yTicks = [[38, 'Y:00'], [140, 'Y:125'], [250, 'Y:250'], [360, 'Y:375'], [464, 'Y:500']].map(([y, label]) =>
+    `<line x1="20" y1="${y}" x2="24" y2="${y}" stroke="${line}" stroke-width="0.9"/><text x="16" y="${y + 3}" text-anchor="end" font-size="9" font-weight="600" letter-spacing="0.05em" fill="${ink}" fill-opacity="0.55" transform="rotate(-90 16 ${y})">${label}</text>`
+  ).join('');
+
+  const pedestals = [
+    ...[60, 120, 180, 240, 300, 360].map(x => pline([[x, 360, -36], [x, 360, -16]], line, 1.4)),
+    ...[60, 120, 180, 240, 300].map(y => pline([[420, y, -36], [420, y, -16]], line, 1.4))
+  ].join('');
+  const floorGrid = [
+    ...[60, 120, 180, 240, 300, 360].map(x => pline([[x, 0, 0], [x, 360, 0]], line, 0.55, 'stroke-opacity="0.28"')),
+    ...[60, 120, 180, 240, 300].map(y => pline([[0, y, 0], [420, y, 0]], line, 0.55, 'stroke-opacity="0.28"'))
+  ].join('');
+  const windows = Array.from({ length: 6 }, (_, i) => {
+    const wx = 18 + i * 64;
+    return poly([[wx, 0.5, 14], [wx + 48, 0.5, 14], [wx + 48, 0.5, 44], [wx, 0.5, 44]], card, line, 0.8);
+  }).join('');
+
+  const stationCoords = [
+    { x: 40, y: 74, facing: 'back' },
+    { x: 104, y: 74, facing: 'back' },
+    { x: 40, y: 106, facing: 'front' },
+    { x: 104, y: 106, facing: 'front' },
+    { x: 40, y: 192, facing: 'back' },
+    { x: 104, y: 192, facing: 'back' },
+    { x: 40, y: 224, facing: 'front' },
+    { x: 104, y: 224, facing: 'front' },
+    { x: 44, y: 292, facing: 'front', specialist: true }
+  ].sort((a, b) => (0.31 * a.x + 0.41 * a.y) - (0.31 * b.x + 0.41 * b.y));
+
+  const renderStation = ({ x, y, facing, specialist }) => {
+    const isBack = facing === 'back';
+    const monY = isBack ? y + 18 : y + 3;
+    const dockY = isBack ? y + 13 : y + 9;
+    const chairY = isBack ? y - 12 : y + 29;
+    const w = specialist ? 62 : 52;
+    const d = specialist ? 26 : 22;
+    const [dx, dy] = pt(x + 25, dockY + 2, 17);
+    return `<g>
+      ${pline([[x + 5, y + d - 2, 0], [x + 5, y + d - 2, 13]], ink, 0.9)}
+      ${pline([[x + w - 5, y + d - 2, 0], [x + w - 5, y + d - 2, 13]], ink, 0.9)}
+      ${box(x, y, 13, w, d, 2, card, wall, desk, ink, 0.8)}
+      ${box(x + 6, monY, 15, 14, 2, 9.5, desk, blue, wall, ink, 0.7)}
+      ${box(x + 22, monY, 15, 14, 2, 9.5, desk, blue, wall, ink, 0.7)}
+      ${pline([[x + 8, monY + 2.2, 23], [x + 18, monY + 2.2, 23]], cyan, 0.95)}
+      ${pline([[x + 24, monY + 2.2, 23], [x + 34, monY + 2.2, 23]], cyan, 0.95)}
+      ${box(x + 39, dockY + 1, 15, 10, 7, 1.5, wall, ink, desk, ink, 0.65)}
+      ${poly([[x + 39, dockY + 1, 16.5], [x + 49, dockY + 1, 16.5], [x + 49, dockY - 3, 24], [x + 39, dockY - 3, 24]], card, blue, 0.75)}
+      ${box(x + 22, dockY, 15, 8, 3.5, 2, blue, ink, blue, ink, 0.6)}
+      <circle cx="${dx}" cy="${dy}" r="1.3" fill="${cyan}"/>
+      ${specialist ? box(x + w + 5, y + 4, 0, 11, 18, 17, card, blue, desk, ink, 0.8) : ''}
+      ${box(x + 18, chairY, 0, 12, 9, 7, desk, wall, zone, ink, 0.75)}
+    </g>`;
+  };
+
+  const renderWifiAp = (wx, wy, wz) => {
+    const [ax, ay] = pt(wx, wy, wz);
+    return `<g>
+      <circle class="hero-wifi-ring" cx="${ax}" cy="${ay}" r="13" fill="none" stroke="${cyan}" stroke-width="1.3" stroke-opacity="0.8"/>
+      <circle class="hero-wifi-ring hero-wifi-ring-2" cx="${ax}" cy="${ay}" r="23" fill="none" stroke="${blue}" stroke-width="1.15" stroke-opacity="0.55"/>
+      <circle class="hero-wifi-ring hero-wifi-ring-3" cx="${ax}" cy="${ay}" r="33" fill="none" stroke="${cyan}" stroke-width="1" stroke-opacity="0.35"/>
+      <polygon points="${ax},${ay - 5.5} ${ax + 7},${ay} ${ax},${ay + 5.5} ${ax - 7},${ay}" fill="${card}" stroke="${blue}" stroke-width="1.3"/>
+      <circle cx="${ax}" cy="${ay}" r="2.1" fill="${cyan}"/>
+    </g>`;
+  };
+
+  const cat6aTrunk = [[104, 104, 0], [104, 104, -7], [214, 104, -7], [214, 298, -11], [378, 298, -11], [378, 146, -7], [378, 146, 22]];
+  const podBDrop = [[104, 222, 0], [104, 222, -7], [214, 222, -7]];
+  const specDrop = [[74, 304, 0], [74, 304, -9], [214, 304, -11]];
+  const meetingDrop = [[262, 134, 0], [262, 152, -7], [214, 152, -7]];
+  const fiberTrunk = [[402, 336, -12], [336, 336, -12], [316, 306, -4], [386, 306, -11], [386, 146, -8], [386, 146, 28]];
+  const cat6aPulse = [[104, 222, -7], [214, 222, -7], [214, 298, -11], [378, 298, -11], [378, 146, -7], [378, 146, 22]];
+  const [rackTopX, rackTopY] = pt(391, 127, 72);
+  const [ngfwLabelX, ngfwLabelY] = pt(334, 358, -14);
+  const [workLabelX, workLabelY] = pt(46, 338, 2);
+  const [rackLabelX, rackLabelY] = pt(412, 118, 76);
+
+  const rackSlots = Array.from({ length: 8 }, (_, idx) => {
+    const rz = 6 + idx * 7.6;
+    const isSwitch = idx >= 6;
+    return poly([[377, 146.4, rz], [405, 146.4, rz], [405, 146.4, rz + 4.8], [377, 146.4, rz + 4.8]], isSwitch ? blue : '#1e3a63', line, 0.45)
+      + `<circle cx="${pt(380, 146.5, rz + 2.4)[0]}" cy="${pt(380, 146.5, rz + 2.4)[1]}" r="1.2" fill="${isSwitch ? cyan : '#60a5fa'}"/>`;
+  }).join('');
+
+  return `<svg class="hero-blueprint-svg" viewBox="0 0 820 500" role="img" aria-label="Interactive isometric office IT blueprint showing workstations, AV and Wi-Fi meeting room, underfloor Cat6A and fibre cabling, and 42U server rack">
+    <defs>
+      <pattern id="hero-bp-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+        <path d="M 24 0 L 0 0 0 24" fill="none" stroke="${ink}" stroke-opacity="0.065" stroke-width="0.7"/>
+      </pattern>
+      <linearGradient id="hero-bp-slab" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="${surface}"/>
+        <stop offset="100%" stop-color="${desk}"/>
+      </linearGradient>
+    </defs>
+
+    <g class="hero-bp-frame">
+      <rect x="24" y="26" width="772" height="448" rx="6" fill="url(#hero-bp-grid)" stroke="${line}" stroke-opacity="0.34" stroke-width="0.85"/>
+      <path d="M24 38 V26 H36 M784 26 H796 V38 M24 462 V474 H36 M784 474 H796 V462" fill="none" stroke="${blue}" stroke-width="1.4" stroke-opacity="0.65"/>
+      ${xTicks}
+      ${yTicks}
+      <text x="36" y="45" font-size="9.5" font-weight="700" letter-spacing="0.08em" fill="${ink}" fill-opacity="0.72">BLR-INFRA · ISOMETRIC CUTAWAY · SCALE 1:80</text>
+      <text x="36" y="463" font-size="9" font-weight="600" letter-spacing="0.06em" fill="${ink}" fill-opacity="0.62">EL +0.00M RAISED ACCESS FLOOR · -0.45M CAT6A / OM4 PLENUM</text>
+    </g>
+
+    <g class="hero-bp-structure">
+      ${box(0, 0, -42, 420, 360, 6, wall, line, wall, ink, 0.8)}
+      ${pedestals}
+      ${box(0, 0, -16, 420, 360, 16, 'url(#hero-bp-slab)', wall, zone, ink, 1)}
+      ${floorGrid}
+      ${poly([[248, 274, -12], [404, 274, -12], [404, 352, -12], [248, 352, -12]], zone, blue, 1)}
+      ${poly([[248, 274, -12], [404, 274, -12], [404, 274, 0], [248, 274, 0]], wall, ink, 0.75)}
+      ${poly([[248, 274, -12], [248, 352, -12], [248, 352, 0], [248, 274, 0]], desk, ink, 0.75)}
+      ${pline([[248, 352, 0], [248, 274, 0], [404, 274, 0], [404, 352, 0], [248, 352, 0]], blue, 1.25)}
+      ${poly([[0, 0, 0], [420, 0, 0], [420, 0, 52], [0, 0, 52]], wall, ink, 0.9)}
+      ${windows}
+      ${poly([[0, 0, 0], [0, 108, 0], [0, 108, 52], [0, 0, 52]], zone, ink, 0.9)}
+      ${poly([[20, 52, 0.2], [192, 52, 0.2], [192, 340, 0.2], [20, 340, 0.2]], zone, line, 0.65, 'fill-opacity="0.45"')}
+      ${poly([[198, 16, 0.2], [234, 16, 0.2], [234, 344, 0.2], [198, 344, 0.2]], desk, line, 0.5, 'fill-opacity="0.5" stroke-dasharray="4 3"')}
+    </g>
+
+    <g class="hero-svg-layer" data-hero-layer="cabling">
+      ${[266, 290, 314, 338, 362, 386].map(tx => pline([[tx, 286, -12], [tx, 342, -12]], line, 0.7, 'stroke-opacity="0.55"')).join('')}
+      ${pline(podBDrop, blue, 1.8)}
+      ${pline(specDrop, blue, 1.8)}
+      ${pline(meetingDrop, blue, 1.8)}
+      ${pline(cat6aTrunk, blue, 2.2)}
+      ${pline(fiberTrunk, cyan, 2.1)}
+      <polyline class="hero-svg-fiber-pulse" points="${pts(cat6aPulse)}" fill="none" stroke="${cyan}" stroke-width="2" stroke-dasharray="6 10" stroke-linecap="round" stroke-linejoin="round"/>
+      <polyline class="hero-svg-fiber-pulse hero-svg-fiber-pulse-alt" points="${pts(fiberTrunk)}" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-dasharray="6 18" stroke-linecap="round" stroke-linejoin="round"/>
+      ${box(296, 290, -12, 40, 30, 14, card, blue, wall, ink, 0.95)}
+      ${pline([[302, 320.2, -5], [330, 320.2, -5]], cyan, 1.4)}
+      <text class="hero-svg-label" x="${ngfwLabelX + 8}" y="${ngfwLabelY + 12}" font-size="9" letter-spacing="0.05em">CAT6A · OM4 · NGFW</text>
+    </g>
+
+    <g class="hero-svg-layer" data-hero-layer="workstations">
+      ${box(40, 100, 14, 116, 3, 9, wall, line, wall, ink, 0.65)}
+      ${box(40, 218, 14, 116, 3, 9, wall, line, wall, ink, 0.65)}
+      ${stationCoords.map(renderStation).join('')}
+      <text class="hero-svg-label" x="${workLabelX - 28}" y="${workLabelY + 18}" font-size="9" letter-spacing="0.05em">THINKPAD · DUAL 4K</text>
+    </g>
+
+    <g class="hero-svg-layer" data-hero-layer="meeting">
+      ${poly([[198, 16, 0.3], [328, 16, 0.3], [328, 134, 0.3], [198, 134, 0.3]], desk, line, 0.8)}
+      ${poly([[234, 16.5, 20], [292, 16.5, 20], [292, 16.5, 40], [234, 16.5, 40]], '#162945', ink, 0.9)}
+      ${pline([[240, 16.8, 30], [286, 16.8, 30]], cyan, 1.2)}
+      ${box(248, 16.5, 16, 30, 3, 3, ink, blue, ink, ink, 0.6)}
+      ${[236, 260, 284].map(cx => box(cx, 41, 0, 11, 9, 7.5, card, wall, zone, ink, 0.7)).join('')}
+      ${box(212, 68, 0, 9, 12, 7.5, card, wall, zone, ink, 0.7)}
+      ${box(226, 54, 12, 72, 38, 3, desk, wall, zone, ink, 0.85)}
+      ${box(256, 68, 15, 12, 10, 2, '#162945', blue, ink, ink, 0.65)}
+      ${box(302, 68, 0, 9, 12, 7.5, card, wall, zone, ink, 0.7)}
+      ${[236, 260, 284].map(cx => box(cx, 99, 0, 11, 9, 7.5, card, wall, zone, ink, 0.7)).join('')}
+      ${poly([[196, 16, 0], [196, 134, 0], [196, 134, 48], [196, 16, 48]], glass, line, 0.9)}
+      ${poly([[328, 16, 0], [328, 134, 0], [328, 134, 48], [328, 16, 48]], glass, line, 0.9)}
+      ${poly([[196, 134, 0], [328, 134, 0], [328, 134, 46], [196, 134, 46]], glass, line, 0.95)}
+      ${pline([[262, 134, 0], [262, 134, 46]], line, 0.8)}
+      ${pline([[206, 24, 54], [318, 24, 54], [318, 124, 54], [206, 124, 54], [206, 24, 54]], line, 0.75, 'stroke-dasharray="3 3"')}
+      ${renderWifiAp(262, 72, 56)}
+      ${renderWifiAp(122, 165, 56)}
+    </g>
+
+    <g class="hero-svg-layer" data-hero-layer="rack">
+      ${poly([[342, 86, 0.3], [414, 86, 0.3], [414, 228, 0.3], [342, 228, 0.3]], desk, blue, 0.8, 'fill-opacity="0.7"')}
+      ${poly([[342, 86, 0], [342, 228, 0], [342, 228, 48], [342, 86, 48]], glass, line, 0.85)}
+      ${box(374, 108, 0, 34, 38, 72, card, '#101d32', wall, ink, 1.05)}
+      ${rackSlots}
+      ${pline([[406.5, 146.5, 4], [406.5, 146.5, 68]], '#e2231a', 1.8)}
+      ${box(356, 168, 0, 30, 34, 38, desk, wall, zone, ink, 0.9)}
+      ${pline([[361, 202.2, 26], [381, 202.2, 26]], cyan, 1.5)}
+      ${pline([[370, 168, 22], [370, 152, 22], [384, 152, 22], [384, 146, 22]], blue, 1.8)}
+      ${pline([[375, 168, 14], [375, 156, 14], [392, 156, 14], [392, 146, 14]], cyan, 1.6)}
+      <path class="svg-draw-stroke" pathLength="420" d="M ${rackTopX} ${rackTopY} C ${rackTopX + 2} 128, 654 90, 688 78" fill="none" stroke="${blue}" stroke-width="2.2" stroke-linecap="round"/>
+      <path class="svg-draw-stroke svg-draw-stroke-delay" pathLength="420" d="M ${rackTopX + 8} ${rackTopY + 4} C ${rackTopX + 10} 138, 666 100, 700 84" fill="none" stroke="${cyan}" stroke-width="1.8" stroke-linecap="round"/>
+      <g class="hero-cloud-cluster">
+        <path d="M754 90h-50c-10 0-18-7-18-16 0-8.5 6.8-15.5 15.5-16.5 4.2-11 14.8-18.5 27-18.5 14 0 26 9 29.5 22 9.5 1 16.5 7.5 16.5 15.5 0 8-8 13.5-20.5 13.5z" fill="${card}" stroke="${blue}" stroke-width="1.5"/>
+        <circle cx="702" cy="74" r="2.6" fill="${cyan}"/>
+        <text x="731" y="70" text-anchor="middle" font-size="8.5" font-weight="700" letter-spacing="0.06em" fill="${ink}">HYBRID CLOUD</text>
+        <text x="731" y="81" text-anchor="middle" font-size="7.5" font-weight="600" letter-spacing="0.04em" fill="${blue}">M365 · AZURE · AWS</text>
+      </g>
+      <text class="hero-svg-label" x="${rackLabelX - 4}" y="${rackLabelY - 6}" font-size="8.5" letter-spacing="0.05em">42U THINKSYSTEM</text>
+    </g>
+  </svg>`;
+}
+
+const heritageEras = [
+  {
+    year: '1998',
+    tag: 'Foundation · 18 Sep 1998',
+    heading: 'Founded in Bengaluru as a PC & Systems Integrator',
+    narrative: 'Incorporated on 18 September 1998 in Bengaluru, supplying, configuring and servicing commercial desktops, workstations and peripherals for growing Karnataka enterprises.',
+    kpi: 'Year 01 · Bengaluru Roots · Commercial Compute & Servicing'
+  },
+  {
+    year: '2003',
+    tag: 'Infrastructure Expansion',
+    heading: 'Added Structured Cabling & Annual Maintenance Contracts',
+    narrative: 'Expanded beyond standalone hardware into structured LAN cabling, switching racks and scheduled preventive AMC engagements for multi-floor offices.',
+    kpi: 'Structured Copper & Fibre · Preventive SLA AMC Practice'
+  },
+  {
+    year: '2006',
+    tag: 'OEM Milestone',
+    heading: 'Appointed Lenovo SME Partner for Karnataka',
+    narrative: 'Formalised commercial partnership with Lenovo across ThinkPad and ThinkCentre fleets, establishing dedicated enterprise account engineering.',
+    kpi: '20-Year Lenovo Alliance Begins · Karnataka Commercial Tier'
+  },
+  {
+    year: '2008',
+    tag: 'Data Centre & Licensing',
+    heading: 'IBM Business Partner & Microsoft Enterprise Licensing',
+    narrative: 'Became an IBM Business Partner & Workstation Solution Partner while adding Microsoft commercial software licensing and server architecture sizing.',
+    kpi: 'IBM Servers & Storage · Microsoft Enterprise Licensing'
+  },
+  {
+    year: '2010',
+    tag: 'Regional Recognition',
+    heading: 'Elevated to Lenovo Premium Business Partner',
+    narrative: 'Earned Lenovo Premium Business Partner status across Bengaluru and Karnataka, scaling multi-site laptop, workstation and server deployments.',
+    kpi: 'Lenovo Premium Tier · Multi-Site Commercial Rollouts'
+  },
+  {
+    year: '2014',
+    tag: 'Flagship Tier',
+    heading: 'Achieved Lenovo Platinum Partner Status',
+    narrative: 'Honoured as a Platinum Lenovo Business Partner backed by dedicated Bengaluru pre-sales engineering and MTM-verified genuine FRU spares inventory.',
+    kpi: 'Platinum Tier · Genuine Lenovo FRU Spares Stocking'
+  },
+  {
+    year: '2018',
+    tag: 'Strategic Consolidation',
+    heading: 'Expanded Managed Services & IT Consulting via Mergers',
+    narrative: 'Deepened managed infrastructure operations, enterprise security governance and technical consulting capabilities through strategic mergers.',
+    kpi: 'Managed Infrastructure · Multi-OEM Consulting Practice'
+  },
+  {
+    year: '2024',
+    tag: 'Pan-India Full Stack',
+    heading: 'Six Integrated Practices Delivering Nationwide',
+    narrative: 'Unified Business Computing, Office Infrastructure, Hybrid Cloud, Enterprise AV, Zero-Trust Security and compliant ITAD & E-Waste recovery across India.',
+    kpi: '20+ OEM Alliances · ISO 9001:2015 QMS · Pan-India Hubs'
+  },
+  {
+    year: '2026',
+    tag: '28th Anniversary · Present Day',
+    heading: 'Enterprise Systems Integrator at Pan-India & Global Scale',
+    narrative: 'Marking 28 years of dependable IT integration from Bengaluru HQ with regional hubs in Chennai and Hyderabad and international coordination in Dubai and Hong Kong.',
+    kpi: '28th Anniversary · Lenovo 360 Platinum 2026 · Bengaluru HQ · ₹500CR+ · 2,000+ Clients'
+  }
+];
+
+/**
+ * Renders the interactive 1998-2026 heritage timeline scrubber section.
+ * @param {boolean} wrapped - Include .wrap container class when mounted at page root level.
+ */
+function heritageScrubber(wrapped = true) {
+  const initialIndex = heritageEras.length - 1;
+  const initial = heritageEras[initialIndex];
+  const progressPct = ((initialIndex + 1) / heritageEras.length * 100).toFixed(2);
+  return `<section class="${wrapped ? 'wrap ' : ''}heritage-scrubber drafting-frame reveal" data-heritage-scrubber data-active-year="${initial.year}" aria-labelledby="heritage-scrubber-heading">
+    <header class="heritage-head">
+      <div>
+        <p class="eyebrow">1998–2026 · 28-Year Heritage Timeline</p>
+        <h2 id="heritage-scrubber-heading">Twenty-eight years of engineering delivery.</h2>
+      </div>
+      <span class="coord-marker">COORD: 12.9226° N, 77.5491° E</span>
+    </header>
+    <div class="heritage-stage" aria-live="polite">
+      <div class="heritage-year-display" data-heritage-year>${initial.year}</div>
+      <div class="heritage-meta">
+        <span class="heritage-kpi-pill" data-heritage-kpi>${initial.kpi}</span>
+        <h3 data-heritage-heading>${initial.heading}</h3>
+        <p data-heritage-narrative>${initial.narrative}</p>
+      </div>
+    </div>
+    <div class="heritage-progress-bar" aria-hidden="true">
+      <span class="heritage-progress-fill" data-heritage-progress style="width:${progressPct}%"></span>
+    </div>
+    <div class="heritage-controls">
+      <button type="button" class="heritage-nav-btn" data-heritage-prev aria-label="Previous milestone year"><span aria-hidden="true">←</span> Prev</button>
+      ${heritageEras.map(era => `<button type="button" class="heritage-year-btn" data-heritage-select="${era.year}" aria-pressed="${era.year === initial.year}">${era.year}</button>`).join('')}
+      <button type="button" class="heritage-nav-btn" data-heritage-next aria-label="Next milestone year" disabled>Next <span aria-hidden="true">→</span></button>
+    </div>
+  </section>`;
+}
+
+/**
+ * Binds click and keyboard arrow navigation to an interactive heritage scrubber instance.
+ * @param {HTMLElement} root - Container matching [data-heritage-scrubber].
+ */
+function bindHeritageScrubber(root) {
+  if (!root) return;
+  const yearDisplay = root.querySelector('[data-heritage-year]');
+  const headingEl = root.querySelector('[data-heritage-heading]');
+  const narrativeEl = root.querySelector('[data-heritage-narrative]');
+  const kpiEl = root.querySelector('[data-heritage-kpi]');
+  const progressEl = root.querySelector('[data-heritage-progress]');
+  const prevBtn = root.querySelector('[data-heritage-prev]');
+  const nextBtn = root.querySelector('[data-heritage-next]');
+  const yearBtns = [...root.querySelectorAll('[data-heritage-select]')];
+
+  let activeIndex = heritageEras.findIndex(e => e.year === root.dataset.activeYear);
+  if (activeIndex < 0) activeIndex = heritageEras.length - 1;
+
+  const setEra = (index, { focusBtn = false } = {}) => {
+    const nextIndex = Math.min(heritageEras.length - 1, Math.max(0, index));
+    if (nextIndex === activeIndex && root.dataset.activeYear === heritageEras[nextIndex].year) return;
+    activeIndex = nextIndex;
+    const era = heritageEras[nextIndex];
+    const pct = ((nextIndex + 1) / heritageEras.length * 100).toFixed(2) + '%';
+    root.dataset.activeYear = era.year;
+    if (yearDisplay) yearDisplay.textContent = era.year;
+    if (headingEl) headingEl.textContent = era.heading;
+    if (narrativeEl) narrativeEl.textContent = era.narrative;
+    if (kpiEl) kpiEl.textContent = era.kpi;
+    if (progressEl) progressEl.style.width = pct;
+    root.style.setProperty('--heritage-progress', pct);
+    yearBtns.forEach(btn => btn.setAttribute('aria-pressed', String(btn.dataset.heritageSelect === era.year)));
+    if (prevBtn) prevBtn.disabled = nextIndex === 0;
+    if (nextBtn) nextBtn.disabled = nextIndex === heritageEras.length - 1;
+    if (focusBtn) yearBtns[nextIndex]?.focus();
+  };
+
+  root.addEventListener('click', event => {
+    const yearBtn = event.target.closest('[data-heritage-select]');
+    if (yearBtn) {
+      const idx = heritageEras.findIndex(e => e.year === yearBtn.dataset.heritageSelect);
+      if (idx >= 0) setEra(idx);
+      return;
+    }
+    if (event.target.closest('[data-heritage-prev]')) setEra(activeIndex - 1);
+    else if (event.target.closest('[data-heritage-next]')) setEra(activeIndex + 1);
+  });
+
+  root.addEventListener('keydown', event => {
+    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    const onYearBtn = event.target.matches('[data-heritage-select]');
+    if (event.key === 'ArrowLeft') setEra(activeIndex - 1, { focusBtn: onYearBtn });
+    else if (event.key === 'ArrowRight') setEra(activeIndex + 1, { focusBtn: onYearBtn });
+    else if (event.key === 'Home') setEra(0, { focusBtn: onYearBtn });
+    else if (event.key === 'End') setEra(heritageEras.length - 1, { focusBtn: onYearBtn });
+  });
 }
 
 const buyerRoles = [
@@ -236,10 +641,7 @@ function home() {
         <div class="hero-stage-bar"><span>Blueprint 01 · Interactive X-Ray Cutaway</span><span>Select any node (01–04)</span></div>
         <div class="hero-stage-body">
           <div class="hero-illustration">
-            <img src="assets/planner-cutaway.webp" width="773" height="529" fetchpriority="high" alt="Office cutaway showing workstations, a meeting room and the cabling beneath the floor.">
-            <span class="hero-network-signal" aria-hidden="true"></span>
-            <span class="hero-wifi-glow" aria-hidden="true"></span>
-            <span class="hero-rack-glow" aria-hidden="true"></span>
+            ${heroBlueprintSvg()}
             ${heroHotspots.map(spot => `<button type="button" class="hero-hotspot" data-hero-spot="${spot.id}" style="--x:${spot.x}%;--y:${spot.y}%" aria-pressed="${spot.id === 'workstations'}" aria-controls="hero-xray-readout" aria-label="${spot.num}: ${spot.label}"><span class="hero-hotspot-num" aria-hidden="true">${spot.num}</span><span class="hero-hotspot-tip" aria-hidden="true">${spot.label}</span></button>`).join('')}
           </div>
         </div>
@@ -288,6 +690,7 @@ function home() {
       <a class="arrow-link stack-item" href="?page=network"><span class="stack-num" aria-hidden="true">03</span><span class="stack-copy"><strong>Explore a secure network</strong><span>Wi-Fi, firewalls, traffic rules &amp; endpoint XDR telemetry</span></span><span class="arrow" aria-hidden="true">→</span></a>
     </div>
   </section>
+  ${heritageScrubber()}
   ${enterpriseProofBand()}
   ${finalCall()}`;
 }
@@ -538,8 +941,20 @@ function plannerIllustration(seats, activeFeatures, route = initialPlannerRoute)
 }
 
 function officePlan() {
+  const dossierRef = createSystechRef('SYS-PLAN');
+  const dossierDate = new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
   return `
   <section class="wrap planner-page">
+    <div class="print-dossier-letterhead" aria-hidden="true">
+      <div>
+        <strong>SYSTECH SERVICES PRIVATE LIMITED · ARCHITECTURAL IT SCOPE BRIEF</strong><br>
+        <span>Est. 1998 (28th Anniversary) · ISO 9001:2015 · Lenovo 360 Platinum 2026</span>
+      </div>
+      <div style="text-align:right">
+        <strong id="print-dossier-ref">Brief Ref: ${dossierRef}</strong><br>
+        <span id="print-dossier-date">Prepared: ${dossierDate}</span>
+      </div>
+    </div>
     <a class="crumb planner-back" href="?page=solutions">← Solutions</a>
     <h1>Plan an office setup</h1>
     <form id="planner" class="planner-layout">
@@ -575,6 +990,16 @@ function officePlan() {
             <div class="planner-secondary-actions">
               <button type="button" id="print-scope" class="button outline">Print / Save PDF</button>
               <a id="wa-scope" class="button outline" href="${whatsappUrl('Hi Systech team, sharing an office planner scope.')}" target="_blank" rel="noopener noreferrer">WhatsApp scope</a>
+            </div>
+          </div>
+          <div class="print-dossier-signoff" aria-hidden="true">
+            <div>
+              <strong>Systech Services Pvt. Ltd. · Enterprise Architecture Desk</strong><br>
+              <span>Bengaluru HQ · Chennai · Hyderabad · Dubai · Hong Kong</span>
+            </div>
+            <div>
+              <strong>Consultations &amp; Floor Surveys</strong><br>
+              <span>contact@teamsystech.com · +91 95357 24411</span>
             </div>
           </div>
         </div>
@@ -885,6 +1310,7 @@ function company() {
       <nav class="company-links" aria-label="Company links">
         ${link('#trust-standards', 'Quality & ISO 9001:2015')}${link('#leadership', 'Leadership')}${link('#gallery', 'Gallery')}${link('#customer-feedback', 'Client & team voices')}${link('?page=industries', 'Industry playbooks')}${link(groupUrl('careers'), 'Careers')}${link('?page=contact', 'Contact Systech')}
       </nav>
+      ${heritageScrubber(false)}
       ${companyProfile()}
       ${companyEditorial()}
       ${companyReviews()}
@@ -1393,6 +1819,7 @@ if (planner) {
     if (activeRoute !== 'network') url.set('view', activeRoute);
     const diagramScrollLeft = floorPlan.querySelector('.floorplan-scroll')?.scrollLeft || 0;
     floorPlan.innerHTML = plannerIllustration(seats, active, activeRoute);
+    floorPlan.querySelector('.floorplan-cutaway')?.classList.add('is-visible');
     const newScroll = floorPlan.querySelector('.floorplan-scroll');
     if (newScroll) newScroll.scrollLeft = diagramScrollLeft;
     const scopeLine = [seats + ' seats', ...active.map(([, label]) => label)].join(' · ');
@@ -1587,10 +2014,16 @@ if (journey) {
 const heroStage = document.querySelector('#hero-xray-stage');
 if (heroStage) {
   const readout = heroStage.querySelector('#hero-xray-readout');
+  const layers = heroStage.querySelectorAll('.hero-svg-layer[data-hero-layer]');
+  const syncHeroLayers = id => {
+    layers.forEach(layer => layer.classList.toggle('is-active', layer.dataset.heroLayer === id));
+  };
+  syncHeroLayers(heroStage.dataset.activeSpot || 'workstations');
   const setHeroSpot = id => {
     const spot = heroHotspots.find(s => s.id === id);
     if (!spot || heroStage.dataset.activeSpot === id) return;
     heroStage.dataset.activeSpot = id;
+    syncHeroLayers(id);
     heroStage.querySelectorAll('[data-hero-spot]').forEach(btn => {
       btn.setAttribute('aria-pressed', String(btn.dataset.heroSpot === id));
     });
@@ -1598,10 +2031,12 @@ if (heroStage) {
   };
   heroStage.addEventListener('click', event => {
     const btn = event.target.closest('[data-hero-spot]');
-    if (btn) setHeroSpot(btn.dataset.heroSpot);
+    const layer = event.target.closest('.hero-svg-layer[data-hero-layer]');
+    const spotId = btn?.dataset.heroSpot || layer?.dataset.heroLayer;
+    if (spotId) setHeroSpot(spotId);
   });
   heroStage.addEventListener('mouseover', event => {
-    const btn = event.target.closest('.hero-hotspot[data-hero-spot]');
+    const btn = event.target.closest('[data-hero-spot]');
     if (btn) setHeroSpot(btn.dataset.heroSpot);
   });
 }
@@ -1650,6 +2085,7 @@ const bcCatalog = document.querySelector('[data-bc-catalog]');
 if (bcCatalog) bindBusinessComputingCatalog(bcCatalog);
 const bcDetail = document.querySelector('[data-bc-detail]');
 if (bcDetail) bindBusinessComputingDetail(bcDetail);
+document.querySelectorAll('[data-heritage-scrubber]').forEach(bindHeritageScrubber);
 
 const enquiryForm = document.querySelector('#enquiry');
 if (enquiryForm) {
@@ -1662,12 +2098,6 @@ if (enquiryForm) {
   const submitStatus = document.querySelector('#submit-status');
   let activeRefId = '';
   let teamChosen = false;
-  function createEnquiryRef() {
-    const d = new Date();
-    const yymmdd = String(d.getFullYear()).slice(2) + String(d.getMonth() + 1).padStart(2, '0') + String(d.getDate()).padStart(2, '0');
-    const code = Math.floor(1000 + Math.random() * 9000);
-    return `SYS-${yymmdd}-${code}`;
-  }
   function updateRecoveryFields() {
     const active = teamField.value === 'recovery';
     recovery.hidden = !active;
@@ -1694,7 +2124,7 @@ if (enquiryForm) {
     const requirements = data.get('requirements');
     const serviceFromLink = params.get('service');
     const preserveDetails = incomingDetails && (!serviceFromLink || selected.id === serviceFromLink) && !requirements.includes(incomingDetails);
-    activeRefId = createEnquiryRef();
+    activeRefId = createSystechRef('SYS');
     const generatedAt = new Date().toISOString().slice(0, 16).replace('T', ' ') + ' UTC';
     const text = [
       'Reference: ' + activeRefId,
@@ -1799,30 +2229,125 @@ if (enquiryForm) {
 
 bindProjectSchematic(document.querySelector('#project-schematic'));
 
-document.querySelectorAll('main .section, main .wifi-offering, main .editorial-section, main .repair-services, main .asset-recovery').forEach(el => el.classList.add('reveal'));
-const reveals = document.querySelectorAll('.reveal');
-if (reveals.length) {
-  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const observer = new IntersectionObserver(entries => {
+/**
+ * Parses numeric KPI text (e.g. "₹500CR+", "28+ Yrs", "2,000+") while retaining exact formatting tokens.
+ * @param {string} raw
+ */
+function parseKpiSpec(raw) {
+  const original = String(raw ?? '').trim();
+  const match = original.match(/^([^0-9]*)([0-9][0-9,]*)(.*)$/);
+  if (!match) return null;
+  const target = Number(match[2].replace(/,/g, ''));
+  if (!Number.isFinite(target) || target <= 0) return null;
+  return {
+    original,
+    prefix: match[1],
+    target,
+    useCommas: match[2].includes(','),
+    suffix: match[3]
+  };
+}
+
+/**
+ * Animates a KPI element from 0 to its target value using a cubic ease-out curve (~900ms),
+ * restoring the exact original string upon completion.
+ * @param {HTMLElement} el
+ * @param {boolean} reducedMotion
+ */
+function animateKpiCount(el, reducedMotion) {
+  if (!el || el.dataset.kpiDone === 'true') return;
+  const spec = parseKpiSpec(el.textContent);
+  if (!spec) return;
+  el.dataset.kpiDone = 'true';
+  el.setAttribute('aria-label', spec.original);
+  if (reducedMotion) {
+    el.textContent = spec.original;
+    return;
+  }
+  const duration = 900;
+  const start = performance.now();
+  const tick = now => {
+    const t = Math.min(1, (now - start) / duration);
+    if (t >= 1) {
+      el.textContent = spec.original;
+      return;
+    }
+    const eased = 1 - Math.pow(1 - t, 4);
+    const current = Math.round(spec.target * eased);
+    const formatted = spec.useCommas ? current.toLocaleString('en-US') : String(current);
+    el.textContent = spec.prefix + formatted + spec.suffix;
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+
+/**
+ * Orchestrates scroll reveals, headline choreography, SVG schematic draw-ins, and KPI count-ups.
+ */
+function initScrollChoreography() {
+  const prefersReducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const canObserve = 'IntersectionObserver' in window;
+
+  document.querySelectorAll('main .section, main .wifi-offering, main .editorial-section, main .repair-services, main .asset-recovery, main .tactile-hardware-strip, main .authority-band-banner, main .bc-catalog-section, main .bc-submodels-section, main .bc-specs-section, main .bc-related-section, main .lenovo-matrix-section, main .lenovo-spares-finder').forEach(el => el.classList.add('reveal'));
+
+  const headlineSelector = 'main h1, main section > h2, main .section-head h2, main .editorial-heading h2, main .proof-top-row h2, main .buyer-roles-head h2, main .project-row h2, main .lifecycle h2, main .closing h2, main .heritage-head h2, main .tactile-hw-head h2, main .authority-band-banner h2, main .bc-section-head h2, main .bc-catalog-header h2, main .lenovo-matrix-head h2, main .spares-finder-copy h2, main .partner-pillar-head h2, main .partner-flagship h2, main .repair-partnership h2';
+  document.querySelectorAll(headlineSelector).forEach(el => el.classList.add('reveal-headline'));
+
+  const reveals = document.querySelectorAll('.reveal');
+  const standaloneHeadlines = [...document.querySelectorAll('.reveal-headline')].filter(el => !el.closest('.reveal'));
+  const schematics = document.querySelectorAll('svg.hero-blueprint-svg, .floorplan-cutaway, .project-schematic-svg');
+  const kpiNodes = document.querySelectorAll('.hero-stat-item dt, .scale-metric dt');
+
+  if (!canObserve || prefersReducedMotion) {
+    reveals.forEach(el => el.classList.add('is-visible'));
+    standaloneHeadlines.forEach(el => el.classList.add('is-visible'));
+    schematics.forEach(el => el.classList.add('is-visible'));
+    kpiNodes.forEach(el => animateKpiCount(el, true));
+    return;
+  }
+
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.remove('reveal-pending');
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.05, rootMargin: '0px 0px -24px 0px' });
+
+  [...reveals, ...standaloneHeadlines].forEach(el => {
+    if (el.getBoundingClientRect().top > window.innerHeight * 0.92) {
+      el.classList.add('reveal-pending');
+      revealObserver.observe(el);
+    } else {
+      el.classList.add('is-visible');
+    }
+  });
+
+  if (schematics.length) {
+    const svgObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
-        entry.target.classList.remove('reveal-pending');
         entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
+        svgObserver.unobserve(entry.target);
       });
-    }, { threshold: 0.05, rootMargin: '0px 0px -24px 0px' });
-    reveals.forEach(el => {
-      if (el.getBoundingClientRect().top > window.innerHeight * 0.92) {
-        el.classList.add('reveal-pending');
-        observer.observe(el);
-      } else {
-        el.classList.add('is-visible');
-      }
-    });
-  } else {
-    reveals.forEach(el => el.classList.add('is-visible'));
+    }, { threshold: 0.1 });
+    schematics.forEach(svg => svgObserver.observe(svg));
+  }
+
+  if (kpiNodes.length) {
+    const kpiObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        animateKpiCount(entry.target, false);
+        kpiObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.15 });
+    kpiNodes.forEach(dt => kpiObserver.observe(dt));
   }
 }
+
+initScrollChoreography();
 
 main?.addEventListener('click', event => {
   const trigger = event.target.closest('button[aria-controls], [data-wifi-step]');

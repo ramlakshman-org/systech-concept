@@ -6,8 +6,8 @@ import {
   industryPlaybooks,
   referenceBlueprints,
   deploymentCases
-} from './ecosystem-data.js?v=20261119v4r';
-import { clientBrandLogos, partnerBrandLogos } from './brand-logos.js?v=20261119v4r';
+} from './ecosystem-data.js?v=20261119v4s';
+import { clientBrandLogos, partnerBrandLogos } from './brand-logos.js?v=20261119v4s';
 
 export const partnersId = 'partners';
 export const industriesId = 'industries';
@@ -32,6 +32,49 @@ const oemMarquee = [
   { name: 'Apple', tier: 'Mac & iPad', href: '?page=business-computing' }
 ];
 
+const facilityProofCards = [
+  {
+    image: 'assets/bc-thinkpad.webp',
+    width: 800,
+    height: 520,
+    alt: 'Lenovo ThinkPad commercial compute fleet supplied by Systech',
+    cadTag: 'HW-01 · COMMERCIAL COMPUTE FLEETS',
+    title: 'ThinkPad Enterprise Fleets',
+    href: '?page=bc-thinkpad',
+    cta: 'Inspect ThinkPad specs'
+  },
+  {
+    image: 'assets/bc-thinkstation-p.webp',
+    width: 800,
+    height: 520,
+    alt: 'Lenovo ThinkStation P-Series workstation for CAD, BIM and AI',
+    cadTag: 'HW-02 · CAD & AI WORKSTATIONS',
+    title: 'ThinkStation CAD &amp; AI',
+    href: '?page=bc-thinkstation-p',
+    cta: 'Explore ThinkStation P'
+  },
+  {
+    image: 'assets/company-office-inauguration.webp',
+    width: 1000,
+    height: 824,
+    alt: 'Systech Bengaluru headquarters and staging facility inauguration team',
+    cadTag: 'BLR-01 · BENGALURU HQ & STAGING LAB',
+    title: 'Bengaluru HQ &amp; Staging Lab',
+    href: '?page=company#our-story',
+    cta: 'Explore Bengaluru HQ'
+  },
+  {
+    image: 'assets/company-team-celebration.webp',
+    width: 1000,
+    height: 824,
+    alt: 'Systech Bengaluru engineering and delivery leadership team',
+    cadTag: 'BLR-02 · 28-YEAR ENGINEERING TEAM',
+    title: '100+ Specialists · Est. 1998',
+    href: '?page=company#leadership',
+    cta: 'Meet leadership team'
+  }
+];
+
 function caseMetricsBarHtml(metrics) {
   return `<ul class="case-metrics-bar">${(metrics || []).map(m => `<li class="case-metric-pill">${m}</li>`).join('')}</ul>`;
 }
@@ -45,6 +88,12 @@ function renderClientRoster(ariaLabel = 'Selected client organisations') {
 export function enterpriseProofBand() {
   return `<section class="enterprise-proof-band reveal" aria-labelledby="proof-heading">
     <div class="wrap">
+      <div class="authority-band-banner drafting-frame">
+        <p class="coord-marker">SEC 05 · BENGALURU HQ · 12.9226° N, 77.5491° E · EST. 18 SEP 1998</p>
+        <p class="authority-band-display">28 YRS · ₹500CR+</p>
+        <p class="authority-band-subtitle">1998–2026 Multi-OEM Systems Integration · 2,000+ Enterprises</p>
+      </div>
+
       <div class="proof-top-row">
         <div>
           <p class="eyebrow">Verified Track Record · Bengaluru &amp; Pan-India</p>
@@ -63,6 +112,17 @@ export function enterpriseProofBand() {
           <dd><strong>${m.label}</strong><span>${m.detail}</span></dd>
         </div>`).join('')}
       </dl>
+
+      <div class="facility-cred-grid" aria-label="Commercial hardware and Bengaluru facility verification">
+        ${facilityProofCards.map(card => `<article class="facility-cred-card">
+          <div class="facility-cred-visual">
+            <img src="${card.image}" width="${card.width}" height="${card.height}" alt="${card.alt}" loading="lazy" decoding="async">
+            <span class="facility-cred-cad-tag">${card.cadTag}</span>
+          </div>
+          <h3>${card.title}</h3>
+          <a class="arrow-link" href="${card.href}">${card.cta} <span aria-hidden="true">→</span></a>
+        </article>`).join('')}
+      </div>
 
       <div class="proof-outcomes-grid" aria-label="Representative enterprise outcomes">
         ${deploymentCases.slice(0, 3).map(item => `<article class="proof-outcome-card">

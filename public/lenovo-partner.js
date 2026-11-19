@@ -1,4 +1,4 @@
-import { whatsappUrl } from './ecosystem-data.js?v=20261119v4r';
+import { whatsappUrl } from './ecosystem-data.js?v=20261119v4s';
 
 export const lenovoPartnerId = 'lenovo-partner';
 export const lenovoPartnerTitle = 'Lenovo Platinum Partner';
@@ -63,6 +63,53 @@ const portfolioTabs = {
 };
 
 const spareFamilies = ['ThinkPad (X1 / T / L / E)', 'ThinkBook', 'IdeaPad / Yoga / LOQ', 'ThinkCentre Desktop', 'ThinkStation Workstation', 'ThinkSystem Server'];
+
+const tactileHardwareShowcase = [
+  {
+    image: 'assets/bc-thinkpad.webp',
+    width: 800,
+    height: 520,
+    alt: 'Lenovo ThinkPad X1 Carbon and T-Series enterprise commercial laptops',
+    cadTag: 'CAD-IDG-01 · MIL-STD-810H · 1.09 KG CARBON',
+    title: 'ThinkPad X1 Carbon / T-Series',
+    copy: 'Intel Core Ultra & AMD Ryzen PRO fleets pre-imaged via Autopilot with BIOS asset tagging and ThinkShield security.',
+    href: '?page=bc-thinkpad',
+    cta: 'Inspect ThinkPad specs'
+  },
+  {
+    image: 'assets/bc-thinkstation-p.webp',
+    width: 800,
+    height: 520,
+    alt: 'Lenovo ThinkStation P-Series ISV-certified workstation tower and compact systems',
+    cadTag: 'CAD-ISV-02 · ECC + DUAL GPU · BIM/AI',
+    title: 'ThinkStation P-Series',
+    copy: 'ISV-certified Xeon & Threadripper PRO workstations with ECC RDIMMs and multi-GPU RTX Ada compute for CAD and AI.',
+    href: '?page=bc-thinkstation-p',
+    cta: 'Explore ThinkStation P'
+  },
+  {
+    image: 'assets/bc-thinkpad-detail.webp',
+    width: 800,
+    height: 520,
+    alt: 'Detailed view of Lenovo ThinkPad keyboard deck, ports and factory-matched FRU internals',
+    cadTag: 'CAD-FRU-03 · 100% OEM MTM-MATCHED',
+    title: 'Genuine FRU Inspection',
+    copy: 'Factory-verified OEM batteries, keyboards, LCD panels and thermal assemblies matched by Machine Type-Model (MTM).',
+    href: '#spares-finder',
+    cta: 'Check MTM / FRU part'
+  },
+  {
+    image: 'assets/server-room.webp',
+    width: 818,
+    height: 427,
+    alt: 'Enterprise server room rack infrastructure running Lenovo ThinkSystem and ThinkAgile nodes',
+    cadTag: 'CAD-ISG-04 · 1U/2U XCLARITY · HA CLUSTER',
+    title: 'ThinkSystem Rack Infrastructure',
+    copy: 'Dual-socket 1U/2U ThinkSystem compute, ThinkAgile HCI clusters and NVMe storage arrays managed via XClarity.',
+    href: '?page=servers-hci',
+    cta: 'Explore servers &amp; HCI'
+  }
+];
 const sparePartsList = [
   ['battery', 'Battery'],
   ['keyboard', 'Keyboard assembly'],
@@ -160,6 +207,27 @@ export function lenovoPartnerPage() {
         <a class="arrow-link" href="${whatsappGeneral}" target="_blank" rel="noopener noreferrer">WhatsApp Lenovo desk <span aria-hidden="true">→</span></a>
       </aside>
     </header>
+
+    <section class="tactile-hardware-strip drafting-frame reveal" aria-labelledby="tactile-hw-heading">
+      <div class="tactile-hardware-head">
+        <div>
+          <p class="coord-marker">HARDWARE TELEMETRY · IDG · ISG · OEM FRU</p>
+          <h2 id="tactile-hw-heading">Commercial hardware &amp; data-centre platforms</h2>
+        </div>
+        <a class="arrow-link" href="?page=business-computing">Explore 16-series catalog <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="tactile-hw-grid">
+        ${tactileHardwareShowcase.map(item => `<article class="tactile-hw-card">
+          <div class="tactile-hw-visual">
+            <img src="${item.image}" width="${item.width}" height="${item.height}" alt="${item.alt}" loading="lazy" decoding="async">
+            <span class="tactile-hw-cad-tag">${item.cadTag}</span>
+          </div>
+          <h3>${item.title}</h3>
+          <p>${item.copy}</p>
+          <a class="arrow-link" href="${item.href}">${item.cta} <span aria-hidden="true">→</span></a>
+        </article>`).join('')}
+      </div>
+    </section>
 
     <section class="lenovo-explorer" data-lenovo-explorer aria-labelledby="lenovo-explorer-title">
       <div class="lenovo-explorer-head">

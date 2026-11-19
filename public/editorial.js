@@ -1,4 +1,4 @@
-import { verifiedCredentials } from './ecosystem-data.js?v=20261119v4r';
+import { verifiedCredentials } from './ecosystem-data.js?v=20261119v4s';
 
 const leadership = [
   ['Anil Navarathna', 'Founder & CEO'],
@@ -14,9 +14,9 @@ const leadership = [
 ];
 
 const gallery = [
-  ['office-inauguration', 'New office inauguration', 'Team photo from the new office inauguration'],
-  ['team-outing', 'Team outing', 'Team photo from a Systech outing'],
-  ['team-celebration', 'Team celebration', 'Team photo from a Systech celebration']
+  ['office-inauguration', 'FIG 01 · BENGALURU HQ INAUGURATION', 'Team photo from the Bengaluru headquarters office inauguration'],
+  ['team-celebration', 'FIG 02 · LEADERSHIP & DELIVERY TEAM', 'Systech Bengaluru leadership and engineering delivery team celebration'],
+  ['team-outing', 'FIG 03 · 28-YEAR SYSTECH CULTURE', 'Systech team members during an annual team outing']
 ];
 
 const guides = [
@@ -136,6 +136,12 @@ export function companyProfile() {
       <div><h2 id="story-title">Our story</h2><p class="company-founded"><time datetime="1998-09-18">Founded 18 September 1998</time> · Bengaluru HQ · Chennai, Hyderabad, Dubai &amp; Hong Kong</p></div>
       <p>From a Bengaluru PC systems integrator in 1998 to a ₹500CR+ multi-OEM partner serving over 2,000 enterprise and SMB clients across India and beyond—anchoring Bengaluru HQ with hubs in Chennai and Hyderabad alongside Dubai and Hong Kong coordination across business computing, servers, networking, cloud, physical security and lifecycle support.</p>
     </header>
+    <div class="company-hero-photos" id="gallery" aria-label="Systech Bengaluru facility and team documentary gallery">
+      ${gallery.map(([id, caption, description]) => `<figure class="company-hero-photo">
+        <img src="assets/company-${id}.webp" alt="${description}" width="1000" height="824" loading="lazy" decoding="async">
+        <figcaption>${caption}</figcaption>
+      </figure>`).join('')}
+    </div>
     <ol class="company-milestones" aria-label="Company milestones">
       ${milestones.map(([year, title, copy]) => `<li><time datetime="${year}">${year}</time><h3>${title}</h3><p>${copy}</p></li>`).join('')}
     </ol>
@@ -228,17 +234,10 @@ export function companyEditorial() {
     <ul class="leadership-list">
       ${leadership.map(([name, role], index) => `<li><span class="leader-index" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span><h3>${name}</h3><p>${role}</p></li>`).join('')}
     </ul>
-    ${textLink('?page=contact', 'Connect with our leadership or sales desk')}
-  </section>
-  <section class="editorial-section" id="gallery" aria-labelledby="gallery-title">
-    <header class="editorial-heading"><h2 id="gallery-title">Life at Systech</h2></header>
-    <div class="company-gallery">
-      ${gallery.map(([id, caption, description]) => `<figure>
-        <img src="assets/company-${id}.webp" alt="${description}" width="1000" height="824" loading="lazy" decoding="async">
-        <figcaption>${caption}</figcaption>
-      </figure>`).join('')}
+    <div class="company-feedback-links">
+      ${textLink('?page=contact', 'Connect with our leadership or sales desk')}
+      ${textLink('?page=careers', 'Explore careers at Systech')}
     </div>
-    ${textLink('?page=careers', 'Explore careers at Systech')}
   </section>`;
 }
 
