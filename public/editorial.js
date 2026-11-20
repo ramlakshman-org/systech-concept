@@ -1,4 +1,4 @@
-import { verifiedCredentials } from './ecosystem-data.js?v=20261119v4u';
+import { verifiedCredentials } from './ecosystem-data.js?v=20261121v5d';
 
 const leadership = [
   ['Anil Navarathna', 'Founder & CEO'],
@@ -14,9 +14,9 @@ const leadership = [
 ];
 
 const gallery = [
-  ['office-inauguration', 'FIG 01 · BENGALURU HQ INAUGURATION', 'Team photo from the Bengaluru headquarters office inauguration'],
-  ['team-celebration', 'FIG 02 · LEADERSHIP & DELIVERY TEAM', 'Systech Bengaluru leadership and engineering delivery team celebration'],
-  ['team-outing', 'FIG 03 · 28-YEAR SYSTECH CULTURE', 'Systech team members during an annual team outing']
+  ['office-inauguration', '01 · Bengaluru HQ Inauguration', 'Team photo from the Bengaluru headquarters office inauguration'],
+  ['team-celebration', '02 · Leadership & Engineering Team', 'Systech Bengaluru leadership and engineering delivery team celebration'],
+  ['team-outing', '03 · 28-Year Systech Culture', 'Systech team members during an annual team outing']
 ];
 
 const guides = [
@@ -138,7 +138,7 @@ export function companyProfile() {
     </header>
     <div class="company-hero-photos" id="gallery" aria-label="Systech Bengaluru facility and team documentary gallery">
       ${gallery.map(([id, caption, description]) => `<figure class="company-hero-photo">
-        <img src="assets/company-${id}.webp" alt="${description}" width="1000" height="824" loading="lazy" decoding="async">
+        <img src="assets/company-${id}.webp" alt="${description}" width="1000" height="824">
         <figcaption>${caption}</figcaption>
       </figure>`).join('')}
     </div>
@@ -158,7 +158,6 @@ export function companyProfile() {
     <div class="trust-pillars-grid">
       ${trustPillars.map(([iconId, title, copy], index) => `<article class="trust-pillar-card">
         <div class="trust-pillar-top">
-          <span class="trust-pillar-seal">${trustIcons[iconId] || ''}</span>
           <span class="leader-index" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>
         </div>
         <h3>${title}</h3>

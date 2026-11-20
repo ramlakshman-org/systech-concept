@@ -1,4 +1,4 @@
-import { partnerBrandLogos } from './brand-logos.js?v=20261119v4u';
+import { partnerBrandLogos } from './brand-logos.js?v=20261121v5d';
 
 const bcCategories = [
   {
@@ -579,7 +579,7 @@ export function businessComputingCatalog(initialFilter = 'all') {
             const quoteHref = `?page=contact&service=devices&topic=business-computing&focus=${encodeURIComponent(item.name + ' fleet')}`;
             return `<article class="bc-card" data-bc-track="${item.track}">
               <a class="bc-card-art bc-card-art-link" href="${detailHref}" aria-label="View gallery and full specifications for ${item.name}">
-                <img src="${item.img}" width="800" height="520" alt="${item.name}" decoding="async">
+                <img src="${item.img}" width="800" height="520" alt="${item.name}">
               </a>
               <div class="bc-card-meta">
                 <span class="bc-card-tier">${item.tier}</span>
@@ -701,7 +701,7 @@ export function businessComputingDetailPage(routeId) {
       <div class="bc-detail-copy">
         <div class="bc-detail-badges">
           <span class="bc-card-tier">${category.label}</span>
-          <span class="bc-detail-platinum"><span class="lenovo-pill-dot" aria-hidden="true"></span>Lenovo 360 Platinum · Genuine FRU</span>
+          <span class="bc-detail-platinum">Lenovo 360 Platinum · Genuine FRU</span>
         </div>
         <h1>${series.name}</h1>
         <p class="bc-detail-spec-line">${series.spec}</p>
@@ -718,7 +718,7 @@ export function businessComputingDetailPage(routeId) {
 
       <div class="bc-detail-gallery" id="bc-detail-gallery">
         <div class="wifi-stage-bar">
-          <span class="wifi-stage-title"><span class="live-dot" aria-hidden="true"></span><span id="bc-stage-badge">${views[0].badge}</span></span>
+          <span class="wifi-stage-title"><span id="bc-stage-badge">${views[0].badge}</span></span>
           <span class="wifi-stage-hint">${series.tier}</span>
         </div>
         <div class="bc-gallery-stage" id="bc-gallery-stage">
@@ -729,7 +729,7 @@ export function businessComputingDetailPage(routeId) {
         </div>
         <div class="bc-gallery-thumbs" role="group" aria-label="Select hardware view">
           ${views.map((v, idx) => `<button type="button" class="bc-thumb-btn" data-bc-view="${v.id}" aria-pressed="${idx === 0}" aria-controls="bc-gallery-stage">
-            <span class="bc-thumb-frame"><img src="${v.src}" width="800" height="520" alt="" decoding="async"></span>
+            <span class="bc-thumb-frame"><img src="${v.src}" width="800" height="520" alt=""></span>
             <span class="bc-thumb-meta"><strong>${v.num} · ${v.label}</strong></span>
           </button>`).join('')}
         </div>
@@ -787,7 +787,7 @@ export function businessComputingDetailPage(routeId) {
           const href = `?page=bc-${item.id}`;
           return `<article class="bc-card">
             <a class="bc-card-art bc-card-art-link" href="${href}" aria-label="View gallery and full specifications for ${item.name}">
-              <img src="${item.img}" width="800" height="520" alt="${item.name}" decoding="async">
+              <img src="${item.img}" width="800" height="520" alt="${item.name}">
             </a>
             <div class="bc-card-meta"><span class="bc-card-tier">${item.tier}</span><span class="bc-card-views">3 Views · Specs</span></div>
             <h4><a href="${href}">${item.name}</a></h4>

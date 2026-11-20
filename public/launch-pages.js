@@ -127,7 +127,6 @@ export function careersPage() {
       <div class="trust-pillars-grid">
         ${workPillars.map(([iconId, title, copy], idx) => `<article class="trust-pillar-card">
           <div class="trust-pillar-top">
-            <span class="trust-pillar-seal">${careerIcons[iconId] || ''}</span>
             <span class="leader-index" aria-hidden="true">${String(idx + 1).padStart(2, '0')}</span>
           </div>
           <h3>${title}</h3>
@@ -181,7 +180,7 @@ export function careersPage() {
       </header>
       <div class="company-gallery">
         ${lifeGallery.map(([id, caption, alt]) => `<figure>
-          <img src="assets/company-${id}.webp" alt="${alt}" width="1000" height="824" loading="lazy" decoding="async">
+          <img src="assets/company-${id}.webp" alt="${alt}" width="1000" height="824">
           <figcaption>${caption}</figcaption>
         </figure>`).join('')}
       </div>

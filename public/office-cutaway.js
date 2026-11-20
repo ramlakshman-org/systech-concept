@@ -1,10 +1,10 @@
 const ink = 'var(--cutaway-ink, #101928)';
 const blue = 'var(--cutaway-blue, #004de7)';
 const paper = 'var(--cutaway-surface, #fbfaf6)';
-const wall = 'var(--cutaway-wall, #dce6f3)';
-const deskFill = 'var(--cutaway-desk, #eaf2fc)';
-const zoneFill = 'var(--cutaway-zone, #f2f7fd)';
-const cardFill = 'var(--cutaway-card, #f8fbff)';
+const wall = 'var(--cutaway-wall, #e5e7eb)';
+const deskFill = 'var(--cutaway-desk, #f0f1f3)';
+const zoneFill = 'var(--cutaway-zone, #ebedf0)';
+const cardFill = 'var(--cutaway-card, #ffffff)';
 
 function project([x, y, z = 0]) {
   return [x - .64 * y, .24 * x + .34 * y - z].map(value => value.toFixed(2)).join(',');
@@ -24,9 +24,7 @@ function line(points, stroke = ink, weight = .85, dashed = false, className = ''
 
 function flowLine(points, weight = 1.6) {
   const projected = points.map(project);
-  const pts = projected.join(' ');
-  return `<path class="svg-draw-stroke" pathLength="400" d="M${projected.join('L')}" fill="none" stroke="${blue}" stroke-width="${weight}" stroke-linecap="round" stroke-linejoin="round"/>`
-    + `<polyline class="cutaway-flow cutaway-pulse" points="${pts}" fill="none" stroke="#dbe9ff" stroke-width="${Math.max(1, weight - .7).toFixed(1)}" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 9"/>`;
+  return `<path class="svg-draw-stroke" pathLength="400" d="M${projected.join('L')}" fill="none" stroke="${blue}" stroke-width="${weight}" stroke-linecap="round" stroke-linejoin="round"/>`;
 }
 
 function rectangle(x, y, z, width, depth, fill, stroke = ink) {
@@ -64,19 +62,19 @@ function workstation(x, y, facing) {
   return `<g class="floorplan-desk">
     ${line([[x+3,y+12,0],[x+3,y+12,12]], ink, .9)}
     ${line([[x+21,y+12,0],[x+21,y+12,12]], ink, .9)}
-    ${box(x,y,12,24,16,2,'var(--cutaway-card, #fffdf8)','var(--cutaway-wall, #dfebf8)','var(--cutaway-zone, #eff4fb)')}
-    ${box(x+4,monitor,14,12,2,8,'#799bfb',blue,'#a9c2ff')}
-    ${rectangle(x+4,keyboard,14,10,2.8,'var(--cutaway-wall, #dce7f4)',ink)}
-    ${box(x+8,chair,0,10,8,6,'var(--cutaway-desk, #e6eefb)','var(--cutaway-wall, #c9d8ef)','var(--cutaway-zone, #e1ebfa)')}
+    ${box(x,y,12,24,16,2,'var(--cutaway-card, #ffffff)','var(--cutaway-wall, #e5e7eb)','var(--cutaway-zone, #ebedf0)')}
+    ${box(x+4,monitor,14,12,2,8,'var(--cutaway-accent, #2b5ec2)',blue,'#d8e2f2')}
+    ${rectangle(x+4,keyboard,14,10,2.8,'var(--cutaway-wall, #e5e7eb)',ink)}
+    ${box(x+8,chair,0,10,8,6,'var(--cutaway-desk, #f0f1f3)','var(--cutaway-wall, #e5e7eb)','var(--cutaway-zone, #ebedf0)')}
   </g>`;
 }
 
 function rack(x, y, height, accented) {
   const slots = Array.from({length: 6}, (_, index) => {
     const z = 6 + index * ((height-10) / 6);
-    return polygon([[x+3,y+20,z],[x+21,y+20,z],[x+21,y+20,z+4],[x+3,y+20,z+4]], accented ? '#8eb3ff' : '#9bb2cf');
+    return polygon([[x+3,y+20,z],[x+21,y+20,z],[x+21,y+20,z+4],[x+3,y+20,z+4]], accented ? 'var(--cutaway-accent, #2b5ec2)' : '#8b95a5');
   }).join('');
-  return box(x,y,0,24,20,height,'var(--cutaway-desk, #e6eef9)','var(--cutaway-wall, #c3d3ea)','var(--cutaway-zone, #dbe6f4)') + slots;
+  return box(x,y,0,24,20,height,'var(--cutaway-desk, #f0f1f3)','var(--cutaway-wall, #e5e7eb)','var(--cutaway-zone, #ebedf0)') + slots;
 }
 
 function sideWall(x, y, depth, height, fill) {
@@ -84,9 +82,9 @@ function sideWall(x, y, depth, height, fill) {
 }
 
 function glazing(x, y, width, height) {
-  return frontWall(x,y,width,height,'var(--cutaway-glass, #dbeaff38)')
-    + line([[x,y,height],[x+width,y,height]], '#6d8fb8')
-    + line([[x+width/2,y,0],[x+width/2,y,height]], '#8aa2be');
+  return frontWall(x,y,width,height,'var(--cutaway-glass, rgba(226, 232, 240, 0.4))')
+    + line([[x,y,height],[x+width,y,height]], 'var(--cutaway-line, #7a8596)')
+    + line([[x+width/2,y,0],[x+width/2,y,height]], 'var(--cutaway-line, #7a8596)');
 }
 
 function meetingRoom() {

@@ -68,7 +68,7 @@ export function projectSchematic() {
   const active = schematicNodes.network;
   return `<div class="schematic-card" id="project-schematic" data-active-node="network" aria-label="Interactive office infrastructure schematic">
     <div class="schematic-head">
-      <span class="schematic-badge"><span class="live-dot" aria-hidden="true"></span>System topology</span>
+      <span class="schematic-badge">System topology</span>
       <span class="schematic-hint">Select any layer</span>
     </div>
     <div class="schematic-board">
@@ -94,7 +94,7 @@ export function projectSchematic() {
             <strong>${schematicNodes.network.label}</strong>
             <span>Structured cabling · Managed switching · Firewall</span>
           </span>
-          <span class="schematic-core-tag">Core bus</span>
+          <span class="schematic-core-tag">Layer 02 · Core</span>
         </button>
       </div>
       <svg class="schematic-bus-wires" viewBox="0 0 600 42" preserveAspectRatio="none" aria-hidden="true">

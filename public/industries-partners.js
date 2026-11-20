@@ -6,8 +6,8 @@ import {
   industryPlaybooks,
   referenceBlueprints,
   deploymentCases
-} from './ecosystem-data.js?v=20261119v4u';
-import { clientBrandLogos, partnerBrandLogos } from './brand-logos.js?v=20261119v4u';
+} from './ecosystem-data.js?v=20261121v5d';
+import { clientBrandLogos, partnerBrandLogos } from './brand-logos.js?v=20261121v5d';
 
 export const partnersId = 'partners';
 export const industriesId = 'industries';
@@ -32,46 +32,55 @@ const oemMarquee = [
   { name: 'Apple', tier: 'Mac & iPad', href: '?page=business-computing' }
 ];
 
-const facilityProofCards = [
+const facilityDocFigures = [
   {
-    image: 'assets/bc-thinkpad.webp',
-    width: 800,
-    height: 520,
-    alt: 'Lenovo ThinkPad commercial compute fleet supplied by Systech',
-    cadTag: 'HW-01 · COMMERCIAL COMPUTE FLEETS',
-    title: 'ThinkPad Enterprise Fleets',
-    href: '?page=bc-thinkpad',
-    cta: 'Inspect ThinkPad specs'
-  },
-  {
-    image: 'assets/bc-thinkstation-p.webp',
-    width: 800,
-    height: 520,
-    alt: 'Lenovo ThinkStation P-Series workstation for CAD, BIM and AI',
-    cadTag: 'HW-02 · CAD & AI WORKSTATIONS',
-    title: 'ThinkStation CAD &amp; AI',
-    href: '?page=bc-thinkstation-p',
-    cta: 'Explore ThinkStation P'
-  },
-  {
+    index: '01',
+    kicker: 'Bengaluru HQ & Staging Lab',
     image: 'assets/company-office-inauguration.webp',
     width: 1000,
     height: 824,
     alt: 'Systech Bengaluru headquarters and staging facility inauguration team',
-    cadTag: 'BLR-01 · BENGALURU HQ & STAGING LAB',
-    title: 'Bengaluru HQ &amp; Staging Lab',
+    title: 'Bengaluru HQ &amp; Pre-Dispatch Staging',
+    caption: 'Hardware unboxed, asset-tagged, OS-imaged and burned-in at Poornaprajna Nagar before pan-India dispatch.',
     href: '?page=company#our-story',
     cta: 'Explore Bengaluru HQ'
   },
   {
+    index: '02',
+    kicker: 'Direct Engineering Payroll · Est. 1998',
     image: 'assets/company-team-celebration.webp',
     width: 1000,
     height: 824,
     alt: 'Systech Bengaluru engineering and delivery leadership team',
-    cadTag: 'BLR-02 · 28-YEAR ENGINEERING TEAM',
-    title: '100+ Specialists · Est. 1998',
+    title: '100+ Field &amp; Integration Specialists',
+    caption: 'In-house solutions architects, structured cabling engineers and L1–L3 AMC technicians across Bengaluru, Chennai and Hyderabad.',
     href: '?page=company#leadership',
     cta: 'Meet leadership team'
+  }
+];
+
+const commercialFleetSpecs = [
+  {
+    kicker: 'Commercial Notebook Fleets',
+    image: 'assets/bc-thinkpad.webp',
+    width: 800,
+    height: 520,
+    alt: 'Lenovo ThinkPad commercial compute fleet supplied by Systech',
+    title: 'ThinkPad Enterprise Series (X1 · T · P · L · E)',
+    caption: 'Role-matched fleets pre-enrolled with Autopilot/Intune and backed by MTM-verified FRU spares.',
+    href: '?page=bc-thinkpad',
+    cta: 'Inspect ThinkPad specs'
+  },
+  {
+    kicker: 'ISV Workstation Towers',
+    image: 'assets/bc-thinkstation-p.webp',
+    width: 800,
+    height: 520,
+    alt: 'Lenovo ThinkStation P-Series workstation for CAD, BIM and AI',
+    title: 'ThinkStation P-Series CAD, BIM &amp; AI Compute',
+    caption: 'Certified tower and rack workstations sized for SOLIDWORKS, Revit and engineering teams.',
+    href: '?page=bc-thinkstation-p',
+    cta: 'Explore ThinkStation P'
   }
 ];
 
@@ -88,49 +97,46 @@ function renderClientRoster(ariaLabel = 'Selected client organisations') {
 export function enterpriseProofBand() {
   return `<section class="enterprise-proof-band reveal" aria-labelledby="proof-heading">
     <div class="wrap">
-      <div class="authority-band-banner drafting-frame">
-        <div class="authority-band-grid">
-          <div class="authority-band-main">
-            <p class="coord-marker">SYS-AUTH // 1998–2026 · BENGALURU HQ · 12.9226° N, 77.5491° E</p>
-            <p class="authority-band-display" aria-label="28 Years and 500 Crore plus revenue">28 YRS · ₹500CR+</p>
-            <p class="authority-band-subtitle">1998–2026 Multi-OEM Systems Integration · 2,000+ Enterprises</p>
-          </div>
-          <dl class="authority-band-ledger" aria-label="Verification ledger">
-            <div><dt>PARTNER TIER</dt><dd>Lenovo 360 Platinum 2026</dd></div>
-            <div><dt>QUALITY SYSTEM</dt><dd>ISO 9001:2015 Certified Delivery</dd></div>
-            <div><dt>COVERAGE FOOTPRINT</dt><dd>Bengaluru HQ · Chennai · Hyderabad · Dubai · HK</dd></div>
-            <div><dt>ACTIVE FLEET &amp; SLA</dt><dd>2,000+ Enterprise Accounts · Direct L1–L3 Engineers</dd></div>
-          </dl>
-        </div>
-      </div>
-
       <div class="proof-top-row">
         <div>
-          <p class="eyebrow">Verified Track Record · Bengaluru &amp; Pan-India</p>
-          <h2 id="proof-heading">Enterprise delivery backed by scale and OEM depth.</h2>
+          <p class="eyebrow">Bengaluru HQ &amp; Pan-India Delivery</p>
+          <h2 id="proof-heading">Built, staged and maintained by direct Systech engineers.</h2>
         </div>
         <div class="proof-credentials-pills">
           <a class="credential-badge credential-lenovo" href="?page=lenovo-partner">${credIcons.lenovo}<span class="cred-copy"><strong>2026 Lenovo 360 Platinum</strong><small>Compute · ThinkSystem · FRU Spares</small></span></a>
           <a class="credential-badge" href="?page=company#trust-standards">${credIcons.iso}<span class="cred-copy"><strong>ISO 9001:2015 Certified</strong><small>Audited Quality &amp; SLA Governance</small></span></a>
-          <a class="credential-badge" href="?page=company#capability-profile">${credIcons.dossier}<span class="cred-copy"><strong>Capability &amp; Awards Dossier</strong><small>ISO 9001:2015 · OEM Authorizations · Profile</small></span></a>
+          <a class="credential-badge" href="?page=company#capability-profile">${credIcons.dossier}<span class="cred-copy"><strong>Capability &amp; Awards Dossier</strong><small>OEM Authorizations · Company Profile</small></span></a>
         </div>
       </div>
 
-      <dl class="scale-metrics-grid">
-        ${enterpriseMetrics.map(m => `<div class="scale-metric">
-          <dt>${m.value}</dt>
-          <dd><strong>${m.label}</strong><span>${m.detail}</span></dd>
-        </div>`).join('')}
-      </dl>
-
-      <div class="facility-cred-grid" aria-label="Commercial hardware and Bengaluru facility verification">
-        ${facilityProofCards.map(card => `<article class="facility-cred-card">
-          <span class="facility-cred-cad-tag">${card.cadTag}</span>
-          <div class="facility-cred-visual">
-            <img src="${card.image}" width="${card.width}" height="${card.height}" alt="${card.alt}" loading="lazy" decoding="async">
+      <div class="facility-doc-grid" aria-label="Systech Bengaluru staging facility and engineering team">
+        ${facilityDocFigures.map(fig => `<figure class="facility-doc-figure">
+          <div class="facility-doc-meta">
+            <span class="facility-doc-index">${fig.index}</span>
+            <span class="facility-doc-kicker">${fig.kicker}</span>
           </div>
-          <h3>${card.title}</h3>
-          <a class="arrow-link" href="${card.href}">${card.cta} <span aria-hidden="true">→</span></a>
+          <div class="facility-doc-media">
+            <img src="${fig.image}" width="${fig.width}" height="${fig.height}" alt="${fig.alt}" decoding="async">
+          </div>
+          <figcaption class="facility-doc-body">
+            <h3>${fig.title}</h3>
+            <p>${fig.caption}</p>
+            <a class="arrow-link" href="${fig.href}">${fig.cta} <span aria-hidden="true">→</span></a>
+          </figcaption>
+        </figure>`).join('')}
+      </div>
+
+      <div class="fleet-spec-strip" aria-label="Primary commercial Lenovo compute platforms">
+        ${commercialFleetSpecs.map(hw => `<article class="fleet-spec-row">
+          <div class="fleet-spec-thumb">
+            <img src="${hw.image}" width="${hw.width}" height="${hw.height}" alt="${hw.alt}" decoding="async">
+          </div>
+          <div class="fleet-spec-copy">
+            <span class="fleet-spec-kicker">${hw.kicker}</span>
+            <h3>${hw.title}</h3>
+            <p>${hw.caption}</p>
+            <a class="arrow-link" href="${hw.href}">${hw.cta} <span aria-hidden="true">→</span></a>
+          </div>
         </article>`).join('')}
       </div>
 
@@ -140,8 +146,8 @@ export function enterpriseProofBand() {
             <span class="proof-outcome-sector">${item.sector}</span>
             <span class="proof-outcome-deliverable">${item.deliverables[0]}</span>
           </div>
-          ${caseMetricsBarHtml(item.metrics)}
           <h3>${item.title}</h3>
+          <p class="proof-outcome-metrics">${item.metrics.join(' · ')}</p>
           <div class="proof-outcome-stack">
             ${item.stack.slice(0, 3).map(s => `<span>${s}</span>`).join('')}
           </div>
@@ -337,7 +343,7 @@ export function industriesPage() {
       <div class="blueprints-grid">
         ${referenceBlueprints.map((bp, idx) => `<article class="blueprint-card">
           <div class="blueprint-thumb">
-            <img src="${bp.image}" width="${bp.imageWidth}" height="${bp.imageHeight}" alt="${bp.imageAlt}" loading="lazy">
+            <img src="${bp.image}" width="${bp.imageWidth}" height="${bp.imageHeight}" alt="${bp.imageAlt}" decoding="async">
           </div>
           <div class="blueprint-card-head">
             <span class="solution-num" aria-hidden="true">${String(idx + 1).padStart(2, '0')}</span>
@@ -382,13 +388,13 @@ export function bindIndustriesPage(container) {
 function caseCardHtml(item) {
   return `<article class="case-blueprint-card" data-case-id="${item.id}">
     <figure class="case-blueprint-visual">
-      <img src="${item.image}" width="${item.width}" height="${item.height}" alt="${item.alt}" loading="lazy">
+      <img src="${item.image}" width="${item.width}" height="${item.height}" alt="${item.alt}" decoding="async">
       <figcaption>${item.sector}</figcaption>
     </figure>
     <div class="case-blueprint-body">
       <p class="case-blueprint-tag">${item.tag}</p>
       <h2>${item.title}</h2>
-      ${caseMetricsBarHtml(item.metrics)}
+      <p class="proof-outcome-metrics">${item.metrics.join(' · ')}</p>
       <div class="case-blueprint-columns">
         <div>
           <h3>Operational challenge</h3>

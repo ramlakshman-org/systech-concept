@@ -1,19 +1,19 @@
-import { careersPage, bindCareersPage, privacyPolicyPage, termsPage, returnPolicyPage } from './launch-pages.js?v=20261119v4u';
-import { companyProfile, companyEditorial, companyReviews, resourceEditorial, bindResourcesPage } from './editorial.js?v=20261119v4u';
-import { assetRecoveryWorkflow, assetRecoveryFields, assetRecoveryDraftLines } from './asset-recovery.js?v=20261119v4u';
-import { enquiryTeams, suggestEnquiryTeam } from './enquiry-routing.js?v=20261119v4u';
-import { whatsappUrl, ENQUIRY_ENDPOINT } from './ecosystem-data.js?v=20261119v4u';
-import { partnersId, industriesId, caseStudiesId, enterpriseProofBand, partnersPage, industriesPage, bindIndustriesPage, caseStudiesPage, bindCaseStudiesPage } from './industries-partners.js?v=20261119v4u';
-import { microsoftId, microsoftTitle, microsoftSolutionsPage, microsoftEnquiryRequirement, bindMicrosoftSolutions } from './microsoft-solutions.js?v=20261119v4u';
-import { softwareLicensingId, softwareLicensingTitle, softwareLicensingPage, bindSoftwareLicensing, softwareLicensingRequirement } from './software-licensing.js?v=20261119v4u';
-import { lenovoPartnerId, lenovoPartnerTitle, lenovoPartnerPage, bindLenovoPartner, lenovoEnquiryRequirement } from './lenovo-partner.js?v=20261119v4u';
-import { serviceIllustration, bindServiceIllustration, wifiIllustration } from './service-illustration.js?v=20261119v4u';
-import { securityDetails } from './security-details.js?v=20261119v4u';
-import { additionalServiceDetails } from './service-details.js?v=20261119v4u';
-import { groups } from './data.js?v=20261119v4u';
-import { officeCutaway } from './office-cutaway.js?v=20261119v4u';
-import { projectSchematic, bindProjectSchematic } from './project-schematic.js?v=20261119v4u';
-import { bcSeriesMap, businessComputingCatalog, bindBusinessComputingCatalog, businessComputingDetailPage, bindBusinessComputingDetail } from './business-computing-catalog.js?v=20261119v4u';
+import { careersPage, bindCareersPage, privacyPolicyPage, termsPage, returnPolicyPage } from './launch-pages.js?v=20261121v5d';
+import { companyProfile, companyEditorial, companyReviews, resourceEditorial, bindResourcesPage } from './editorial.js?v=20261121v5d';
+import { assetRecoveryWorkflow, assetRecoveryFields, assetRecoveryDraftLines } from './asset-recovery.js?v=20261121v5d';
+import { enquiryTeams, suggestEnquiryTeam } from './enquiry-routing.js?v=20261121v5d';
+import { whatsappUrl, ENQUIRY_ENDPOINT } from './ecosystem-data.js?v=20261121v5d';
+import { partnersId, industriesId, caseStudiesId, enterpriseProofBand, partnersPage, industriesPage, bindIndustriesPage, caseStudiesPage, bindCaseStudiesPage } from './industries-partners.js?v=20261121v5d';
+import { microsoftId, microsoftTitle, microsoftSolutionsPage, microsoftEnquiryRequirement, bindMicrosoftSolutions } from './microsoft-solutions.js?v=20261121v5d';
+import { softwareLicensingId, softwareLicensingTitle, softwareLicensingPage, bindSoftwareLicensing, softwareLicensingRequirement } from './software-licensing.js?v=20261121v5d';
+import { lenovoPartnerId, lenovoPartnerTitle, lenovoPartnerPage, bindLenovoPartner, lenovoEnquiryRequirement } from './lenovo-partner.js?v=20261121v5d';
+import { serviceIllustration, bindServiceIllustration, wifiIllustration } from './service-illustration.js?v=20261121v5d';
+import { securityDetails } from './security-details.js?v=20261121v5d';
+import { additionalServiceDetails } from './service-details.js?v=20261121v5d';
+import { groups } from './data.js?v=20261121v5d';
+import { officeCutaway } from './office-cutaway.js?v=20261121v5d';
+import { projectSchematic, bindProjectSchematic } from './project-schematic.js?v=20261121v5d';
+import { bcSeriesMap, businessComputingCatalog, bindBusinessComputingCatalog, businessComputingDetailPage, bindBusinessComputingDetail } from './business-computing-catalog.js?v=20261121v5d';
 
 try {
   delete document.documentElement.dataset.theme;
@@ -82,46 +82,37 @@ const currentSeats = requestedSeats ?? '50';
 const groupVisualMeta = {
   devices: {
     tag: 'End-User Compute',
-    oems: 'Lenovo · Dell · HP · Apple',
-    icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="13" height="9" rx="1.5"/><path d="M1.5 16h16M18 7h3a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-3"/><circle cx="19.5" cy="13.5" r=".8" fill="currentColor"/></svg>'
+    oems: 'Lenovo · Dell · HP · Apple'
   },
   cloud: {
     tag: 'Data Centre & Cloud',
-    oems: 'ThinkSystem · Azure · AWS · VMware',
-    icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="11" height="5" rx="1"/><rect x="3" y="10" width="11" height="5" rx="1"/><circle cx="6" cy="5.5" r=".8" fill="currentColor"/><circle cx="6" cy="12.5" r=".8" fill="currentColor"/><path d="M14 17.5a3.5 3.5 0 0 0 .5-6.96A4.5 4.5 0 0 0 6.2 9M11 17.5h7a2.5 2.5 0 0 0 .3-4.98"/></svg>'
+    oems: 'ThinkSystem · Azure · AWS · VMware'
   },
   office: {
     tag: 'Turnkey Fit-Out',
-    oems: 'Cat6A & Fibre · AV · CCTV · UPS',
-    icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5 12 4l9 5.5v9L12 20l-9-5.5z"/><path d="M12 4v16M3 9.5l9 5.5 9-5.5"/></svg>'
+    oems: 'Cat6A & Fibre · AV · CCTV · UPS'
   },
   security: {
     tag: 'Zero-Trust Network',
-    oems: 'Cisco · Aruba · Fortinet · Sophos',
-    icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 19 6v5.5c0 4.8-3.1 7.9-7 9.5-3.9-1.6-7-4.7-7-9.5V6z"/><path d="m9.2 12 2 2 3.8-4"/></svg>'
+    oems: 'Cisco · Aruba · Fortinet · Sophos'
   },
   repairs: {
     tag: 'SLA Support & FRU Spares',
-    oems: 'Multi-Brand AMC · Genuine Lenovo FRU',
-    icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg>'
+    oems: 'Multi-Brand AMC · Genuine Lenovo FRU'
   },
   renewal: {
     tag: 'Lifecycle & ITAD',
-    oems: 'RAM/SSD Refreshes · Certified E-Waste',
-    icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 10A7.5 7.5 0 0 1 18 6.8M19.5 14A7.5 7.5 0 0 1 6 17.2"/><path d="M18 3.5V7h-3.5M6 20.5V17h3.5"/></svg>'
+    oems: 'RAM/SSD Refreshes · Certified E-Waste'
   }
 };
 
 function groupIndex() {
   return `<div class="solution-grid">${groups.map((g, index) => {
-    const meta = groupVisualMeta[g.id] || { tag: 'Enterprise IT', oems: 'Multi-OEM', icon: '' };
+    const meta = groupVisualMeta[g.id] || { tag: 'Enterprise IT', oems: 'Multi-OEM' };
     return `<a class="solution-card" href="${groupUrl(g.id)}">
       <span class="solution-card-top">
-        <span class="solution-icon-box" aria-hidden="true">${meta.icon}</span>
-        <span class="solution-card-badges">
-          <span class="solution-num" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>
-          <span class="solution-tag-pill">${meta.tag}</span>
-        </span>
+        <span class="solution-num" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>
+        <span class="solution-tag-pill">${meta.tag}</span>
       </span>
       <span class="solution-card-body">
         <strong>${g.title}</strong>
@@ -140,12 +131,12 @@ function intro(title, detail) {
 }
 
 function finalCall() {
-  return `<section class="closing reveal"><div class="wrap closing-row"><div><p class="eyebrow closing-eyebrow">Start a conversation</p><h2>What are you setting up?</h2><p>Tell Systech what you need to equip, connect, secure or maintain across Bengaluru HQ, Chennai, Hyderabad, pan-India, Dubai or Hong Kong.</p></div><div class="closing-actions">${button('?page=contact', 'Request a BOM or quote')}<a class="button closing-ghost" href="${whatsappUrl('Hi Systech team, we would like to discuss an IT project.')}" target="_blank" rel="noopener noreferrer">WhatsApp desk</a></div></div></section>`;
+  return `<section class="closing reveal"><div class="wrap closing-row"><div><p class="eyebrow closing-eyebrow">Project &amp; BOM desk</p><h2>Share your requirement or BOM.</h2><p>Tell Systech what you need to equip, connect, secure or maintain across Bengaluru HQ, Chennai, Hyderabad, pan-India, Dubai or Hong Kong.</p></div><div class="closing-actions">${button('?page=contact', 'Request a BOM or quote')}<a class="button closing-ghost" href="${whatsappUrl('Hi Systech team, we would like to discuss an IT project.')}" target="_blank" rel="noopener noreferrer">WhatsApp desk</a></div></div></section>`;
 }
 
 const heroHotspots = [
   {
-    id: 'workstations', num: '01', label: 'Workstations', x: 32, y: 43,
+    id: 'workstations', num: '01', label: 'Workstations', x: 25, y: 36,
     title: 'Role-matched ThinkPad, Mac & Workstation desks',
     spec: 'Lenovo ThinkPad / ThinkStation · Apple · USB-C Docks · Dual 4K',
     href: '?page=devices', cta: 'Explore devices', plannerHref: '?page=planner&seats=50'
@@ -157,13 +148,13 @@ const heroHotspots = [
     href: '?page=meeting-rooms-telephony', cta: 'Explore meeting AV', plannerHref: '?page=planner&seats=50&option=meeting'
   },
   {
-    id: 'cabling', num: '03', label: 'Cat6A & Fibre', x: 52, y: 63,
+    id: 'cabling', num: '03', label: 'Cat6A & Fibre', x: 54, y: 65,
     title: 'Structured underfloor Cat6A drops & optical fibre trunks',
     spec: 'Fluke-certified Cat6A · OM4 Fibre · Edge NGFW Gateway',
     href: '?page=structured-cabling', cta: 'Explore cabling', plannerHref: '?page=planner&seats=50&view=network'
   },
   {
-    id: 'rack', num: '04', label: 'Server Rack', x: 78, y: 42,
+    id: 'rack', num: '04', label: 'Server Rack', x: 80, y: 47,
     title: 'Managed PoE+ switching, UTM firewall & ThinkSystem rack',
     spec: 'Lenovo ThinkSystem · Redundant UPS · Hybrid Cloud Uplinks',
     href: '?page=servers-hci', cta: 'Explore servers & security', plannerHref: '?page=planner&seats=50&option=servers&view=cloud'
@@ -182,14 +173,14 @@ function heroReadoutHtml(spot) {
 function heroBlueprintSvg() {
   const ink = 'var(--cutaway-ink, #101928)';
   const blue = 'var(--cutaway-blue, #004de7)';
-  const surface = 'var(--cutaway-surface, #f8fbff)';
-  const wall = 'var(--cutaway-wall, #dce6f3)';
-  const desk = 'var(--cutaway-desk, #eaf2fc)';
-  const zone = 'var(--cutaway-zone, #f2f7fd)';
+  const surface = 'var(--cutaway-surface, #fbfaf6)';
+  const wall = 'var(--cutaway-wall, #e5e7eb)';
+  const desk = 'var(--cutaway-desk, #f0f1f3)';
+  const zone = 'var(--cutaway-zone, #ebedf0)';
   const card = 'var(--cutaway-card, #ffffff)';
-  const glass = 'var(--cutaway-glass, rgba(219, 234, 255, 0.36))';
-  const line = 'var(--cutaway-line, #7c95b6)';
-  const cyan = '#38bdf8';
+  const glass = 'var(--cutaway-glass, rgba(226, 232, 240, 0.4))';
+  const line = 'var(--cutaway-line, #7a8596)';
+  const accent = 'var(--cutaway-accent, #2b5ec2)';
 
   const pt = (x, y, z = 0) => [
     +(365 + 0.90 * x - 0.72 * y).toFixed(1),
@@ -251,12 +242,12 @@ function heroBlueprintSvg() {
       ${box(x, y, 13, w, d, 2, card, wall, desk, ink, 0.8)}
       ${box(x + 6, monY, 15, 14, 2, 9.5, desk, blue, wall, ink, 0.7)}
       ${box(x + 22, monY, 15, 14, 2, 9.5, desk, blue, wall, ink, 0.7)}
-      ${pline([[x + 8, monY + 2.2, 23], [x + 18, monY + 2.2, 23]], cyan, 0.95)}
-      ${pline([[x + 24, monY + 2.2, 23], [x + 34, monY + 2.2, 23]], cyan, 0.95)}
+      ${pline([[x + 8, monY + 2.2, 23], [x + 18, monY + 2.2, 23]], accent, 0.95)}
+      ${pline([[x + 24, monY + 2.2, 23], [x + 34, monY + 2.2, 23]], accent, 0.95)}
       ${box(x + 39, dockY + 1, 15, 10, 7, 1.5, wall, ink, desk, ink, 0.65)}
       ${poly([[x + 39, dockY + 1, 16.5], [x + 49, dockY + 1, 16.5], [x + 49, dockY - 3, 24], [x + 39, dockY - 3, 24]], card, blue, 0.75)}
       ${box(x + 22, dockY, 15, 8, 3.5, 2, blue, ink, blue, ink, 0.6)}
-      <circle cx="${dx}" cy="${dy}" r="1.3" fill="${cyan}"/>
+      <circle cx="${dx}" cy="${dy}" r="1.3" fill="${accent}"/>
       ${specialist ? box(x + w + 5, y + 4, 0, 11, 18, 17, card, blue, desk, ink, 0.8) : ''}
       ${box(x + 18, chairY, 0, 12, 9, 7, desk, wall, zone, ink, 0.75)}
     </g>`;
@@ -265,11 +256,10 @@ function heroBlueprintSvg() {
   const renderWifiAp = (wx, wy, wz) => {
     const [ax, ay] = pt(wx, wy, wz);
     return `<g>
-      <circle class="hero-wifi-ring" cx="${ax}" cy="${ay}" r="13" fill="none" stroke="${cyan}" stroke-width="1.3" stroke-opacity="0.8"/>
-      <circle class="hero-wifi-ring hero-wifi-ring-2" cx="${ax}" cy="${ay}" r="23" fill="none" stroke="${blue}" stroke-width="1.15" stroke-opacity="0.55"/>
-      <circle class="hero-wifi-ring hero-wifi-ring-3" cx="${ax}" cy="${ay}" r="33" fill="none" stroke="${cyan}" stroke-width="1" stroke-opacity="0.35"/>
+      <circle cx="${ax}" cy="${ay}" r="14" fill="none" stroke="${accent}" stroke-width="1" stroke-dasharray="3 3" stroke-opacity="0.65"/>
+      <circle cx="${ax}" cy="${ay}" r="26" fill="none" stroke="${blue}" stroke-width="0.9" stroke-dasharray="3 3" stroke-opacity="0.4"/>
       <polygon points="${ax},${ay - 5.5} ${ax + 7},${ay} ${ax},${ay + 5.5} ${ax - 7},${ay}" fill="${card}" stroke="${blue}" stroke-width="1.3"/>
-      <circle cx="${ax}" cy="${ay}" r="2.1" fill="${cyan}"/>
+      <circle cx="${ax}" cy="${ay}" r="2.1" fill="${blue}"/>
     </g>`;
   };
 
@@ -278,17 +268,13 @@ function heroBlueprintSvg() {
   const specDrop = [[74, 304, 0], [74, 304, -9], [214, 304, -11]];
   const meetingDrop = [[262, 134, 0], [262, 152, -7], [214, 152, -7]];
   const fiberTrunk = [[402, 336, -12], [336, 336, -12], [316, 306, -4], [386, 306, -11], [386, 146, -8], [386, 146, 28]];
-  const cat6aPulse = [[104, 222, -7], [214, 222, -7], [214, 298, -11], [378, 298, -11], [378, 146, -7], [378, 146, 22]];
   const [rackTopX, rackTopY] = pt(391, 127, 72);
-  const [ngfwLabelX, ngfwLabelY] = pt(334, 358, -14);
-  const [workLabelX, workLabelY] = pt(46, 338, 2);
-  const [rackLabelX, rackLabelY] = pt(412, 118, 76);
 
   const rackSlots = Array.from({ length: 8 }, (_, idx) => {
     const rz = 6 + idx * 7.6;
     const isSwitch = idx >= 6;
     return poly([[377, 146.4, rz], [405, 146.4, rz], [405, 146.4, rz + 4.8], [377, 146.4, rz + 4.8]], isSwitch ? blue : '#1e3a63', line, 0.45)
-      + `<circle cx="${pt(380, 146.5, rz + 2.4)[0]}" cy="${pt(380, 146.5, rz + 2.4)[1]}" r="1.2" fill="${isSwitch ? cyan : '#60a5fa'}"/>`;
+      + `<circle cx="${pt(380, 146.5, rz + 2.4)[0]}" cy="${pt(380, 146.5, rz + 2.4)[1]}" r="1.2" fill="${isSwitch ? accent : blue}"/>`;
   }).join('');
 
   return `<svg class="hero-blueprint-svg" viewBox="0 0 820 500" role="img" aria-label="Interactive isometric office IT blueprint showing workstations, AV and Wi-Fi meeting room, underfloor Cat6A and fibre cabling, and 42U server rack">
@@ -303,12 +289,12 @@ function heroBlueprintSvg() {
     </defs>
 
     <g class="hero-bp-frame">
-      <rect x="24" y="26" width="772" height="448" rx="6" fill="url(#hero-bp-grid)" stroke="${line}" stroke-opacity="0.34" stroke-width="0.85"/>
+      <rect x="24" y="26" width="772" height="448" rx="2" fill="url(#hero-bp-grid)" stroke="${line}" stroke-opacity="0.34" stroke-width="0.85"/>
       <path d="M24 38 V26 H36 M784 26 H796 V38 M24 462 V474 H36 M784 474 H796 V462" fill="none" stroke="${blue}" stroke-width="1.4" stroke-opacity="0.65"/>
       ${xTicks}
       ${yTicks}
-      <text class="hero-bp-micro" x="36" y="45" font-size="9.5" font-weight="700" letter-spacing="0.08em" fill="${ink}" fill-opacity="0.72">BLR-INFRA · ISOMETRIC CUTAWAY · SCALE 1:80</text>
-      <text class="hero-bp-micro" x="36" y="463" font-size="9" font-weight="600" letter-spacing="0.06em" fill="${ink}" fill-opacity="0.62">EL +0.00M RAISED ACCESS FLOOR · -0.45M CAT6A / OM4 PLENUM</text>
+      <text class="hero-bp-micro" x="36" y="45" font-size="9.5" font-weight="700" letter-spacing="0.08em" fill="${ink}" fill-opacity="0.72">WORKPLACE &amp; SERVER CUTAWAY · SCALE 1:80</text>
+      <text class="hero-bp-micro" x="36" y="463" font-size="9" font-weight="600" letter-spacing="0.06em" fill="${ink}" fill-opacity="0.62">RAISED ACCESS FLOOR · UNDERFLOOR CAT6A &amp; OM4 TRUNKS</text>
     </g>
 
     <g class="hero-bp-structure">
@@ -333,25 +319,23 @@ function heroBlueprintSvg() {
       ${pline(specDrop, blue, 1.8)}
       ${pline(meetingDrop, blue, 1.8)}
       ${pline(cat6aTrunk, blue, 2.2)}
-      ${pline(fiberTrunk, cyan, 2.1)}
-      <polyline class="hero-svg-fiber-pulse" points="${pts(cat6aPulse)}" fill="none" stroke="${cyan}" stroke-width="2" stroke-dasharray="6 10" stroke-linecap="round" stroke-linejoin="round"/>
-      <polyline class="hero-svg-fiber-pulse hero-svg-fiber-pulse-alt" points="${pts(fiberTrunk)}" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-dasharray="6 18" stroke-linecap="round" stroke-linejoin="round"/>
+      ${pline(fiberTrunk, accent, 2.1)}
       ${box(296, 290, -12, 40, 30, 14, card, blue, wall, ink, 0.95)}
-      ${pline([[302, 320.2, -5], [330, 320.2, -5]], cyan, 1.4)}
-      <text class="hero-svg-label" x="${ngfwLabelX + 12}" y="${ngfwLabelY + 30}" font-size="9" letter-spacing="0.05em">CAT6A · OM4 · NGFW</text>
+      ${pline([[302, 320.2, -5], [330, 320.2, -5]], accent, 1.4)}
+      <text class="hero-svg-label" x="524" y="406" font-size="9" letter-spacing="0.05em">CAT6A · OM4 · NGFW</text>
     </g>
 
     <g class="hero-svg-layer" data-hero-layer="workstations">
       ${box(40, 100, 14, 116, 3, 9, wall, line, wall, ink, 0.65)}
       ${box(40, 218, 14, 116, 3, 9, wall, line, wall, ink, 0.65)}
       ${stationCoords.map(renderStation).join('')}
-      <text class="hero-svg-label" x="${workLabelX - 28}" y="${workLabelY + 18}" font-size="9" letter-spacing="0.05em">THINKPAD · DUAL 4K</text>
+      <text class="hero-svg-label" x="48" y="330" font-size="9" letter-spacing="0.05em">THINKPAD · DUAL 4K</text>
     </g>
 
     <g class="hero-svg-layer" data-hero-layer="meeting">
       ${poly([[198, 16, 0.3], [328, 16, 0.3], [328, 134, 0.3], [198, 134, 0.3]], desk, line, 0.8)}
       ${poly([[234, 16.5, 20], [292, 16.5, 20], [292, 16.5, 40], [234, 16.5, 40]], '#162945', ink, 0.9)}
-      ${pline([[240, 16.8, 30], [286, 16.8, 30]], cyan, 1.2)}
+      ${pline([[240, 16.8, 30], [286, 16.8, 30]], accent, 1.2)}
       ${box(248, 16.5, 16, 30, 3, 3, ink, blue, ink, ink, 0.6)}
       ${[236, 260, 284].map(cx => box(cx, 41, 0, 11, 9, 7.5, card, wall, zone, ink, 0.7)).join('')}
       ${box(212, 68, 0, 9, 12, 7.5, card, wall, zone, ink, 0.7)}
@@ -375,18 +359,18 @@ function heroBlueprintSvg() {
       ${rackSlots}
       ${pline([[406.5, 146.5, 4], [406.5, 146.5, 68]], '#e2231a', 1.8)}
       ${box(356, 168, 0, 30, 34, 38, desk, wall, zone, ink, 0.9)}
-      ${pline([[361, 202.2, 26], [381, 202.2, 26]], cyan, 1.5)}
+      ${pline([[361, 202.2, 26], [381, 202.2, 26]], accent, 1.5)}
       ${pline([[370, 168, 22], [370, 152, 22], [384, 152, 22], [384, 146, 22]], blue, 1.8)}
-      ${pline([[375, 168, 14], [375, 156, 14], [392, 156, 14], [392, 146, 14]], cyan, 1.6)}
+      ${pline([[375, 168, 14], [375, 156, 14], [392, 156, 14], [392, 146, 14]], accent, 1.6)}
       <path class="svg-draw-stroke" pathLength="420" d="M ${rackTopX} ${rackTopY} C ${rackTopX + 2} 128, 654 90, 688 78" fill="none" stroke="${blue}" stroke-width="2.2" stroke-linecap="round"/>
-      <path class="svg-draw-stroke svg-draw-stroke-delay" pathLength="420" d="M ${rackTopX + 8} ${rackTopY + 4} C ${rackTopX + 10} 138, 666 100, 700 84" fill="none" stroke="${cyan}" stroke-width="1.8" stroke-linecap="round"/>
+      <path class="svg-draw-stroke svg-draw-stroke-delay" pathLength="420" d="M ${rackTopX + 8} ${rackTopY + 4} C ${rackTopX + 10} 138, 666 100, 700 84" fill="none" stroke="${accent}" stroke-width="1.8" stroke-linecap="round"/>
       <g class="hero-cloud-cluster">
         <path d="M754 90h-50c-10 0-18-7-18-16 0-8.5 6.8-15.5 15.5-16.5 4.2-11 14.8-18.5 27-18.5 14 0 26 9 29.5 22 9.5 1 16.5 7.5 16.5 15.5 0 8-8 13.5-20.5 13.5z" fill="${card}" stroke="${blue}" stroke-width="1.5"/>
-        <circle cx="702" cy="74" r="2.6" fill="${cyan}"/>
+        <circle cx="702" cy="74" r="2.6" fill="${blue}"/>
         <text x="731" y="70" text-anchor="middle" font-size="8.5" font-weight="700" letter-spacing="0.06em" fill="${ink}">HYBRID CLOUD</text>
         <text x="731" y="81" text-anchor="middle" font-size="7.5" font-weight="600" letter-spacing="0.04em" fill="${blue}">M365 · AZURE · AWS</text>
       </g>
-      <text class="hero-svg-label" x="${rackLabelX - 4}" y="${rackLabelY - 6}" font-size="8.5" letter-spacing="0.05em">42U THINKSYSTEM</text>
+      <text class="hero-svg-label" x="686" y="254" font-size="8.5" letter-spacing="0.05em">42U THINKSYSTEM</text>
     </g>
   </svg>`;
 }
@@ -453,7 +437,7 @@ const heritageEras = [
     tag: '28th Anniversary · Present Day',
     heading: 'Enterprise Systems Integrator at Pan-India & Global Scale',
     narrative: 'Marking 28 years of dependable IT integration from Bengaluru HQ with regional hubs in Chennai and Hyderabad and international coordination in Dubai and Hong Kong.',
-    kpi: '28th Anniversary · Lenovo 360 Platinum 2026 · Bengaluru HQ · ₹500CR+ · 2,000+ Clients'
+    kpi: 'Lenovo 360 Platinum · Pan-India, Dubai & Hong Kong'
   }
 ];
 
@@ -465,13 +449,13 @@ function heritageScrubber(wrapped = true) {
   const initialIndex = heritageEras.length - 1;
   const initial = heritageEras[initialIndex];
   const progressPct = ((initialIndex + 1) / heritageEras.length * 100).toFixed(2);
-  return `<section class="${wrapped ? 'wrap ' : ''}heritage-scrubber drafting-frame reveal" data-heritage-scrubber data-active-year="${initial.year}" aria-labelledby="heritage-scrubber-heading">
+  return `<section class="${wrapped ? 'wrap ' : ''}heritage-scrubber reveal" data-heritage-scrubber data-active-year="${initial.year}" aria-labelledby="heritage-scrubber-heading">
     <header class="heritage-head">
       <div>
         <p class="eyebrow">1998–2026 · 28-Year Heritage Timeline</p>
         <h2 id="heritage-scrubber-heading">Twenty-eight years of engineering delivery.</h2>
       </div>
-      <span class="coord-marker">COORD: 12.9226° N, 77.5491° E</span>
+      <span class="heritage-origin">Bengaluru HQ · Chennai · Hyderabad · Dubai · Hong Kong</span>
     </header>
     <div class="heritage-stage" aria-live="polite">
       <div class="heritage-year-display" data-heritage-year>${initial.year}</div>
@@ -561,8 +545,7 @@ const buyerRoles = [
     ctaHref: '?page=planner',
     ctaLabel: 'Open 3D office planner',
     secondaryHref: '?page=industries',
-    secondaryLabel: 'Industry playbooks',
-    icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5 12 4l9 5.5v9L12 20l-9-5.5z"/><path d="M12 4v16M3 9.5l9 5.5 9-5.5"/></svg>'
+    secondaryLabel: 'Industry playbooks'
   },
   {
     num: '02',
@@ -573,8 +556,7 @@ const buyerRoles = [
     ctaHref: lenovoPartnership,
     ctaLabel: 'Explore Lenovo Platinum hub',
     secondaryHref: '?page=software-licensing',
-    secondaryLabel: 'License configurator',
-    icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>'
+    secondaryLabel: 'License configurator'
   },
   {
     num: '03',
@@ -585,22 +567,20 @@ const buyerRoles = [
     ctaHref: '?page=repairs',
     ctaLabel: 'Repairs, AMC & spares',
     secondaryHref: lenovoPartnership + '#spares-finder',
-    secondaryLabel: 'FRU spares lookup',
-    icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 19 6v5.5c0 4.8-3.1 7.9-7 9.5-3.9-1.6-7-4.7-7-9.5V6z"/><path d="m9.2 12 2 2 3.8-4"/></svg>'
+    secondaryLabel: 'FRU spares lookup'
   }
 ];
 
 function buyerRoleStrip() {
   return `<section class="buyer-roles-section wrap reveal" aria-labelledby="buyer-roles-heading">
     <div class="buyer-roles-head">
-      <div><p class="eyebrow">Built for How You Buy</p><h2 id="buyer-roles-heading">Start from your role.</h2></div>
+      <div><p class="eyebrow">Procurement paths</p><h2 id="buyer-roles-heading">Scope by responsibility.</h2></div>
       <p class="buyer-roles-note">Every Systech practice connects hardware procurement, engineering fit-out and ongoing support under one SLA.</p>
     </div>
     <div class="buyer-roles-grid">
       ${buyerRoles.map(role => `<article class="buyer-role-card">
         <div class="buyer-role-top">
           <span class="buyer-role-badge">${role.num} · ${role.audience}</span>
-          <span class="buyer-role-icon" aria-hidden="true">${role.icon}</span>
         </div>
         <h3>${role.title}</h3>
         <p>${role.summary}</p>
@@ -618,7 +598,7 @@ function home() {
   return `
   <section class="wrap hero">
     <div class="hero-copy">
-      <p class="hero-kicker"><span class="live-dot" aria-hidden="true"></span>Bengaluru HQ · Est. 1998 (28th Anniversary) · ISO 9001:2015</p>
+      <p class="hero-kicker">Bengaluru HQ · Est. 1998 · Lenovo 360 Platinum · ISO 9001:2015</p>
       <h1>IT infrastructure,<br class="hero-break"> from desk to<br class="hero-break"> data centre.</h1>
       <p class="hero-lead">Equip your team, connect your office and keep your enterprise systems running with India’s ₹500CR+ multi-OEM partner.</p>
       <div class="actions hero-actions">
@@ -629,7 +609,7 @@ function home() {
     </div>
     <div class="hero-art">
       <div class="hero-stage" id="hero-xray-stage" data-active-spot="workstations">
-        <div class="hero-stage-bar"><span class="hero-stage-title">Blueprint 01 · Interactive X-Ray Cutaway</span><span>Select any node (01–04)</span></div>
+        <div class="hero-stage-bar"><span class="hero-stage-title">FIG. 01 — WORKPLACE &amp; CORE INFRASTRUCTURE</span><span>Inspect layer 01–04</span></div>
         <div class="hero-stage-body">
           <div class="hero-illustration">
             ${heroBlueprintSvg()}
@@ -653,28 +633,30 @@ function home() {
       </dl>
       <div class="hero-seal-group">
         <a class="hero-seal hero-seal-lenovo" href="${lenovoPartnership}">
-          <span class="hero-seal-badge" aria-hidden="true">360</span>
-          <span class="hero-seal-copy"><strong>Lenovo 360 Platinum</strong><small>Highest Tier · Compute, Server &amp; FRU</small></span>
+          <span class="hero-seal-kicker">Partner Tier</span>
+          <strong>Lenovo 360 Platinum</strong>
+          <small>Compute · ThinkSystem · FRU Spares</small>
         </a>
         <a class="hero-seal hero-seal-iso" href="?page=company#trust-standards">
-          <span class="hero-seal-badge" aria-hidden="true">ISO</span>
-          <span class="hero-seal-copy"><strong>ISO 9001:2015 Certified</strong><small>Audited Quality &amp; SLA Governance</small></span>
+          <span class="hero-seal-kicker">Quality System</span>
+          <strong>ISO 9001:2015 Certified</strong>
+          <small>Audited Quality &amp; SLA Governance</small>
         </a>
       </div>
     </div>
   </section>
   ${buyerRoleStrip()}
   <section id="solutions" class="wrap ruled solutions-section reveal">
-    <div class="section-head"><p class="eyebrow">Capabilities</p><h2>Explore solutions</h2></div>${groupIndex()}
+    <div class="section-head section-head-split"><div><p class="eyebrow">Six integrated practices</p><h2>End-to-end infrastructure scope.</h2></div><p class="section-head-note">Single-partner hardware BOM, turnkey fit-out and direct SLA maintenance across 20+ OEMs.</p></div>${groupIndex()}
   </section>
   <section class="project-section reveal">
     <div class="wrap project-row">
-      <div><p class="eyebrow">Office planner</p><h2>See how the office fits together.</h2><p>Start with a team size. Add meeting rooms, physical security and server requirements, see live port &amp; AP baselines, then carry the scope straight into your enquiry.</p>${button('?page=planner', 'Plan an office setup')}</div>
+      <div><p class="eyebrow">Interactive scope planner</p><h2>Configure your floor &amp; server room.</h2><p>Start with a team size. Add meeting rooms, physical security and server requirements, see live port &amp; AP baselines, then carry the scope straight into your enquiry.</p>${button('?page=planner', 'Plan an office setup')}</div>
       ${projectSchematic()}
     </div>
   </section>
   <section class="wrap lifecycle reveal">
-    <div><p class="eyebrow">Lifecycle support</p><h2>Keep your IT working.</h2><p>Maintain the equipment you rely on with genuine Lenovo spares, extend fleet longevity or schedule compliant ITAD &amp; recycling.</p></div>
+    <div><p class="eyebrow">Post-deployment SLA</p><h2>Maintain, refresh and recover.</h2><p>Maintain the equipment you rely on with genuine Lenovo spares, extend fleet longevity or schedule compliant ITAD &amp; recycling.</p></div>
     <div class="stack-links">
       <a class="arrow-link stack-item" href="?page=repairs"><span class="stack-num" aria-hidden="true">01</span><span class="stack-copy"><strong>Repairs, AMC &amp; Genuine Lenovo Spares</strong><span>Diagnosis, preventive contracts &amp; FRU replacement verification</span></span><span class="arrow" aria-hidden="true">→</span></a>
       <a class="arrow-link stack-item" href="?page=renewal"><span class="stack-num" aria-hidden="true">02</span><span class="stack-copy"><strong>Device Renewal &amp; E-Waste</strong><span>Hardware upgrades &amp; compliant end-of-life asset recovery</span></span><span class="arrow" aria-hidden="true">→</span></a>

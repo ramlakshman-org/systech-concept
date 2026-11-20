@@ -89,7 +89,7 @@ export function serviceIllustration(illustration = wifiIllustration) {
     </div>
     <figure class="wifi-cutaway" style="--illustration-width:${width}px">
       <div class="wifi-stage-bar">
-        <span class="wifi-stage-title"><span class="live-dot" aria-hidden="true"></span>Blueprint Schematic · ${heading}</span>
+        <span class="wifi-stage-title">FIG. 01 — ${heading}</span>
         <span class="wifi-stage-hint">Select node (01–${String(entries.length).padStart(2, '0')})</span>
       </div>
       <div class="wifi-cutaway-scene">

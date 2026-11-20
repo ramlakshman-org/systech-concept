@@ -149,45 +149,41 @@ function topologyDiagramHtml(activeVendorId) {
   return `<svg class="license-topology-svg" viewBox="0 0 640 286" role="img" aria-label="Systech co-term license management topology connecting endpoint security, boundary firewalls, Wi-Fi management and virtualisation clusters.">
     <defs>
       <pattern id="lic-grid" width="20" height="20" patternUnits="userSpaceOnUse">
-        <path d="M20 0H0v20" fill="none" stroke="#e6edf7" stroke-width="0.75"/>
+        <path d="M20 0H0v20" fill="none" stroke="#e5e4de" stroke-width="0.75"/>
       </pattern>
     </defs>
-    <rect width="640" height="286" rx="10" fill="#fbfdff"/>
-    <rect width="640" height="286" rx="10" fill="url(#lic-grid)"/>
+    <rect width="640" height="286" rx="4" fill="#fbfaf6" stroke="#d4d6d9" stroke-width="0.85"/>
+    <rect width="640" height="286" rx="4" fill="url(#lic-grid)"/>
 
     <!-- Connector traces from centre hub (320, 143) -->
     ${Object.entries(tracePaths).map(([id, d]) => {
       const isAct = activeZone === id;
       const [sx, sy, ex, ey] = traceEnds[id];
       return `<path class="lic-trace ${isAct ? 'is-active' : ''}" d="${d}" fill="none"/>`
-        + (isAct ? `<path class="cutaway-flow cutaway-pulse" d="${d}" fill="none" stroke="#9fc0ff" stroke-width="1.4" stroke-dasharray="5 7" stroke-linecap="round"/>` : '')
-        + `<circle cx="${sx}" cy="${sy}" r="${isAct ? '3.5' : '2.4'}" fill="${isAct ? '#0753de' : '#9fb0c7'}"/>`
-        + `<circle cx="${ex}" cy="${ey}" r="${isAct ? '3.5' : '2.4'}" fill="${isAct ? '#0753de' : '#9fb0c7'}"/>`;
+        + `<circle cx="${sx}" cy="${sy}" r="${isAct ? '3.5' : '2.4'}" fill="${isAct ? '#004de7' : '#8b95a5'}"/>`
+        + `<circle cx="${ex}" cy="${ey}" r="${isAct ? '3.5' : '2.4'}" fill="${isAct ? '#004de7' : '#8b95a5'}"/>`;
     }).join('')}
 
-    <!-- Central Systech Co-Term Registry Node with extruded architectural base -->
+    <!-- Central Systech Co-Term Registry Node -->
     <g transform="translate(262 96)">
-      <rect x="4" y="5" width="116" height="94" rx="10" fill="#b9cef2" stroke="#1e3a6e" stroke-width="1"/>
-      <rect width="116" height="94" rx="10" fill="#0d1117" stroke="#0753de" stroke-width="1.8"/>
-      <rect x="0.9" y="0.9" width="114.2" height="92.2" rx="9" fill="none" stroke="rgba(123,168,255,.35)" stroke-width="0.9"/>
-      <circle cx="58" cy="28" r="13" fill="rgba(7,83,222,.26)" stroke="#5b95ff" stroke-width="1.5"/>
+      <rect width="116" height="94" rx="4" fill="#101928" stroke="#004de7" stroke-width="1.5"/>
+      <circle cx="58" cy="28" r="12" fill="none" stroke="#9ec0ff" stroke-width="1.4"/>
       <path d="m52 28 4 4 8-8" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
       <text x="58" y="57" text-anchor="middle" fill="#ffffff" font-size="11.5" font-weight="700">Systech Desk</text>
-      <text x="58" y="72" text-anchor="middle" fill="#b7ccf0" font-size="9.5">SKU Audit · Co-Term</text>
-      <text x="58" y="84" text-anchor="middle" fill="#7ba8ff" font-size="9">Zero-Gap Renewal</text>
+      <text x="58" y="72" text-anchor="middle" fill="#c7d0dd" font-size="9.5">SKU Audit · Co-Term</text>
+      <text x="58" y="84" text-anchor="middle" fill="#9ec0ff" font-size="9">Zero-Gap Renewal</text>
     </g>
 
-    <!-- Four Zone Nodes with beveled 3D card depth -->
+    <!-- Four Zone Nodes -->
     ${zoneLabels.map(z => {
       const active = z.id === activeZone;
       return `<g class="lic-zone-node ${active ? 'is-active' : ''}" transform="translate(${z.x} ${z.y})">
-        <rect x="3" y="4" width="184" height="76" rx="8" fill="${active ? '#c8dcff' : '#dce6f3'}"/>
-        <rect width="184" height="76" rx="8" fill="${active ? '#eef4ff' : '#ffffff'}" stroke="${active ? '#0753de' : '#8fa3bd'}" stroke-width="${active ? '1.8' : '1.15'}"/>
-        <rect x="1.5" y="1.5" width="4" height="73" rx="2" fill="${active ? '#0753de' : '#d6e2f2'}"/>
-        <circle cx="20" cy="24" r="4.5" fill="${active ? '#0753de' : '#8b9ab0'}"/>
-        <text x="32" y="27.5" fill="#0d1117" font-size="12" font-weight="700">${z.title}</text>
-        <text x="16" y="48" fill="${active ? '#0753de' : '#57606f'}" font-size="${z.brands.length > 30 ? '9' : '10.2'}" font-weight="600">${z.brands}</text>
-        <text x="16" y="64" fill="#6b7788" font-size="9.2">${active ? 'Selected stack track' : 'Covered under annual co-term'}</text>
+        <rect width="184" height="76" rx="4" fill="#ffffff" stroke="${active ? '#004de7' : '#b8bcc2'}" stroke-width="${active ? '1.6' : '1'}"/>
+        <rect x="1" y="1" width="3" height="74" rx="1" fill="${active ? '#004de7' : '#d4d6d9'}"/>
+        <circle cx="19" cy="24" r="4" fill="${active ? '#004de7' : '#8b95a5'}"/>
+        <text x="31" y="27.5" fill="#101928" font-size="12" font-weight="700">${z.title}</text>
+        <text x="16" y="48" fill="${active ? '#004de7' : '#445066'}" font-size="${z.brands.length > 30 ? '9' : '10.2'}" font-weight="600">${z.brands}</text>
+        <text x="16" y="64" fill="#445066" font-size="9.2">${active ? 'Selected stack track' : 'Covered under annual co-term'}</text>
       </g>`;
     }).join('')}
   </svg>

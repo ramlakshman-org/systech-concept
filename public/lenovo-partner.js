@@ -1,4 +1,4 @@
-import { whatsappUrl } from './ecosystem-data.js?v=20261119v4u';
+import { whatsappUrl } from './ecosystem-data.js?v=20261121v5d';
 
 export const lenovoPartnerId = 'lenovo-partner';
 export const lenovoPartnerTitle = 'Lenovo Platinum Partner';
@@ -70,7 +70,7 @@ const tactileHardwareShowcase = [
     width: 800,
     height: 520,
     alt: 'Lenovo ThinkPad X1 Carbon and T-Series enterprise commercial laptops',
-    cadTag: 'CAD-IDG-01 · MIL-STD-810H · 1.09 KG',
+    cadTag: '01 · COMMERCIAL FLEETS · MIL-STD-810H',
     title: 'ThinkPad X1 Carbon / T-Series',
     copy: 'Intel Core Ultra & AMD Ryzen PRO fleets pre-imaged via Autopilot with BIOS asset tagging and ThinkShield security.',
     href: '?page=bc-thinkpad',
@@ -81,7 +81,7 @@ const tactileHardwareShowcase = [
     width: 800,
     height: 520,
     alt: 'Lenovo ThinkStation P-Series ISV-certified workstation tower and compact systems',
-    cadTag: 'CAD-ISV-02 · ECC + DUAL GPU · BIM/AI',
+    cadTag: '02 · ISV WORKSTATIONS · ECC & MULTI-GPU',
     title: 'ThinkStation P-Series',
     copy: 'ISV-certified Xeon & Threadripper PRO workstations with ECC RDIMMs and multi-GPU RTX Ada compute for CAD and AI.',
     href: '?page=bc-thinkstation-p',
@@ -92,7 +92,7 @@ const tactileHardwareShowcase = [
     width: 800,
     height: 520,
     alt: 'Detailed view of Lenovo ThinkPad keyboard deck, ports and factory-matched FRU internals',
-    cadTag: 'CAD-FRU-03 · 100% OEM MTM-MATCHED',
+    cadTag: '03 · GENUINE OEM SPARES · MTM-VERIFIED',
     title: 'Genuine FRU Inspection',
     copy: 'Factory-verified OEM batteries, keyboards, LCD panels and thermal assemblies matched by Machine Type-Model (MTM).',
     href: '#spares-finder',
@@ -103,7 +103,7 @@ const tactileHardwareShowcase = [
     width: 800,
     height: 520,
     alt: 'Lenovo ThinkSystem and ThinkCentre enterprise compute chassis',
-    cadTag: 'CAD-ISG-04 · THINKCENTRE & THINKSYSTEM',
+    cadTag: '04 · RACK & DESK COMPUTE · XCLARITY',
     title: 'ThinkSystem & Edge Compute',
     copy: 'Compact ThinkCentre Tiny/SFF enterprise desks alongside dual-socket 1U/2U ThinkSystem racks managed via XClarity.',
     href: '?page=servers-hci',
@@ -196,7 +196,6 @@ export function lenovoPartnerPage() {
             <strong>Lenovo 360 Platinum</strong>
             <span>2026 Authorised Tier · Platinum since 2014</span>
           </div>
-          <svg class="lenovo-tier-seal" viewBox="0 0 36 36" aria-hidden="true"><rect x="2" y="2" width="32" height="32" rx="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M18 8 27 12v6c0 5.4-3.8 9.2-9 10.6C12.8 27.2 9 23.4 9 18v-6z" fill="none" stroke="#e2231a" stroke-width="1.5"/><path d="m14 18 2.8 2.8L22.5 15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
         <dl class="lenovo-tier-facts">
           <div><dt>Partnership milestone</dt><dd>5-Year Lenovo Contribution Excellence Award</dd></div>
@@ -208,10 +207,10 @@ export function lenovoPartnerPage() {
       </aside>
     </header>
 
-    <section class="tactile-hardware-strip drafting-frame reveal" aria-labelledby="tactile-hw-heading">
+    <section class="tactile-hardware-strip reveal" aria-labelledby="tactile-hw-heading">
       <div class="tactile-hardware-head">
         <div>
-          <p class="coord-marker">HARDWARE TELEMETRY · IDG · ISG · OEM FRU</p>
+          <p class="eyebrow">Lenovo 360 Hardware Scope · IDG, ISG &amp; FRU</p>
           <h2 id="tactile-hw-heading">Commercial hardware &amp; data-centre platforms</h2>
         </div>
         <a class="arrow-link" href="?page=business-computing">Explore 16-series catalog <span aria-hidden="true">→</span></a>
@@ -220,7 +219,7 @@ export function lenovoPartnerPage() {
         ${tactileHardwareShowcase.map(item => `<article class="tactile-hw-card">
           <span class="tactile-hw-cad-tag">${item.cadTag}</span>
           <div class="tactile-hw-visual">
-            <img src="${item.image}" width="${item.width}" height="${item.height}" alt="${item.alt}" loading="lazy" decoding="async">
+            <img src="${item.image}" width="${item.width}" height="${item.height}" alt="${item.alt}">
           </div>
           <h3>${item.title}</h3>
           <p>${item.copy}</p>
